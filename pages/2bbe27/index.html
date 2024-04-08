@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>django入门了解 | YAO blog</title>
+    <meta name="generator" content="VuePress 1.9.5">
+    <link rel="icon" href="/img/favicon.ico">
+    <link rel="stylesheet" href="https://at.alicdn.com/t/font_3077305_pt8umhrn4k9.css">
+    <script>var _hmt = _hmt || [];
+          (function() {
+            var hm = document.createElement("script");
+            hm.src = "https://hm.baidu.com/hm.js?67b18e147ab89b527558aac88ec1f0d1"; 
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+          })();
+          </script>
+    <meta name="description" content="记录">
+    <meta name="keywords" content="个人技术博客">
+    <meta name="theme-color" content="#11a8cd">
+    <meta name="referrer" content="no-referrer-when-downgrade">
+    
+    <link rel="preload" href="/assets/css/0.styles.4d143ccc.css" as="style"><link rel="preload" href="/assets/js/app.59a8e6e3.js" as="script"><link rel="preload" href="/assets/js/7.5b954204.js" as="script"><link rel="preload" href="/assets/js/11.e66a5eb7.js" as="script"><link rel="preload" href="/assets/js/93.19a43abc.js" as="script"><link rel="prefetch" href="/assets/js/10.8a2a77f4.js"><link rel="prefetch" href="/assets/js/100.af833779.js"><link rel="prefetch" href="/assets/js/101.3e099687.js"><link rel="prefetch" href="/assets/js/102.c9d471cf.js"><link rel="prefetch" href="/assets/js/103.d6d1a625.js"><link rel="prefetch" href="/assets/js/104.162f33cc.js"><link rel="prefetch" href="/assets/js/105.f1e54397.js"><link rel="prefetch" href="/assets/js/106.7f19132a.js"><link rel="prefetch" href="/assets/js/107.25371832.js"><link rel="prefetch" href="/assets/js/108.14a43b70.js"><link rel="prefetch" href="/assets/js/109.37e03610.js"><link rel="prefetch" href="/assets/js/110.e940d0fa.js"><link rel="prefetch" href="/assets/js/111.5d476651.js"><link rel="prefetch" href="/assets/js/112.d0b7a263.js"><link rel="prefetch" href="/assets/js/113.c0bff7cc.js"><link rel="prefetch" href="/assets/js/114.3dd80315.js"><link rel="prefetch" href="/assets/js/115.22645312.js"><link rel="prefetch" href="/assets/js/116.f56a9f42.js"><link rel="prefetch" href="/assets/js/117.d3fdb340.js"><link rel="prefetch" href="/assets/js/118.a85c5b68.js"><link rel="prefetch" href="/assets/js/119.cde4ed8e.js"><link rel="prefetch" href="/assets/js/12.7976eb91.js"><link rel="prefetch" href="/assets/js/13.e34ffe26.js"><link rel="prefetch" href="/assets/js/14.abe41aab.js"><link rel="prefetch" href="/assets/js/15.2f6b2d7e.js"><link rel="prefetch" href="/assets/js/16.7a6c465a.js"><link rel="prefetch" href="/assets/js/17.e7c80b0c.js"><link rel="prefetch" href="/assets/js/18.cde4ea2c.js"><link rel="prefetch" href="/assets/js/19.185b6820.js"><link rel="prefetch" href="/assets/js/2.b39077a8.js"><link rel="prefetch" href="/assets/js/20.cba57736.js"><link rel="prefetch" href="/assets/js/21.6809dd05.js"><link rel="prefetch" href="/assets/js/22.dcbc5cc3.js"><link rel="prefetch" href="/assets/js/23.6d0df575.js"><link rel="prefetch" href="/assets/js/24.16dea3e3.js"><link rel="prefetch" href="/assets/js/25.a2b79fc1.js"><link rel="prefetch" href="/assets/js/26.c5f5308d.js"><link rel="prefetch" href="/assets/js/27.8bbc4428.js"><link rel="prefetch" href="/assets/js/28.5c54dc8e.js"><link rel="prefetch" href="/assets/js/29.a42e46bb.js"><link rel="prefetch" href="/assets/js/3.cffbebe7.js"><link rel="prefetch" href="/assets/js/30.b43bac5d.js"><link rel="prefetch" href="/assets/js/31.0c62fcfe.js"><link rel="prefetch" href="/assets/js/32.34648702.js"><link rel="prefetch" href="/assets/js/33.08c87895.js"><link rel="prefetch" href="/assets/js/34.4d59a704.js"><link rel="prefetch" href="/assets/js/35.646b44d2.js"><link rel="prefetch" href="/assets/js/36.80a66b27.js"><link rel="prefetch" href="/assets/js/37.421e403a.js"><link rel="prefetch" href="/assets/js/38.9d29f791.js"><link rel="prefetch" href="/assets/js/39.d0200840.js"><link rel="prefetch" href="/assets/js/4.8b2ef19f.js"><link rel="prefetch" href="/assets/js/40.1891e335.js"><link rel="prefetch" href="/assets/js/41.97d3fd6c.js"><link rel="prefetch" href="/assets/js/42.7aa1318f.js"><link rel="prefetch" href="/assets/js/43.aab7a212.js"><link rel="prefetch" href="/assets/js/44.4b5fa36a.js"><link rel="prefetch" href="/assets/js/45.622ff538.js"><link rel="prefetch" href="/assets/js/46.d610e05a.js"><link rel="prefetch" href="/assets/js/47.12e2255c.js"><link rel="prefetch" href="/assets/js/48.b4cefb73.js"><link rel="prefetch" href="/assets/js/49.6c3bf149.js"><link rel="prefetch" href="/assets/js/5.42a2c2db.js"><link rel="prefetch" href="/assets/js/50.1c8ab9e9.js"><link rel="prefetch" href="/assets/js/51.31841acd.js"><link rel="prefetch" href="/assets/js/52.23852199.js"><link rel="prefetch" href="/assets/js/53.502b55d4.js"><link rel="prefetch" href="/assets/js/54.b331ed80.js"><link rel="prefetch" href="/assets/js/55.bf542ba6.js"><link rel="prefetch" href="/assets/js/56.06f8cb6c.js"><link rel="prefetch" href="/assets/js/57.ae52b41c.js"><link rel="prefetch" href="/assets/js/58.a2c555a8.js"><link rel="prefetch" href="/assets/js/59.41061973.js"><link rel="prefetch" href="/assets/js/6.90de7719.js"><link rel="prefetch" href="/assets/js/60.afd2f7e6.js"><link rel="prefetch" href="/assets/js/61.432756d0.js"><link rel="prefetch" href="/assets/js/62.3d00c9f9.js"><link rel="prefetch" href="/assets/js/63.fac02541.js"><link rel="prefetch" href="/assets/js/64.db31a905.js"><link rel="prefetch" href="/assets/js/65.afdcd498.js"><link rel="prefetch" href="/assets/js/66.778ae81f.js"><link rel="prefetch" href="/assets/js/67.582bbbfe.js"><link rel="prefetch" href="/assets/js/68.c44f2518.js"><link rel="prefetch" href="/assets/js/69.8b84437e.js"><link rel="prefetch" href="/assets/js/70.d9666edf.js"><link rel="prefetch" href="/assets/js/71.00fc5abd.js"><link rel="prefetch" href="/assets/js/72.fc04c1ec.js"><link rel="prefetch" href="/assets/js/73.13c1b537.js"><link rel="prefetch" href="/assets/js/74.8dc2ad4d.js"><link rel="prefetch" href="/assets/js/75.200d8e30.js"><link rel="prefetch" href="/assets/js/76.7adde9e3.js"><link rel="prefetch" href="/assets/js/77.9358fcea.js"><link rel="prefetch" href="/assets/js/78.40ebfe7c.js"><link rel="prefetch" href="/assets/js/79.7101d682.js"><link rel="prefetch" href="/assets/js/8.92500b61.js"><link rel="prefetch" href="/assets/js/80.29a4e018.js"><link rel="prefetch" href="/assets/js/81.3b09ac83.js"><link rel="prefetch" href="/assets/js/82.04f9540f.js"><link rel="prefetch" href="/assets/js/83.1abe25fb.js"><link rel="prefetch" href="/assets/js/84.5522a475.js"><link rel="prefetch" href="/assets/js/85.77fd8cc9.js"><link rel="prefetch" href="/assets/js/86.242da1b1.js"><link rel="prefetch" href="/assets/js/87.c1fd2733.js"><link rel="prefetch" href="/assets/js/88.e7217205.js"><link rel="prefetch" href="/assets/js/89.97500137.js"><link rel="prefetch" href="/assets/js/9.c42660e0.js"><link rel="prefetch" href="/assets/js/90.57fd7b16.js"><link rel="prefetch" href="/assets/js/91.f9553e3a.js"><link rel="prefetch" href="/assets/js/92.27cac0ad.js"><link rel="prefetch" href="/assets/js/94.351f08fe.js"><link rel="prefetch" href="/assets/js/95.36d4d224.js"><link rel="prefetch" href="/assets/js/96.952d6929.js"><link rel="prefetch" href="/assets/js/97.58bb623b.js"><link rel="prefetch" href="/assets/js/98.d3e75111.js"><link rel="prefetch" href="/assets/js/99.a46116ac.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.4d143ccc.css">
+  </head>
+  <body class="theme-mode-light">
+    <div id="app" data-server-rendered="true"><div class="theme-container sidebar-open have-rightmenu"><header class="navbar blur"><div title="目录" class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><img src="/img/logo.png" alt="YAO blog" class="logo"> <span class="site-name can-hide">YAO blog</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/" class="nav-link">首页</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="数据库" class="dropdown-title"><a href="/shujuku/" class="link-title">数据库</a> <span class="title" style="display:none;">数据库</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>传统数据库</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/pages/ee767f/" class="nav-link">postgresql</a></li><li class="dropdown-subitem"><a href="/pages/8143cc480faf9a11/" class="nav-link">mysql</a></li><li class="dropdown-subitem"><a href="/pages/8143cc480faf9a11/" class="nav-link">oracle</a></li></ul></li><li class="dropdown-item"><h4>学习笔记</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/note/sql/" class="nav-link">《sql编程》</a></li><li class="dropdown-subitem"><a href="/note/dashuju/" class="nav-link">《大数据》</a></li><li class="dropdown-subitem"><a href="/note/postgresql/" class="nav-link">《postgresql》</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="运维专项" class="dropdown-title"><a href="/yunwei/" class="link-title">运维专项</a> <span class="title" style="display:none;">运维专项</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/pages/331efa/" class="nav-link">Docker&amp;k8s</a></li><li class="dropdown-item"><!----> <a href="/pages/0d801d/" class="nav-link">网络</a></li><li class="dropdown-item"><!----> <a href="/pages/48e74d/" class="nav-link">监控</a></li><li class="dropdown-item"><!----> <a href="/pages/d11aa9/" class="nav-link">linux知识</a></li><li class="dropdown-item"><!----> <a href="/pages/2f40d8/" class="nav-link">ansible</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="编程" class="dropdown-title"><a href="/biancheng/" class="link-title">编程</a> <span class="title" style="display:none;">编程</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/pages/74c26a/" class="nav-link">python</a></li><li class="dropdown-item"><!----> <a href="/pages/4c778760be26d8b3/" class="nav-link">java</a></li><li class="dropdown-item"><!----> <a href="/pages/117708e0af7f0bd9/" class="nav-link">shell</a></li><li class="dropdown-item"><!----> <a href="/pages/41f87d890d0a02af/" class="nav-link">C/C++/GO</a></li><li class="dropdown-item"><!----> <a href="/pages/41f87d890d0a02af/" class="nav-link">前端</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="梦工厂" class="dropdown-title"><a href="/dream/" class="link-title">梦工厂</a> <span class="title" style="display:none;">梦工厂</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/pages/115b2f/" class="nav-link">树莓派</a></li><li class="dropdown-item"><!----> <a href="/pages/aea6571b7a8bae86/" class="nav-link">Stm32/arduino</a></li><li class="dropdown-item"><!----> <a href="/pages/2d615df9a36a98ed/" class="nav-link">人工智能</a></li></ul></div></div><div class="nav-item"><a href="/guanyu/" class="nav-link">关于</a></div><div class="nav-item"><a href="/pages/339240/" class="nav-link">一个人的世界观</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="索引" class="dropdown-title"><a href="/archives/" class="link-title">索引</a> <span class="title" style="display:none;">索引</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/categories/" class="nav-link">分类</a></li><li class="dropdown-item"><!----> <a href="/tags/" class="nav-link">标签</a></li><li class="dropdown-item"><!----> <a href="/archives/" class="nav-link">归档</a></li></ul></div></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <div class="sidebar-hover-trigger"></div> <aside class="sidebar" style="display:none;"><div class="blogger"><img src="/img/logo.png"> <div class="blogger-info"><h3>luoyao</h3> <span>不积跬步 无以至千里</span></div></div> <nav class="nav-links"><div class="nav-item"><a href="/" class="nav-link">首页</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="数据库" class="dropdown-title"><a href="/shujuku/" class="link-title">数据库</a> <span class="title" style="display:none;">数据库</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>传统数据库</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/pages/ee767f/" class="nav-link">postgresql</a></li><li class="dropdown-subitem"><a href="/pages/8143cc480faf9a11/" class="nav-link">mysql</a></li><li class="dropdown-subitem"><a href="/pages/8143cc480faf9a11/" class="nav-link">oracle</a></li></ul></li><li class="dropdown-item"><h4>学习笔记</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/note/sql/" class="nav-link">《sql编程》</a></li><li class="dropdown-subitem"><a href="/note/dashuju/" class="nav-link">《大数据》</a></li><li class="dropdown-subitem"><a href="/note/postgresql/" class="nav-link">《postgresql》</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="运维专项" class="dropdown-title"><a href="/yunwei/" class="link-title">运维专项</a> <span class="title" style="display:none;">运维专项</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/pages/331efa/" class="nav-link">Docker&amp;k8s</a></li><li class="dropdown-item"><!----> <a href="/pages/0d801d/" class="nav-link">网络</a></li><li class="dropdown-item"><!----> <a href="/pages/48e74d/" class="nav-link">监控</a></li><li class="dropdown-item"><!----> <a href="/pages/d11aa9/" class="nav-link">linux知识</a></li><li class="dropdown-item"><!----> <a href="/pages/2f40d8/" class="nav-link">ansible</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="编程" class="dropdown-title"><a href="/biancheng/" class="link-title">编程</a> <span class="title" style="display:none;">编程</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/pages/74c26a/" class="nav-link">python</a></li><li class="dropdown-item"><!----> <a href="/pages/4c778760be26d8b3/" class="nav-link">java</a></li><li class="dropdown-item"><!----> <a href="/pages/117708e0af7f0bd9/" class="nav-link">shell</a></li><li class="dropdown-item"><!----> <a href="/pages/41f87d890d0a02af/" class="nav-link">C/C++/GO</a></li><li class="dropdown-item"><!----> <a href="/pages/41f87d890d0a02af/" class="nav-link">前端</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="梦工厂" class="dropdown-title"><a href="/dream/" class="link-title">梦工厂</a> <span class="title" style="display:none;">梦工厂</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/pages/115b2f/" class="nav-link">树莓派</a></li><li class="dropdown-item"><!----> <a href="/pages/aea6571b7a8bae86/" class="nav-link">Stm32/arduino</a></li><li class="dropdown-item"><!----> <a href="/pages/2d615df9a36a98ed/" class="nav-link">人工智能</a></li></ul></div></div><div class="nav-item"><a href="/guanyu/" class="nav-link">关于</a></div><div class="nav-item"><a href="/pages/339240/" class="nav-link">一个人的世界观</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="索引" class="dropdown-title"><a href="/archives/" class="link-title">索引</a> <span class="title" style="display:none;">索引</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/categories/" class="nav-link">分类</a></li><li class="dropdown-item"><!----> <a href="/tags/" class="nav-link">标签</a></li><li class="dropdown-item"><!----> <a href="/archives/" class="nav-link">归档</a></li></ul></div></div> <!----></nav>  <ul class="sidebar-links"><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading open"><span>python</span> <span class="arrow down"></span></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/pages/74c26a/" class="sidebar-link">python入门</a></li><li><a href="/pages/3e70db/" class="sidebar-link">win_linux_rsync</a></li><li><a href="/pages/104e91/" class="sidebar-link">如何在列表，字典，集合中根据条件筛选数据</a></li><li><a href="/pages/68a8d5/" class="sidebar-link">如何快速找到多个字典的公共键</a></li><li><a href="/pages/b1ff18/" class="sidebar-link">如何让字典保持有序</a></li><li><a href="/pages/7d9b60/" class="sidebar-link">如何实现用户的历史记录功能</a></li><li><a href="/pages/51b1e1/" class="sidebar-link">如何使用生成器函数实现迭代对象</a></li><li><a href="/pages/ba0343/" class="sidebar-link">tcpudp编程知识</a></li><li><a href="/pages/90b547/" class="sidebar-link">多线程编程</a></li><li><a href="/pages/2da2d6/" class="sidebar-link">进程和线程</a></li><li><a href="/pages/d8049c/" class="sidebar-link">python_ansible自动化运维</a></li><li><a href="/pages/861bc8/" class="sidebar-link">python_ansible自动化运维2</a></li><li><a href="/pages/0049a6/" class="sidebar-link">python_ansible自动化运维3</a></li><li><a href="/pages/ac6e7d/" class="sidebar-link">python_ansible自动化运维4</a></li><li><a href="/pages/2bbe27/" aria-current="page" class="active sidebar-link">django入门了解</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header level2"><a href="/pages/2bbe27/#创建一个项目" class="sidebar-link">创建一个项目</a></li><li class="sidebar-sub-header level2"><a href="/pages/2bbe27/#创建一个应用" class="sidebar-link">创建一个应用</a></li><li class="sidebar-sub-header level2"><a href="/pages/2bbe27/#编写视图" class="sidebar-link">编写视图</a></li><li class="sidebar-sub-header level2"><a href="/pages/2bbe27/#映射url" class="sidebar-link">映射URL</a></li><li class="sidebar-sub-header level2"><a href="/pages/2bbe27/#流程总结" class="sidebar-link">流程总结</a></li><li class="sidebar-sub-header level2"><a href="/pages/2bbe27/#配置目录模板" class="sidebar-link">配置目录模板</a></li><li class="sidebar-sub-header level2"><a href="/pages/2bbe27/#配置静态文件" class="sidebar-link">配置静态文件</a></li><li class="sidebar-sub-header level2"><a href="/pages/2bbe27/#调整-url" class="sidebar-link">调整 URL</a></li><li class="sidebar-sub-header level2"><a href="/pages/2bbe27/#配置media" class="sidebar-link">配置media</a></li><li class="sidebar-sub-header level2"><a href="/pages/2bbe27/#流程总结-2" class="sidebar-link">流程总结</a></li><li class="sidebar-sub-header level2"><a href="/pages/2bbe27/#创建和迁移数据库" class="sidebar-link">创建和迁移数据库</a></li><li class="sidebar-sub-header level2"><a href="/pages/2bbe27/#django-模型和-shell" class="sidebar-link">Django 模型和 shell</a></li><li class="sidebar-sub-header level2"><a href="/pages/2bbe27/#配置管理界面" class="sidebar-link">配置管理界面</a></li><li class="sidebar-sub-header level2"><a href="/pages/2bbe27/#编写一个填充脚本" class="sidebar-link">编写一个填充脚本</a></li><li class="sidebar-sub-header level2"><a href="/pages/2bbe27/#项目无法启动" class="sidebar-link">项目无法启动</a></li></ul></li></ul></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>java</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>shell</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>c&amp;c++&amp;go</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>前端</span> <span class="arrow right"></span></p> <!----></section></li></ul> </aside> <div><main class="page"><div class="theme-vdoing-wrapper "><div class="articleInfo-wrap" data-v-5add8e0a><div class="articleInfo" data-v-5add8e0a><ul class="breadcrumbs" data-v-5add8e0a><li data-v-5add8e0a><a href="/" title="首页" class="iconfont icon-home router-link-active" data-v-5add8e0a></a></li> <li data-v-5add8e0a><a href="/biancheng/#编程" data-v-5add8e0a>编程</a></li><li data-v-5add8e0a><a href="/biancheng/#python" data-v-5add8e0a>python</a></li></ul> <div class="info" data-v-5add8e0a><div title="作者" class="author iconfont icon-touxiang" data-v-5add8e0a><a href="javascript:;" data-v-5add8e0a>luoyao</a></div> <div title="创建时间" class="date iconfont icon-riqi" data-v-5add8e0a><a href="javascript:;" data-v-5add8e0a>2023-02-22</a></div> <!----></div></div></div> <!----> <div class="content-wrapper"><div class="right-menu-wrapper"><div class="right-menu-margin"><div class="right-menu-title">目录</div> <div class="right-menu-content"></div></div></div> <h1><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAAAXNSR0IArs4c6QAABKFJREFUSA3tVl1oFVcQnrMbrak3QUgkya1akpJYcrUtIqW1JvFBE9LiQ5v6JmJpolbMg32rVrhgoYK0QiMY6i9Y6EMaW5D+xFJaTYItIuK2Kr3+BJNwkxBj05sQY3b3nM6cs2dv9t7NT/vQJw/sndk5M/PNzJkzewGerP+pAmy+ON8lLzUJgA8ZYxYIYZmGYRnctDaWvJJAmTtfP1pvXsBCCPP8QFcCaRkZYACgDZFO4stNIcBCajEOlmmC9XpJ9bAGCaPaPmzPl32dvLSVu3BWCTQs0XQQ6g0DYgwLIoAZbBCdW/i+781o1VVlm/410mw4h06Y7bIPHNyWDyL4FHkX03Q8SrzNhZTZriieckWt7cL6MM85YcLpsi/7O9/iXFT6MswI0DmmpkSaJ0qLxFIm3+i1THHB3zmBH3PYx9CcykcLOeQVVa7QtdxTgQgEleX2AjHYfwA+2ddV77ruGoJUbhGDI09YSNXyMpUt5ylOzxgbUmtOp7NmbNt8v3arjTBfYELmLUV+M+nSawNNAUqpT3ClJWg5I3BLT+cGW/DXNGCa6tx1aakCGEigArTn4TDIPdrXXYKCZNrHLMCOEPvHBlLQ99s9eHB7EB6NTki73CVPQ2F5MSx/uRQixfmq7rK0wYD8w8E905bnPDfwoWs/rfv93NWN/ZfvwsLIU7A09gxECyISeGJkHAau98L97tuw7NXnoPyNF8FcYGLGKsOs0mN3OEyec9esGW/ZEl945dTP34wlR2FZVQWU1q0Cw8Tr7p+hgLLNL0FPxx/Q35mA8aEUrH6nCgwEl0tn7wUiZYJnNRh6DK4UH/k0lfyrsBKdPVv/AriGIQcEDQZ65LBAGe2Rzui9Ybjz7XUppz1/uKBbyVPGkN3ZAeC6hr0x7Nr38N5+EqkoOm17xpoqR9ohQF55ERSvr4Dkr3chNfC3DMzGJlNBElW8w9nsGQvhNGIzDkXzCg8cLK951xHsFBlTJspJNi3ZFIMF2AeDV3q8DNOB+YHi6QTrChDIWDBRi5U5f+ZMfJLu3ccrqxtdxk4SKH336LFxSmkqefwU5T8fhdSdQf9IVKD6aNiwI/hnmcAZ91isYMJIaCUCx9W098+LgruikeTqzqqxKPUwqJyCPJiyemVVZBOijDGjD38Os0jOiSPL1z3SPjXNANbiNPXAdzTfukjjuknNBbyz3nwgTd3AVFqUJ5hpHlq9MveLnWwttUfoygBmvVjuikxND3znrhsELnZk7k+OjIGxeNEkomyLVta0xxn+HZhjBc4YZ/AFjHjz9u3xRZl2BN4aq9nFwWh16IrQ1aHHEd3j1+4/dB9OtH4e29A2H1DyHQRmOSfQZ1Fy7MHBTGB6J/Djq6p3OxyO2cB+4Car7v/o3GXgfAkj23+x9ID1Teoamo/SXcbvSf2PX7Vc8DdCmE1vN9di+32P9/5YR3vLnhCVGUWBjEkr3yh4H8v9CzmsbdhzOKzsJKM90iFdaTMjRPhGVsakRvOaRidljo6H6G7j+ctrJpsP+4COhDIl0La2+FS4+5mlocBaXY5QnGZysIBYoeSsl5qQzrSj/cgNrfuEzlWBfwA+EjrZyWUvpAAAAABJRU5ErkJggg==">django入门了解<!----></h1> <!----> <div class="theme-vdoing-content content__default"><h1 id="_1-django基础"><a href="#_1-django基础" class="header-anchor">#</a> 1.django基础</h1> <h2 id="创建一个项目"><a href="#创建一个项目" class="header-anchor">#</a> 创建一个项目</h2> <div class="language- line-numbers-mode"><pre class="language-text"><code>django-admin startproject tango_with_django_project
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br></div></div><p>❏ <strong>init</strong>.py：一个空 Python 脚本，存在的目的是告诉 Python 解释器，这个目录是一个Python 包；
+❏ settings.py：存放 Django 项目的所有设置；
+❏ urls.py：存放项目的 URL 模式；
+❏ wsgi.py：用于运行开发服务器和把项目部署到生产环境的一个 Python 脚本。</p> <p>manage.py ：它提供了一系列维护 Django 项目的命令</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>python manage.py runserver
+或者让所有机器都可以访问，指定端口
+python manage.py runserver 0.0.0.0:5555
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br></div></div><p>运行程序</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>cd tango
+python manage.py runserver
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br></div></div><p>可以看到</p> <p>Starting development server at http://127.0.0.1:8000/</p> <p>通过浏览器访问</p> <p><img src="image/image-20230114082841815.png" alt="image-20230114082841815"></p> <h2 id="创建一个应用"><a href="#创建一个应用" class="header-anchor">#</a> 创建一个应用</h2> <p>一个项目可以有多个应用</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>python manage.py startapp rango_app
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br></div></div><p>❏ admin.py：注册模型，让 Django 为你创建管理界面；
+❏ apps.py：当前应用的配置；
+❏ models.py：存放应用的数据模型，即数据的实体及其之间的关系；
+❏ tests.py：存放测试应用代码的函数；
+❏ views.py：存放处理请求并返回响应的函数；
+❏ migrations 目录：存放与模型有关的数据库信息。</p> <p>在动手创建模型和视图之前，必须告诉 Django 项目这个新应用的存在，</p> <p>要修改项目配置目录中的 settings.py 文件。打开那个文件，找到 INSTALLED_APPS 列表，把 rango 添加到末尾：</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>INSTALLED_APPS = [
+    'django.contrib.admin',
+    'django.contrib.auth',
+    'django.contrib.contenttypes',
+    'django.contrib.sessions',
+    'django.contrib.messages',
+    'django.contrib.staticfiles',
+    'rango_app',
+]
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br></div></div><h2 id="编写视图"><a href="#编写视图" class="header-anchor">#</a> 编写视图</h2> <p>在app中的views.py编写</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>from django.http import HttpResponse
+
+def index(request):
+    return HttpResponse(&quot;测试返回视图&quot;)
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br></div></div><p>❏ 首先，从 django.http 模块中导入 HttpResponse 对象。
+❏ 在 views.py 文件中，一个函数就是一个视图。这里我们只编写了一个视图，即 index 。
+❏ 视图函数至少有一个参数，即一个 HttpRequest 对象，它也在 django.http 模块中。按约
+定，这个参数名为 request ，不过你可以根据自己的意愿随意使用其他名称。
+❏ 视图必须返回一个 HttpResponse 对象。简单的 HttpResponse 对象的参数是一个字符串，表
+示要发给客户端的页面内容。</p> <p><strong>为了让用户能访问视图，要把一个统一资源定位地址（Uniform Resource Loca-tor，URL）映射到视图上。</strong></p> <p>打开项目配置目录中的 urls.py 文件，在 urlpatterns 中添加一行代码：</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>from rango_app import views
+urlpatterns = [
+    url(r'^$',views.index,name='index'),
+    url(r'^admin/', admin.site.urls),
+]
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br></div></div><p><img src="image/image-20230114090506232.png" alt="image-20230114090506232"></p> <h2 id="映射url"><a href="#映射url" class="header-anchor">#</a> 映射URL</h2> <p>为了提升模块化程度，我们可以换种方式把入站 URL 映射到视图上，而不直接在项目层设置。首先，要修改项目的 urls.py 文件，把针对 Rango 应用的请求交给 Rango 应用处理。然后，在 Rango应用中指定如何处理请求。在urls.py中配置</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>from django.conf.urls import url,include
+from django.contrib import admin
+from rango_app import views
+
+urlpatterns = [
+    url(r'^$',views.index, name='index'),
+    url(r'^rango/', include('rango_app.urls')),
+    # 上面的映射把以 rango/ 开头的 URL 交给 rango 应用处理
+    url(r'^admin/', admin.site.urls),
+]
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br></div></div><p>在rango_app下新建urls.py文件</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>from django.conf.urls import url
+from rango_app import views
+
+urlpatterns = [
+    url(r'^$',views.index,name='index'),
+]
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br></div></div><p>urlpatterns 是个 Python 列表。新增的映射寻找能匹配 ^rango/ 模式的 URL。遇到这样的 URL 时， rango/ 后面的部分传给 Rango，由 rango.urls 处理。这一步是通过django.conf.urls 模块中的 include() 函数实现的。这是一种分段处理 URL 字符串的方式</p> <p>完整的 URL 先去掉域名，余下的部分（ rango/ ）传给 tango_with_django 项目，找到匹配的映射后，再把 rango/ 去掉，把空字符串传给 rango 应用处理。</p> <p>重启项目，访问http://127.0.0.1:8000/rango/</p> <p><img src="image/image-20230114092850057.png" alt="image-20230114092850057"></p> <h2 id="流程总结"><a href="#流程总结" class="header-anchor">#</a> 流程总结</h2> <p>创建 Django 项目
+➊ 执行 python django-admin.py startproject <name> 命令，其中 <name> 是想创建的项目名
+称。
+创建 Django 应用
+➊ 执行 python manage.py startapp <appname> 命令，其中 <appname> 是想创建的应用名称。
+➋ 把应用名称添加到项目配置目录中的 settings.py 文件里，放到 INSTALLED_APPS 列表的末
+尾，告诉 Django 项目这个应用的存在。
+➌ 在项目的 urls.py 文件中添加一个映射，指向新建的应用。
+➍ 在应用的目录中新建 urls.py 文件，把入站 URL 与视图对应起来。
+➎ 在应用的 view.py 文件中编写所需的视图，确保视图返回一个 HttpResponse 对象。</appname></appname></name></name></p> <h1 id="_2-模板和媒体文件"><a href="#_2-模板和媒体文件" class="header-anchor">#</a> 2.模板和媒体文件</h1> <h2 id="配置目录模板"><a href="#配置目录模板" class="header-anchor">#</a> 配置目录模板</h2> <p>模板可以理解为构建完整的 HTML 页面所需的骨架。模板中有<strong>静态内容</strong>（不变的部分），也有特殊的句法（<strong>动态内容</strong>，即模板标签）。Django 视图会把动态内容替换成真正的数据，<strong>生成最终的 HTML 响应</strong>。</p> <p>在templates下创建rango目录，告诉 Django 你把模板放在什么位置</p> <p>settings.py，找到 TEMPLATES</p> <div class="language-python line-numbers-mode"><pre class="language-python"><code>TEMPLATES <span class="token operator">=</span> <span class="token punctuation">[</span>
+    <span class="token punctuation">{</span>
+        <span class="token string">'BACKEND'</span><span class="token punctuation">:</span> <span class="token string">'django.template.backends.django.DjangoTemplates'</span><span class="token punctuation">,</span>
+        <span class="token comment"># 'DIRS': [BASE_DIR / 'templates']</span>
+        <span class="token string">'DIRS'</span><span class="token punctuation">:</span> <span class="token punctuation">[</span>os<span class="token punctuation">.</span>path<span class="token punctuation">.</span>join<span class="token punctuation">(</span>BASE_DIR<span class="token punctuation">,</span><span class="token string">'templates'</span><span class="token punctuation">)</span><span class="token punctuation">]</span>
+        <span class="token punctuation">,</span>
+        <span class="token string">'APP_DIRS'</span><span class="token punctuation">:</span> <span class="token boolean">True</span><span class="token punctuation">,</span>
+        <span class="token string">'OPTIONS'</span><span class="token punctuation">:</span> <span class="token punctuation">{</span>
+            <span class="token string">'context_processors'</span><span class="token punctuation">:</span> <span class="token punctuation">[</span>
+                <span class="token string">'django.template.context_processors.debug'</span><span class="token punctuation">,</span>
+                <span class="token string">'django.template.context_processors.request'</span><span class="token punctuation">,</span>
+                <span class="token string">'django.contrib.auth.context_processors.auth'</span><span class="token punctuation">,</span>
+                <span class="token string">'django.contrib.messages.context_processors.messages'</span><span class="token punctuation">,</span>
+            <span class="token punctuation">]</span><span class="token punctuation">,</span>
+        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+<span class="token punctuation">]</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br></div></div><p>templates/rango/添加一个index.html</p> <div class="language-html line-numbers-mode"><pre class="language-html"><code><span class="token doctype"><span class="token punctuation">&lt;!</span><span class="token doctype-tag">DOCTYPE</span> <span class="token name">html</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>html</span> <span class="token attr-name">lang</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>en<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>head</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>meta</span> <span class="token attr-name">charset</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>UTF-8<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>title</span><span class="token punctuation">&gt;</span></span>rango<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>title</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>head</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>body</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>h1</span><span class="token punctuation">&gt;</span></span>Rango says...<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>h1</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span><span class="token punctuation">&gt;</span></span>
+    hey there partner!<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>br</span><span class="token punctuation">/&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>strong</span><span class="token punctuation">&gt;</span></span>{{ boldmessage }}<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>strong</span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>br</span><span class="token punctuation">/&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>a</span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>/rango/about/<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>About<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>a</span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>br</span><span class="token punctuation">/&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>body</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>html</span><span class="token punctuation">&gt;</span></span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br></div></div><p>修改views中的index函数</p> <div class="language-python line-numbers-mode"><pre class="language-python"><code><span class="token comment"># -*- coding: utf-8 -*-</span>
+<span class="token keyword">from</span> __future__ <span class="token keyword">import</span> unicode_literals
+
+<span class="token keyword">from</span> django<span class="token punctuation">.</span>shortcuts <span class="token keyword">import</span> render
+<span class="token keyword">from</span> django<span class="token punctuation">.</span>http <span class="token keyword">import</span> HttpResponse
+<span class="token keyword">from</span> django<span class="token punctuation">.</span>shortcuts <span class="token keyword">import</span> render
+<span class="token comment"># Create your views here.</span>
+
+<span class="token keyword">def</span> <span class="token function">index</span><span class="token punctuation">(</span>request<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token comment"># 构建一个字典，将上下文传给模板引擎</span>
+    <span class="token comment"># 注意boldmessage键对应于模板中的{{ boldmessage}}</span>
+    context_dict <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token string">'boldmessage'</span><span class="token punctuation">:</span> <span class="token string">&quot;Crunchy, creamy, cookie, candy, cupcake!&quot;</span><span class="token punctuation">}</span>
+    a <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token string">'a'</span><span class="token punctuation">:</span> <span class="token string">&quot;是a&quot;</span><span class="token punctuation">}</span>
+    <span class="token comment"># 返回一个渲染后的相应给客户端</span>
+    <span class="token comment">#为了方便使用render函数的简短形式</span>
+    <span class="token comment"># 注意第二个参数就是我们想要使用的模板</span>
+    <span class="token keyword">return</span> render<span class="token punctuation">(</span>request<span class="token punctuation">,</span><span class="token string">'rango/index.html'</span><span class="token punctuation">,</span>context<span class="token operator">=</span>context_dict<span class="token punctuation">)</span>
+    <span class="token comment"># return HttpResponse(&quot;测试返回视图&quot;)</span>
+
+
+<span class="token keyword">def</span> <span class="token function">about</span><span class="token punctuation">(</span>request<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">return</span> HttpResponse<span class="token punctuation">(</span><span class="token string">&quot;Rango sras here is the abot page&quot;</span><span class="token punctuation">)</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br></div></div><p><strong>模板上下文:</strong></p> <p>模板上下文是一个Python 字典，把模板变量名映射到值上。在前面的模板中，有个名为 boldmessage 的模板变量。在修改后的 index() 视图中，我们把 Crunchy, creamy, cookie, candy, cupcake! 字符串赋给模板变量 boldmessage 。这样，渲染模板时，模板中的  将会替换为字符串 Crunchy, creamy, cookie, candy, cupcake! 。</p> <p><img src="image/image-20230114114137241.png" alt="image-20230114114137241"></p> <h2 id="配置静态文件"><a href="#配置静态文件" class="header-anchor">#</a> 配置静态文件</h2> <p>配置静态文件目录</p> <p>在setting.py下配置</p> <div class="language-python line-numbers-mode"><pre class="language-python"><code><span class="token comment"># STATIC_DIR = os.path.join(BASE_DIR, 'static')</span>
+STATICFILES_DIRS <span class="token operator">=</span> <span class="token punctuation">[</span>os<span class="token punctuation">.</span>path<span class="token punctuation">.</span>join<span class="token punctuation">(</span>BASE_DIR<span class="token punctuation">,</span> <span class="token string">'static'</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token punctuation">]</span>
+检查最后有没有，没有加上
+STATIC_URL <span class="token operator">=</span> <span class="token string">'/static/'</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br></div></div><p>在templates设置同级目录static.在static下创建images目录，把照片</p> <p>放在里面</p> <p><img src="image/image-20230114121502563.png" alt="image-20230114121502563"></p> <p>访问</p> <p>http://127.0.0.1:8000/static/images/wallhaven-9ddzdk.jpg</p> <p><img src="image/image-20230114121346607.png" alt="image-20230114121346607"></p> <p>在模板中引用静态文件，修改index.html</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>&lt;!DOCTYPE html&gt;
+{% load staticfiles %}
+&lt;html lang=&quot;en&quot;&gt;
+&lt;head&gt;
+    &lt;meta charset=&quot;UTF-8&quot;&gt;
+    &lt;title&gt;rango&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;h1&gt;Rango says...&lt;/h1&gt;
+&lt;div&gt;
+    hey there partner!&lt;br/&gt;
+    &lt;strong&gt;{{ boldmessage }}&lt;/strong&gt;&lt;br/&gt;
+&lt;/div&gt;
+
+&lt;div&gt;
+    &lt;a href=&quot;/rango/about/&quot;&gt;About&lt;/a&gt;&lt;br/&gt;
+    &lt;img src=&quot;{% static &quot;images/wallhaven-9ddzdk.jpg&quot; alt=&quot;Picture of Rango&quot;%}&quot;/&gt;
+&lt;/div&gt;
+
+
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br></div></div><p>{% load staticfiles %}:</p> <p>告诉 Django 模板引擎，我们将在模板中使用静态文件。</p> <p>&lt;img src=&quot;{% static &quot;images/wallhaven-9ddzdk.jpg&quot; alt=&quot;Picture of Rango&quot;%}&quot;/&gt;:</p> <p>static &quot;images/wallhaven-9ddzdk.jpg&quot; 告诉 Django，我们想显示静态目录中名为 images/wallhaven-9ddzdk.jpg 的图像</p> <p>static 标签会在images/wallhaven-9ddzdk.jpg 前加上 STATIC_URL 指定的 URL，得到 /static/images/wallhaven-9ddzdk.jpg</p> <p>添加别的配置文件</p> <p><img src="image/image-20230114123550083.png" alt="image-20230114123550083"></p> <p>配置媒体文件</p> <p>媒体文件交给署后应该寻找其他方式托管应用的媒体文件</p> <p>和templates同一个目录</p> <p>在setting.py下配置</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>MEDIA_DIR = os.path.join(BASE_DIR, 'media')
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br></div></div><p>告诉 Django，媒体文件将上传到 Django 项目根目录中的 media 目录里</p> <p>在 settings.py 中找个地方添加两个变量： MEDIA_ROOT 和 MEDIA_URL 。</p> <div class="language-python line-numbers-mode"><pre class="language-python"><code>MEDIA_ROOT <span class="token operator">=</span> MEDIA_DIR
+MEDIA_URL <span class="token operator">=</span> <span class="token string">'/media/'</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br></div></div><p>在模板中引入上传的内容时，能方便引用 MEDIA_URL 路径Django 提供了模板上下文处理器。</p> <p>找到 settings.py 文件中的 TEMPLATES 列表里面嵌套着 context_processors 列表。在context_processors 列表中添加一个处理器，django.template.context_processors.media 。</p> <div class="language-python line-numbers-mode"><pre class="language-python"><code>        <span class="token string">'OPTIONS'</span><span class="token punctuation">:</span> <span class="token punctuation">{</span>
+            <span class="token string">'context_processors'</span><span class="token punctuation">:</span> <span class="token punctuation">[</span>
+                <span class="token string">'django.template.context_processors.debug'</span><span class="token punctuation">,</span>
+                <span class="token string">'django.template.context_processors.request'</span><span class="token punctuation">,</span>
+                <span class="token string">'django.contrib.auth.context_processors.auth'</span><span class="token punctuation">,</span>
+                <span class="token string">'django.contrib.messages.context_processors.messages'</span><span class="token punctuation">,</span>
+                <span class="token string">'django.template.context_processors.media'</span><span class="token punctuation">,</span>
+            <span class="token punctuation">]</span><span class="token punctuation">,</span>
+        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br></div></div><h2 id="调整-url"><a href="#调整-url" class="header-anchor">#</a> 调整 URL</h2> <p>在开发环境中服务器媒体文件的最后一步是，让 Django 使用 MEDIA_URL 服务器媒体内容。</p> <p>urls.py 模块，修改 urlpatterns 列表，调用 static() 函数：</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>from django.conf.urls import url,include
+from django.contrib import admin
+from rango_app import views
+from django.conf import settings
+from django.conf.urls.static import static
+
+urlpatterns = [
+    url(r'^$',views.index, name='index'),
+    url(r'^rango/', include('rango_app.urls')),
+    # 上面的映射把以 rango/ 开头的 URL 交给 rango 应用处理
+    # url(r'luoyao/',include('rango_app.urls')),
+    url(r'^admin/', admin.site.urls),
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br></div></div><p>现在可以通过 /media/ URL 访问 media 目录中的媒体文件了。</p> <h2 id="配置media"><a href="#配置media" class="header-anchor">#</a> 配置media</h2> <p>为用户上传下载图片的时候使用的动态存储</p> <p>这里找了半天的错误，访问图片的时候一直报错，是因为setting里配置用问题</p> <p>错误复现方法：</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static'), ]
+MEDIA_ROOT = [os.path.join(BASE_DIR, 'media'), ]
+......
+STATIC_URL = '/static/'
+MEDIA_URL = '/media/'
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br></div></div><p>不太懂为什么上一个会报错，访问图片位置：http://127.0.0.1:8000/media/img.png</p> <p>这个看起来是，路径多解释了一次</p> <p>&quot;E:\code\python\tango_with_django_project['E:\code\python\tango_with_django_project\media']\img.png&quot; does not exist</p> <p>解决方法</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static'), ]
+MEDIA_DIR = os.path.join(BASE_DIR, 'media')
+MEDIA_ROOT = MEDIA_DIR
+......
+STATIC_URL = '/static/'
+MEDIA_URL = '/media/'
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br></div></div><p>整体配置方法：</p> <p>创建一个与template的同级目录，放一张图片</p> <p>setting.py</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static'), ]
+MEDIA_ROOT = [os.path.join(BASE_DIR, 'media'), ]
+MEDIA_URL = '/media/'
+......
+STATIC_URL = '/static/'
+templates的option应该为这样
+        'OPTIONS': {
+            'context_processors': [
+                'django.template.context_processors.debug',
+                'django.template.context_processors.request',
+                'django.contrib.auth.context_processors.auth',
+                'django.contrib.messages.context_processors.messages',
+                'django.template.context_processors.media',
+            ],
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br></div></div><p>urls.py</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>from django.conf.urls import url,include
+from django.contrib import admin
+from rango_app import views
+from django.conf import settings
+from django.conf.urls.static import static
+
+urlpatterns = [
+    url(r'^$',views.index, name='index'),
+    url(r'^rango/', include('rango_app.urls')),
+    # 上面的映射把以 rango/ 开头的 URL 交给 rango 应用处理
+    url(r'^admin/', admin.site.urls),
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br></div></div><p>访问图片：http://127.0.0.1:8000/media/img.png</p> <p>在网页中引用方式：</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>    &lt;img src=&quot;{{ MEDIA_URL }}img.png&quot;/&gt;
+    img.png图片名
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br></div></div><h2 id="流程总结-2"><a href="#流程总结-2" class="header-anchor">#</a> 流程总结</h2> <p>➊ 首先，创建要使用的模板，保存到 templates 目录中（在项目的 settings.py 模块中设定）。
+模板中可以使用 Django 模板变量（例如  ）或模板标签。模板变量的
+值在相应的视图中设定。
+➋ 在应用的 views.py 文件中找到所需的视图，或者新建一个。
+➌ 把视图相关的逻辑写在视图函数中。例如，从数据库中检索数据，存到列表中。
+➍ 在视图中构建一个字典，通过模板上下文传给模板引擎。
+➎ 使用 render() 辅助函数生成响应。这个函数的参数是请求对象、模板文件名和上下文字
+典。
+➏ 如果还没把视图映射到 URL 上，修改项目的 urls.py 文件和应用的 urls.py 文件。</p> <p>在网页中引入静态文件的步骤也很重要，应该熟练掌握。具体方法参见下述步骤。</p> <p>➊ 把想用的静态文件放到项目的 static 目录中。这个目录在项目的 settings.py 模块中的
+STATICFILES_DIRS 列表中设定。
+➋ 在模板中引用静态文件。例如，图像通过 <img> 标签插入 HTML 页面。
+➌ 记得在模板中加上 {% load staticfiles %} ，然后使用 {% static &quot;<filename>&quot; %} 标签引
+用静态文件。把 <filename> 替换成图像或其他资源的路径。只要想引用静态文件，使用
+static 模板标签。</filename></filename></p> <p>伺服媒体文件的步骤与伺服静态文件差不多。</p> <p>➊ 把媒体文件放到项目的 media 目录中。这个目录由项目的 settings.py 模块中的 MEDIA_ROOT
+变量设定。
+➋ 在模板中使用  上下文变量引用媒体文件。例如，引用上传的图像
+cat.jpg： <img src="{{ MEDIA_URL}}cat.jpg"> 。</p> <h1 id="_3-模型与数据库"><a href="#_3-模型与数据库" class="header-anchor">#</a> 3.模型与数据库</h1> <p>创建模型</p> <p>在setting.py配置号数据库，这里使用的默认的sqlite3数据库</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+    }
+}
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br></div></div><p>在自己的app的models.py里面设置</p> <div class="language- line-numbers-mode"><pre class="language-text"><code># -*- coding: utf-8 -*-
+from __future__ import unicode_literals
+from django.db import models
+# Create your models here.
+class Category(models.Model):
+    name = models.CharField(max_length=128,unique=True)
+    
+    def __str__(self):
+        return self.name
+class Page(models.Model):
+    category = models.ForeignKey(Category)
+    title = models.CharField(max_length=128)
+    url = models.URLField()
+    views = models.IntegerField(default=0)
+    
+    def __str__(self):
+        return self.title
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br></div></div><p>常用几种类型</p> <p>❏ CharField ：存储字符数据（如字符串）的字段。 max_length 参数指定最多可存储的字符
+数。
+❏ URLField ：类似于 CharField ，不过是专用于存储 URL 的。也可指定 max_length 参数。
+❏ IntegerField ：存储整数。
+❏ DateField ：存储 Python datetime.date 对象。</p> <p>模型之间关系</p> <p>❏ ForeignKey ：用于建立一对多关系。
+❏ OneToOneField ：用于建立一对一关系。
+❏ ManyToManyField ：用于建立多对多关系。</p> <h2 id="创建和迁移数据库"><a href="#创建和迁移数据库" class="header-anchor">#</a> 创建和迁移数据库</h2> <p>设置</p> <p>创建数据库及相关的表,创建超级用户，Aa123456</p> <div class="language- line-numbers-mode"><pre class="language-text"><code> E:\code\python\tango_with_django_project&gt;python manage.py migrate
+(venv) E:\code\python\tango_with_django_project&gt;python manage.py createsuperuser
+Username (leave blank to use '47361'): root
+Email address: ly201552y@163.com
+Password:
+Password (again):
+Superuser created successfully.
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br></div></div><p>创建和更新模型表</p> <div class="language-python line-numbers-mode"><pre class="language-python"><code><span class="token punctuation">(</span>venv<span class="token punctuation">)</span> E<span class="token punctuation">:</span>\code\python\tango_with_django_project<span class="token operator">&gt;</span> python manage<span class="token punctuation">.</span>py makemigrations rango_app
+Migrations <span class="token keyword">for</span> <span class="token string">'rango_app'</span><span class="token punctuation">:</span>
+  rango_app\migrations\0001_initial<span class="token punctuation">.</span>py
+    <span class="token operator">-</span> Create model Category
+    <span class="token operator">-</span> Create model Page
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br></div></div><p>创建好迁移后，要提交到数据库。为此要再次执行 migrate 命令。</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>(venv) E:\code\python\tango_with_django_project&gt; python manage.py migrate
+Operations to perform:
+  Apply all migrations: admin, auth, contenttypes, rango_app, sessions
+Running migrations:
+  Applying rango_app.0001_initial... OK
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br></div></div><p>小知识：查看 Django ORM 为某个迁移执行的底层 SQL</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>(venv) E:\code\python\tango_with_django_project&gt; python manage.py sqlmigrate rango_app 0001
+BEGIN;
+--
+-- Create model Category
+--
+CREATE TABLE &quot;rango_app_category&quot; (&quot;id&quot; integer NOT NULL PRIMARY KEY AUTOINCREMENT, &quot;name&quot; varchar(128) NOT NULL UNIQUE);
+--
+-- Create model Page
+--
+CREATE TABLE &quot;rango_app_page&quot; (&quot;id&quot; integer NOT NULL PRIMARY KEY AUTOINCREMENT, &quot;title&quot; varchar(128) NOT NULL, &quot;url&quot; varchar(200) NOT NULL, &quot;views&quot; integer NOT NULL, &quot;category_id&quot; integer NOT NULL REFERENCES &quot;rango_app_category&quot; (
+&quot;id&quot;));
+CREATE INDEX &quot;rango_app_page_category_id_93ad8e6d&quot; ON &quot;rango_app_page&quot; (&quot;category_id&quot;);
+COMMIT;
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br></div></div><h2 id="django-模型和-shell"><a href="#django-模型和-shell" class="header-anchor">#</a> Django 模型和 shell</h2> <p>进行shell调试</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>python manage.py shell
+(venv) E:\code\python\tango_with_django_project&gt;python manage.py shell
+Python 2.7.13 (v2.7.13:a06454b1afa1, Dec 17 2016, 20:42:59) [MSC v.1500 32 bit (Intel)] on win32
+Type &quot;help&quot;, &quot;copyright&quot;, &quot;credits&quot; or &quot;license&quot; for more information.
+(InteractiveConsole)
+&gt;&gt;&gt; from rango_app.models import Category
+&gt;&gt;&gt; print(Category.objects.all())
+&lt;QuerySet [&lt;Category: test&gt;]&gt;
+# 创建一个分类对象，存入数据库
+&gt;&gt;&gt; c=Category(name=&quot;hahha&quot;)
+&gt;&gt;&gt; c.save()
+&gt;&gt;&gt; print(Category.objects.all())
+&lt;QuerySet [&lt;Category: test&gt;, &lt;Category: hahha&gt;]&gt;
+&gt;&gt;&gt;
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br></div></div><h2 id="配置管理界面"><a href="#配置管理界面" class="header-anchor">#</a> 配置管理界面</h2> <p>可以浏览、标记和删除模型实例表示的数据</p> <p>检查项目的 settings.py ，django.contrib.admin （在 INSTALLED_APPS 列表中）和项目的 urls.py 模块中有个匹配admin/ 的 URL 模式（在 urlpattern 中）。</p> <p>启动开发服务器，访问http://127.0.0.1:8000/admin</p> <div class="language- line-numbers-mode"><pre class="language-text"><code> python manage.py runserver
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br></div></div><p><img src="image/image-20230115155352721.png" alt="image-20230115155352721"></p> <p>但是没有 Rango 应用的 Category 和 Page 模型。为了显示这两个模型，我们要给Django 一些提示。</p> <p>打开 rango_app/admin.py 文件，注册想在管理界面显示的类。下述代码注册 Category 和 Page 两个类。</p> <div class="language- line-numbers-mode"><pre class="language-text"><code># -*- coding: utf-8 -*-
+from __future__ import unicode_literals
+
+from django.contrib import admin
+from rango_app.models import Category,Page
+# Register your models here.
+
+admin.site.register(Category)
+admin.site.register(Page)
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br></div></div><p><img src="image/image-20230115155609788.png" alt="image-20230115155609788"></p> <p>这样就可以访问到了</p> <p>管理界面中有拼写错误（应该是 Categories ，而不是 Categorys ）？为了修正这个错误，可以在模型定义中添加嵌套的 Meta 类，在里面声明 verbose_name_plural 属性。下面是修改后的 Category 模型。 Meta 类有很多作用</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>class Category(models.Model):
+    name = models.CharField(max_length=128,unique=True)
+    class Meta:
+        verbose_name_plural = 'Categories'
+
+    def __str__(self):
+        return self.name
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br></div></div><h2 id="编写一个填充脚本"><a href="#编写一个填充脚本" class="header-anchor">#</a> 编写一个填充脚本</h2> <p>把测试数据输入数据库是件麻烦事。编写一个脚本，把真实可信的数据自动填充到数据库中。</p> <p>在 Django 项目的根目录中新建一个 Python 文件，命名为populate_rango.py，写入下述代码：</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br></div></div><h1 id="name-main-是什么意思"><a href="#name-main-是什么意思" class="header-anchor">#</a> <strong>name</strong> == '<strong>main</strong>'是什么意思？</h1> <p>既让 Python 模块作为可重用的模块，也让其作为独立的 Python 脚本。可重用的模块是指可以导入其他模块（例如通过 import 语句），而独
+立的 Python 脚本可以在终端或命令提示符中执行（ python module.py ）。</p> <p>if <strong>name</strong> == '<strong>main</strong>' 条件语句中的代码仅在作为独立的 Python 脚本运行时才执行。如果作为模块导入，那一段代码不执行，因为导入做是为了访问模块中的类或函数。</p> <h1 id="可能遇到报错"><a href="#可能遇到报错" class="header-anchor">#</a> 可能遇到报错</h1> <h2 id="项目无法启动"><a href="#项目无法启动" class="header-anchor">#</a> 项目无法启动</h2> <div class="language- line-numbers-mode"><pre class="language-text"><code>Traceback (most recent call last):
+  File &quot;manage.py&quot;, line 22, in &lt;module&gt;
+    execute_from_command_line(sys.argv)
+  File &quot;E:\code\python\tango_with_django_project\venv\lib\site-packages\django\core\management\__init__.py&quot;, line 364, in execute_from_command_line
+    utility.execute()
+  File &quot;E:\code\python\tango_with_django_project\venv\lib\site-packages\django\core\management\__init__.py&quot;, line 308, in execute
+    settings.INSTALLED_APPS
+  File &quot;E:\code\python\tango_with_django_project\venv\lib\site-packages\django\conf\__init__.py&quot;, line 56, in __getattr__
+    self._setup(name)
+  File &quot;E:\code\python\tango_with_django_project\venv\lib\site-packages\django\conf\__init__.py&quot;, line 41, in _setup
+    self._wrapped = Settings(settings_module)
+  File &quot;E:\code\python\tango_with_django_project\venv\lib\site-packages\django\conf\__init__.py&quot;, line 110, in __init__
+    mod = importlib.import_module(self.SETTINGS_MODULE)
+  File &quot;D:\software\python2.7\Lib\importlib\__init__.py&quot;, line 37, in import_module
+    __import__(name)
+  File &quot;E:\code\python\tango_with_django_project\tango_with_django_project\settings.py&quot;, line 57, in &lt;module&gt;
+    'DIRS': [BASE_DIR / 'templates']
+TypeError: unsupported operand type(s) for /: 'str' and 'str'
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br></div></div><p>修改setting中的配置，无法识别反斜杠导致的</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>        # 'DIRS': [BASE_DIR / 'templates']
+        'DIRS': [os.path.join(BASE_DIR,'templates')]
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br></div></div></div></div> <!----> <div class="page-edit"><!----> <!----> <!----></div> <div class="page-nav-wapper"><div class="page-nav-centre-wrap"><a href="/pages/ac6e7d/" class="page-nav-centre page-nav-centre-prev"><div class="tooltip">python_ansible自动化运维4</div></a> <a href="/pages/0dd33d/" class="page-nav-centre page-nav-centre-next"><div class="tooltip">vim编程技巧</div></a></div> <div class="page-nav"><p class="inner"><span class="prev">
+        ←
+        <a href="/pages/ac6e7d/" class="prev">python_ansible自动化运维4</a></span> <span class="next"><a href="/pages/0dd33d/">vim编程技巧</a>→
+      </span></p></div></div></div> <div class="article-list"><div class="article-title"><a href="/archives/" class="iconfont icon-bi">最近更新</a></div> <div class="article-wrapper"><dl><dd>01</dd> <dt><a href="/pages/505cd2/"><div>
+            ansible部署k8s问题点复盘
+            <!----></div></a> <span class="date">04-02</span></dt></dl><dl><dd>02</dd> <dt><a href="/pages/5d43b3/"><div>
+            博客部署
+            <!----></div></a> <span class="date">04-02</span></dt></dl><dl><dd>03</dd> <dt><a href="/pages/fb6db2/"><div>
+            ansible远程重启系统之后继续执行命令
+            <!----></div></a> <span class="date">03-15</span></dt></dl> <dl><dd></dd> <dt><a href="/archives/" class="more">更多文章&gt;</a></dt></dl></div></div></main></div> <div class="footer"><div class="icons"><a href="mailto:473618849@qq.com" title="发邮件" target="_blank" class="iconfont icon-youjian"></a></div> 
+  Theme by
+  <a href="https://github.com/xugaoyi/vuepress-theme-vdoing" target="_blank" title="本站主题">Vdoing</a> 
+    | Copyright © 2019-2023
+    <span>备案号 | <a href="https://beian.miit.gov.cn/#/Integrated/index" target="_blank">川公网安备 51012202001343号</a></span></div> <div class="buttons"><div title="返回顶部" class="button blur go-to-top iconfont icon-fanhuidingbu" style="display:none;"></div> <div title="去评论" class="button blur go-to-comment iconfont icon-pinglun" style="display:none;"></div> <div title="主题模式" class="button blur theme-mode-but iconfont icon-zhuti"><ul class="select-box" style="display:none;"><li class="iconfont icon-zidong">
+          跟随系统
+        </li><li class="iconfont icon-rijianmoshi">
+          浅色模式
+        </li><li class="iconfont icon-yejianmoshi">
+          深色模式
+        </li><li class="iconfont icon-yuedu">
+          阅读模式
+        </li></ul></div></div> <!----> <!----> <!----></div><div class="global-ui"></div></div>
+    <script src="/assets/js/app.59a8e6e3.js" defer></script><script src="/assets/js/7.5b954204.js" defer></script><script src="/assets/js/11.e66a5eb7.js" defer></script><script src="/assets/js/93.19a43abc.js" defer></script>
+  </body>
+</html>

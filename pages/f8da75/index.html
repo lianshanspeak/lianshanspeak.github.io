@@ -1,0 +1,837 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>SHELL编程之CASE语句+函数+正则 | YAO blog</title>
+    <meta name="generator" content="VuePress 1.9.5">
+    <link rel="icon" href="/img/favicon.ico">
+    <link rel="stylesheet" href="https://at.alicdn.com/t/font_3077305_pt8umhrn4k9.css">
+    <script>var _hmt = _hmt || [];
+          (function() {
+            var hm = document.createElement("script");
+            hm.src = "https://hm.baidu.com/hm.js?67b18e147ab89b527558aac88ec1f0d1"; 
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+          })();
+          </script>
+    <meta name="description" content="记录">
+    <meta name="keywords" content="个人技术博客">
+    <meta name="theme-color" content="#11a8cd">
+    <meta name="referrer" content="no-referrer-when-downgrade">
+    
+    <link rel="preload" href="/assets/css/0.styles.4d143ccc.css" as="style"><link rel="preload" href="/assets/js/app.59a8e6e3.js" as="script"><link rel="preload" href="/assets/js/7.5b954204.js" as="script"><link rel="preload" href="/assets/js/11.e66a5eb7.js" as="script"><link rel="preload" href="/assets/js/48.b4cefb73.js" as="script"><link rel="prefetch" href="/assets/js/10.8a2a77f4.js"><link rel="prefetch" href="/assets/js/100.af833779.js"><link rel="prefetch" href="/assets/js/101.3e099687.js"><link rel="prefetch" href="/assets/js/102.c9d471cf.js"><link rel="prefetch" href="/assets/js/103.d6d1a625.js"><link rel="prefetch" href="/assets/js/104.162f33cc.js"><link rel="prefetch" href="/assets/js/105.f1e54397.js"><link rel="prefetch" href="/assets/js/106.7f19132a.js"><link rel="prefetch" href="/assets/js/107.25371832.js"><link rel="prefetch" href="/assets/js/108.14a43b70.js"><link rel="prefetch" href="/assets/js/109.37e03610.js"><link rel="prefetch" href="/assets/js/110.e940d0fa.js"><link rel="prefetch" href="/assets/js/111.5d476651.js"><link rel="prefetch" href="/assets/js/112.d0b7a263.js"><link rel="prefetch" href="/assets/js/113.c0bff7cc.js"><link rel="prefetch" href="/assets/js/114.3dd80315.js"><link rel="prefetch" href="/assets/js/115.22645312.js"><link rel="prefetch" href="/assets/js/116.f56a9f42.js"><link rel="prefetch" href="/assets/js/117.d3fdb340.js"><link rel="prefetch" href="/assets/js/118.a85c5b68.js"><link rel="prefetch" href="/assets/js/119.cde4ed8e.js"><link rel="prefetch" href="/assets/js/12.7976eb91.js"><link rel="prefetch" href="/assets/js/13.e34ffe26.js"><link rel="prefetch" href="/assets/js/14.abe41aab.js"><link rel="prefetch" href="/assets/js/15.2f6b2d7e.js"><link rel="prefetch" href="/assets/js/16.7a6c465a.js"><link rel="prefetch" href="/assets/js/17.e7c80b0c.js"><link rel="prefetch" href="/assets/js/18.cde4ea2c.js"><link rel="prefetch" href="/assets/js/19.185b6820.js"><link rel="prefetch" href="/assets/js/2.b39077a8.js"><link rel="prefetch" href="/assets/js/20.cba57736.js"><link rel="prefetch" href="/assets/js/21.6809dd05.js"><link rel="prefetch" href="/assets/js/22.dcbc5cc3.js"><link rel="prefetch" href="/assets/js/23.6d0df575.js"><link rel="prefetch" href="/assets/js/24.16dea3e3.js"><link rel="prefetch" href="/assets/js/25.a2b79fc1.js"><link rel="prefetch" href="/assets/js/26.c5f5308d.js"><link rel="prefetch" href="/assets/js/27.8bbc4428.js"><link rel="prefetch" href="/assets/js/28.5c54dc8e.js"><link rel="prefetch" href="/assets/js/29.a42e46bb.js"><link rel="prefetch" href="/assets/js/3.cffbebe7.js"><link rel="prefetch" href="/assets/js/30.b43bac5d.js"><link rel="prefetch" href="/assets/js/31.0c62fcfe.js"><link rel="prefetch" href="/assets/js/32.34648702.js"><link rel="prefetch" href="/assets/js/33.08c87895.js"><link rel="prefetch" href="/assets/js/34.4d59a704.js"><link rel="prefetch" href="/assets/js/35.646b44d2.js"><link rel="prefetch" href="/assets/js/36.80a66b27.js"><link rel="prefetch" href="/assets/js/37.421e403a.js"><link rel="prefetch" href="/assets/js/38.9d29f791.js"><link rel="prefetch" href="/assets/js/39.d0200840.js"><link rel="prefetch" href="/assets/js/4.8b2ef19f.js"><link rel="prefetch" href="/assets/js/40.1891e335.js"><link rel="prefetch" href="/assets/js/41.97d3fd6c.js"><link rel="prefetch" href="/assets/js/42.7aa1318f.js"><link rel="prefetch" href="/assets/js/43.aab7a212.js"><link rel="prefetch" href="/assets/js/44.4b5fa36a.js"><link rel="prefetch" href="/assets/js/45.622ff538.js"><link rel="prefetch" href="/assets/js/46.d610e05a.js"><link rel="prefetch" href="/assets/js/47.12e2255c.js"><link rel="prefetch" href="/assets/js/49.6c3bf149.js"><link rel="prefetch" href="/assets/js/5.42a2c2db.js"><link rel="prefetch" href="/assets/js/50.1c8ab9e9.js"><link rel="prefetch" href="/assets/js/51.31841acd.js"><link rel="prefetch" href="/assets/js/52.23852199.js"><link rel="prefetch" href="/assets/js/53.502b55d4.js"><link rel="prefetch" href="/assets/js/54.b331ed80.js"><link rel="prefetch" href="/assets/js/55.bf542ba6.js"><link rel="prefetch" href="/assets/js/56.06f8cb6c.js"><link rel="prefetch" href="/assets/js/57.ae52b41c.js"><link rel="prefetch" href="/assets/js/58.a2c555a8.js"><link rel="prefetch" href="/assets/js/59.41061973.js"><link rel="prefetch" href="/assets/js/6.90de7719.js"><link rel="prefetch" href="/assets/js/60.afd2f7e6.js"><link rel="prefetch" href="/assets/js/61.432756d0.js"><link rel="prefetch" href="/assets/js/62.3d00c9f9.js"><link rel="prefetch" href="/assets/js/63.fac02541.js"><link rel="prefetch" href="/assets/js/64.db31a905.js"><link rel="prefetch" href="/assets/js/65.afdcd498.js"><link rel="prefetch" href="/assets/js/66.778ae81f.js"><link rel="prefetch" href="/assets/js/67.582bbbfe.js"><link rel="prefetch" href="/assets/js/68.c44f2518.js"><link rel="prefetch" href="/assets/js/69.8b84437e.js"><link rel="prefetch" href="/assets/js/70.d9666edf.js"><link rel="prefetch" href="/assets/js/71.00fc5abd.js"><link rel="prefetch" href="/assets/js/72.fc04c1ec.js"><link rel="prefetch" href="/assets/js/73.13c1b537.js"><link rel="prefetch" href="/assets/js/74.8dc2ad4d.js"><link rel="prefetch" href="/assets/js/75.200d8e30.js"><link rel="prefetch" href="/assets/js/76.7adde9e3.js"><link rel="prefetch" href="/assets/js/77.9358fcea.js"><link rel="prefetch" href="/assets/js/78.40ebfe7c.js"><link rel="prefetch" href="/assets/js/79.7101d682.js"><link rel="prefetch" href="/assets/js/8.92500b61.js"><link rel="prefetch" href="/assets/js/80.29a4e018.js"><link rel="prefetch" href="/assets/js/81.3b09ac83.js"><link rel="prefetch" href="/assets/js/82.04f9540f.js"><link rel="prefetch" href="/assets/js/83.1abe25fb.js"><link rel="prefetch" href="/assets/js/84.5522a475.js"><link rel="prefetch" href="/assets/js/85.77fd8cc9.js"><link rel="prefetch" href="/assets/js/86.242da1b1.js"><link rel="prefetch" href="/assets/js/87.c1fd2733.js"><link rel="prefetch" href="/assets/js/88.e7217205.js"><link rel="prefetch" href="/assets/js/89.97500137.js"><link rel="prefetch" href="/assets/js/9.c42660e0.js"><link rel="prefetch" href="/assets/js/90.57fd7b16.js"><link rel="prefetch" href="/assets/js/91.f9553e3a.js"><link rel="prefetch" href="/assets/js/92.27cac0ad.js"><link rel="prefetch" href="/assets/js/93.19a43abc.js"><link rel="prefetch" href="/assets/js/94.351f08fe.js"><link rel="prefetch" href="/assets/js/95.36d4d224.js"><link rel="prefetch" href="/assets/js/96.952d6929.js"><link rel="prefetch" href="/assets/js/97.58bb623b.js"><link rel="prefetch" href="/assets/js/98.d3e75111.js"><link rel="prefetch" href="/assets/js/99.a46116ac.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.4d143ccc.css">
+  </head>
+  <body class="theme-mode-light">
+    <div id="app" data-server-rendered="true"><div class="theme-container sidebar-open have-rightmenu"><header class="navbar blur"><div title="目录" class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><img src="/img/logo.png" alt="YAO blog" class="logo"> <span class="site-name can-hide">YAO blog</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/" class="nav-link">首页</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="数据库" class="dropdown-title"><a href="/shujuku/" class="link-title">数据库</a> <span class="title" style="display:none;">数据库</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>传统数据库</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/pages/ee767f/" class="nav-link">postgresql</a></li><li class="dropdown-subitem"><a href="/pages/8143cc480faf9a11/" class="nav-link">mysql</a></li><li class="dropdown-subitem"><a href="/pages/8143cc480faf9a11/" class="nav-link">oracle</a></li></ul></li><li class="dropdown-item"><h4>学习笔记</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/note/sql/" class="nav-link">《sql编程》</a></li><li class="dropdown-subitem"><a href="/note/dashuju/" class="nav-link">《大数据》</a></li><li class="dropdown-subitem"><a href="/note/postgresql/" class="nav-link">《postgresql》</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="运维专项" class="dropdown-title"><a href="/yunwei/" class="link-title">运维专项</a> <span class="title" style="display:none;">运维专项</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/pages/331efa/" class="nav-link">Docker&amp;k8s</a></li><li class="dropdown-item"><!----> <a href="/pages/0d801d/" class="nav-link">网络</a></li><li class="dropdown-item"><!----> <a href="/pages/48e74d/" class="nav-link">监控</a></li><li class="dropdown-item"><!----> <a href="/pages/d11aa9/" class="nav-link">linux知识</a></li><li class="dropdown-item"><!----> <a href="/pages/2f40d8/" class="nav-link">ansible</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="编程" class="dropdown-title"><a href="/biancheng/" class="link-title">编程</a> <span class="title" style="display:none;">编程</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/pages/74c26a/" class="nav-link">python</a></li><li class="dropdown-item"><!----> <a href="/pages/4c778760be26d8b3/" class="nav-link">java</a></li><li class="dropdown-item"><!----> <a href="/pages/117708e0af7f0bd9/" class="nav-link">shell</a></li><li class="dropdown-item"><!----> <a href="/pages/41f87d890d0a02af/" class="nav-link">C/C++/GO</a></li><li class="dropdown-item"><!----> <a href="/pages/41f87d890d0a02af/" class="nav-link">前端</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="梦工厂" class="dropdown-title"><a href="/dream/" class="link-title">梦工厂</a> <span class="title" style="display:none;">梦工厂</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/pages/115b2f/" class="nav-link">树莓派</a></li><li class="dropdown-item"><!----> <a href="/pages/aea6571b7a8bae86/" class="nav-link">Stm32/arduino</a></li><li class="dropdown-item"><!----> <a href="/pages/2d615df9a36a98ed/" class="nav-link">人工智能</a></li></ul></div></div><div class="nav-item"><a href="/guanyu/" class="nav-link">关于</a></div><div class="nav-item"><a href="/pages/339240/" class="nav-link">一个人的世界观</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="索引" class="dropdown-title"><a href="/archives/" class="link-title">索引</a> <span class="title" style="display:none;">索引</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/categories/" class="nav-link">分类</a></li><li class="dropdown-item"><!----> <a href="/tags/" class="nav-link">标签</a></li><li class="dropdown-item"><!----> <a href="/archives/" class="nav-link">归档</a></li></ul></div></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <div class="sidebar-hover-trigger"></div> <aside class="sidebar" style="display:none;"><div class="blogger"><img src="/img/logo.png"> <div class="blogger-info"><h3>luoyao</h3> <span>不积跬步 无以至千里</span></div></div> <nav class="nav-links"><div class="nav-item"><a href="/" class="nav-link">首页</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="数据库" class="dropdown-title"><a href="/shujuku/" class="link-title">数据库</a> <span class="title" style="display:none;">数据库</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>传统数据库</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/pages/ee767f/" class="nav-link">postgresql</a></li><li class="dropdown-subitem"><a href="/pages/8143cc480faf9a11/" class="nav-link">mysql</a></li><li class="dropdown-subitem"><a href="/pages/8143cc480faf9a11/" class="nav-link">oracle</a></li></ul></li><li class="dropdown-item"><h4>学习笔记</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/note/sql/" class="nav-link">《sql编程》</a></li><li class="dropdown-subitem"><a href="/note/dashuju/" class="nav-link">《大数据》</a></li><li class="dropdown-subitem"><a href="/note/postgresql/" class="nav-link">《postgresql》</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="运维专项" class="dropdown-title"><a href="/yunwei/" class="link-title">运维专项</a> <span class="title" style="display:none;">运维专项</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/pages/331efa/" class="nav-link">Docker&amp;k8s</a></li><li class="dropdown-item"><!----> <a href="/pages/0d801d/" class="nav-link">网络</a></li><li class="dropdown-item"><!----> <a href="/pages/48e74d/" class="nav-link">监控</a></li><li class="dropdown-item"><!----> <a href="/pages/d11aa9/" class="nav-link">linux知识</a></li><li class="dropdown-item"><!----> <a href="/pages/2f40d8/" class="nav-link">ansible</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="编程" class="dropdown-title"><a href="/biancheng/" class="link-title">编程</a> <span class="title" style="display:none;">编程</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/pages/74c26a/" class="nav-link">python</a></li><li class="dropdown-item"><!----> <a href="/pages/4c778760be26d8b3/" class="nav-link">java</a></li><li class="dropdown-item"><!----> <a href="/pages/117708e0af7f0bd9/" class="nav-link">shell</a></li><li class="dropdown-item"><!----> <a href="/pages/41f87d890d0a02af/" class="nav-link">C/C++/GO</a></li><li class="dropdown-item"><!----> <a href="/pages/41f87d890d0a02af/" class="nav-link">前端</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="梦工厂" class="dropdown-title"><a href="/dream/" class="link-title">梦工厂</a> <span class="title" style="display:none;">梦工厂</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/pages/115b2f/" class="nav-link">树莓派</a></li><li class="dropdown-item"><!----> <a href="/pages/aea6571b7a8bae86/" class="nav-link">Stm32/arduino</a></li><li class="dropdown-item"><!----> <a href="/pages/2d615df9a36a98ed/" class="nav-link">人工智能</a></li></ul></div></div><div class="nav-item"><a href="/guanyu/" class="nav-link">关于</a></div><div class="nav-item"><a href="/pages/339240/" class="nav-link">一个人的世界观</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="索引" class="dropdown-title"><a href="/archives/" class="link-title">索引</a> <span class="title" style="display:none;">索引</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/categories/" class="nav-link">分类</a></li><li class="dropdown-item"><!----> <a href="/tags/" class="nav-link">标签</a></li><li class="dropdown-item"><!----> <a href="/archives/" class="nav-link">归档</a></li></ul></div></div> <!----></nav>  <ul class="sidebar-links"><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>Docker&amp;k8s</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>网络</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>监控</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading open"><span>linux知识</span> <span class="arrow down"></span></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/pages/d11aa9/" class="sidebar-link">shell实用命令</a></li><li><a href="/pages/8ef1b1/" class="sidebar-link">ssh测试，为什么有的端口需要密码，有的端口不要</a></li><li><a href="/pages/900c21/" class="sidebar-link">SHELL编程之变量定义</a></li><li><a href="/pages/91e047/" class="sidebar-link">SHELL编程之流程控制和循环语句</a></li><li><a href="/pages/a7f796/" class="sidebar-link">SHELL编程之嵌套循环+随机数及综合案例</a></li><li><a href="/pages/f8da75/" aria-current="page" class="active sidebar-link">SHELL编程之CASE语句+函数+正则</a><ul class="sidebar-sub-headers"></ul></li><li><a href="/pages/b7c6f0/" class="sidebar-link">SHELL编程之CASE语句+函数+正则</a></li><li><a href="/pages/16ec00/" class="sidebar-link">SHELL编程之文本处理工具AWK</a></li><li><a href="/pages/30aaec/" class="sidebar-link">记录一次vm上，磁盘扩容</a></li><li><a href="/pages/3aefc9/" class="sidebar-link">rsync数据同步</a></li><li><a href="/pages/95e5a4/" class="sidebar-link">rsync托管给xinetd</a></li><li><a href="/pages/ed01a6/" class="sidebar-link">dns相关知识</a></li></ul></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>ansible</span> <span class="arrow right"></span></p> <!----></section></li></ul> </aside> <div><main class="page"><div class="theme-vdoing-wrapper "><div class="articleInfo-wrap" data-v-5add8e0a><div class="articleInfo" data-v-5add8e0a><ul class="breadcrumbs" data-v-5add8e0a><li data-v-5add8e0a><a href="/" title="首页" class="iconfont icon-home router-link-active" data-v-5add8e0a></a></li> <li data-v-5add8e0a><a href="/yunwei/#运维" data-v-5add8e0a>运维</a></li><li data-v-5add8e0a><a href="/yunwei/#linux知识" data-v-5add8e0a>linux知识</a></li></ul> <div class="info" data-v-5add8e0a><div title="作者" class="author iconfont icon-touxiang" data-v-5add8e0a><a href="javascript:;" data-v-5add8e0a>luoyao</a></div> <div title="创建时间" class="date iconfont icon-riqi" data-v-5add8e0a><a href="javascript:;" data-v-5add8e0a>2022-08-29</a></div> <!----></div></div></div> <!----> <div class="content-wrapper"><div class="right-menu-wrapper"><div class="right-menu-margin"><div class="right-menu-title">目录</div> <div class="right-menu-content"></div></div></div> <h1><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAAAXNSR0IArs4c6QAABGpJREFUSA3tVVtoXFUU3fvOI53UlmCaKIFmwEhsE7QK0ipFEdHEKpXaZGrp15SINsXUWvBDpBgQRKi0+KKoFeJHfZA+ED9KKoIU2gYD9UejTW4rVIzm0VSTziPzuNu1z507dibTTjL4U/DAzLn3nL3X2o91ziX6f9wMFdh6Jvbm9nNSV0msViVO6tN1Rm7NMu2OpeJ9lWBUTDxrJbYTS0hInuwciu9eLHlFxCLCZEk3MegsJmZ5K/JD6t7FkFdEvGUo1g7qJoG3MHImqRIn8/nzY1K9UPKKiJmtnUqHVE3Gbuay6vJE/N2FEmuxFjW2nUuE0yQXRRxLiTUAzs36zhZvOXJPdX850EVnnLZkB8prodQoM5JGj7Xk2mvC7JB8tG04Ef5PiXtG0UtxupRQSfTnBoCy554x18yJHI6I+G5Eru4LHmPJZEQsrvPUbMiA8G/WgMK7w7I+ez7++o2ANfbrjvaOl1tFMs+htG3IrZH9/hDX1Pr8Tc0UvH8tcX29KzAgIGcEkINyW5BF9x891hw6VYqgJHEk0huccS7vh3C6gTiODL+26huuBtbct8eZnqLML8PkxGYpuPZBqtqwkSjgc4mB5gbgig5i+y0UDK35LMxXisn9xQtK+nd26gTIHsHe/oblK/b29fUmN/8Y+9jAQrnBp56m1LcDlDp9irKTExSKduXJVWSqdBMA08pEJnEIOB3FPPMybu/oeV8zFeYN3xx576Q6RH+VmplE4ncQV5v+5rzSoyOU7PuEAg8g803PwBJ0CExno/jcMbN8tONYeOmHiuUNryvm3fRUy4tMPVLdAGkUhNWuggGrJcXPv+ouCjz0MKUHz1J2/E8IC9nqTabcxgaBYM0hPhD5Y65FsbxRQKxCQrDjDctW7PUM3HuZunFyifSAqEfuzCp48Il24luWUWZoyJCaPR82jE0+kFA643wRFVni4RYSq3ohJO2pZ7B5dO4xkDWbEpossJPLSrPjYID8rS2UHTlvyNxqIGsg674XJJ7vnh5L7PNwC4hh2sjCI96mzszOTpxLF0T7l88Yz7lAuK6OnL8gXLOnTvpzSb22YG8W7us3jSebFHeeqnXRG1vt+MoUM84LQIBmMsCTAcOauTh0T0l0neQK7m2bLMt2mGxU3HYssS0J2cdv5wljlPsrIuZLAG/2DOZIXgCYT8uMGZN+e2kSirfxZOPCsC0f24nTZzspnVn9VePS1Z5vubmAGGXG8ZFno9Hel0yfA5ZPhF7Dh972BQJ2qCpgH67lmWtBYbvk6sz02wjky2vXyz0XErP/kFB619js1BtwfOV4OPRqOQBjy3Qbk18vigUPPSD5ceHnwck7W9bhAqZdd7SuG7w4/P2F/GaJh8c7e9qgow+Q7cGBo+98WsLkuktFqiZabtXuQTu/Y5ETbR0v7tNSFnvrmu6pjdoan2KjMu8q/Hmj1EfCO2ZGfEIbIXKUlw8qaX9/b2oeSJmFksSeT/Fn0V3nSypChh4Gjh74ybO9aeZ/AN2dwciu2/MhAAAAAElFTkSuQmCC">SHELL编程之CASE语句+函数+正则<!----></h1> <!----> <div class="theme-vdoing-content content__default"><h3 id="课程目标"><a href="#课程目标" class="header-anchor">#</a> 课程目标</h3> <ul><li>掌握case语句的基本语法结构</li> <li>掌握函数的定义及调用</li> <li>掌握常用的正则表达式元字符含义</li></ul> <h3 id="一、case语句"><a href="#一、case语句" class="header-anchor">#</a> 一、case语句</h3> <p>case语句为多选择语句。可以用case语句匹配一个值与一个模式，如果匹配成功，执行相
+匹配的命令。</p> <div class="language-powershell line-numbers-mode"><pre class="language-powershell"><code>case <span class="token keyword">var</span> in             定义变量<span class="token punctuation">;</span><span class="token keyword">var</span>代表是变量名
+pattern 1<span class="token punctuation">)</span>              模式1<span class="token punctuation">;</span>用 <span class="token punctuation">|</span> 分割多个模式，相当于or
+    command1            需要执行的语句
+    <span class="token punctuation">;</span><span class="token punctuation">;</span>                  两个分号代表命令结束
+pattern 2<span class="token punctuation">)</span>
+    command2
+    <span class="token punctuation">;</span><span class="token punctuation">;</span>
+pattern 3<span class="token punctuation">)</span>
+    command3
+    <span class="token punctuation">;</span><span class="token punctuation">;</span>
+		  <span class="token operator">*</span><span class="token punctuation">)</span>              default，不满足以上模式，默认执行<span class="token operator">*</span><span class="token punctuation">)</span>下面的语句
+    command4
+    <span class="token punctuation">;</span><span class="token punctuation">;</span>
+esac							esac表示case语句结束
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br></div></div><h4 id="案例1"><a href="#案例1" class="header-anchor">#</a> 案例1</h4> <ul><li>当给程序传入start、stop、reload三个不同参数时分别执行相应命令。</li></ul> <div class="language-powershell line-numbers-mode"><pre class="language-powershell"><code><span class="token comment">#!/bin/bash</span>
+case <span class="token variable">$1</span> in
+	<span class="token function">start</span><span class="token punctuation">|</span>S<span class="token punctuation">)</span>
+	<span class="token function">echo</span> <span class="token string">&quot;service is running....&quot;</span>
+	<span class="token punctuation">;</span><span class="token punctuation">;</span>
+	stop<span class="token punctuation">|</span>T<span class="token punctuation">)</span>
+	<span class="token function">echo</span> <span class="token string">&quot;service is stoped...&quot;</span>
+	<span class="token punctuation">;</span><span class="token punctuation">;</span>
+	reload<span class="token punctuation">|</span>R<span class="token punctuation">)</span>
+	<span class="token function">echo</span> <span class="token string">&quot;service is restart...&quot;</span>
+	<span class="token punctuation">;</span><span class="token punctuation">;</span>
+	<span class="token operator">*</span><span class="token punctuation">)</span>
+	<span class="token function">echo</span> <span class="token string">&quot;请输入你要的动作&quot;</span>
+	<span class="token punctuation">;</span><span class="token punctuation">;</span>
+esac
+
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br></div></div><ul><li>脚本提示让用户输入需要管理的服务名，然后提示用户需要对服务做什么操作，如启动，关闭，重启等</li></ul> <div class="language-powershell line-numbers-mode"><pre class="language-powershell"><code><span class="token comment">#!/bin/bash</span>
+read <span class="token operator">-</span>p <span class="token string">&quot;请输入需要管理的服务名称(vsftpd):&quot;</span> service
+case <span class="token variable">$service</span> in
+		vsftpd<span class="token punctuation">)</span>
+		read <span class="token operator">-</span>p <span class="token string">&quot;请输入要操作的动作:&quot;</span> action
+		case <span class="token variable">$action</span> in
+			<span class="token function">start</span><span class="token punctuation">|</span>S<span class="token punctuation">)</span>
+			service vsftpd <span class="token function">start</span>
+			<span class="token punctuation">;</span><span class="token punctuation">;</span>
+			stop<span class="token punctuation">|</span>P<span class="token punctuation">)</span>
+			service vsftpd stop
+			<span class="token punctuation">;</span><span class="token punctuation">;</span>
+			reload<span class="token punctuation">|</span>restart<span class="token punctuation">|</span>R<span class="token punctuation">)</span>
+			service vsftpd reload
+			<span class="token punctuation">;</span><span class="token punctuation">;</span>	
+		esac
+		<span class="token punctuation">;</span><span class="token punctuation">;</span>
+		httpd<span class="token punctuation">)</span>
+		<span class="token function">echo</span> <span class="token string">&quot;apache is running...&quot;</span>
+		<span class="token punctuation">;</span><span class="token punctuation">;</span>
+		<span class="token operator">*</span><span class="token punctuation">)</span>
+		<span class="token function">echo</span> <span class="token string">&quot;请输入需要管理的服务名称(vsftpd):&quot;</span>
+		<span class="token punctuation">;</span><span class="token punctuation">;</span>
+esac		
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br></div></div><h4 id="案例2"><a href="#案例2" class="header-anchor">#</a> 案例2</h4> <p>模拟一个多任务维护界面。当执行程序时先显示总菜单，然后进行选择后做相应维护监控操作。</p> <div class="language-powershell line-numbers-mode"><pre class="language-powershell"><code>	h	显示命令帮助
+	f	显示磁盘分区
+	d	显示磁盘挂载
+	m	查看内存使用
+	u	查看系统负载
+	q	退出程序
+
+分析：
+1<span class="token punctuation">.</span> 打印菜单
+2<span class="token punctuation">.</span> 等待用户输入需要的操作编号  read case
+
+
+<span class="token function">echo</span> <span class="token string">&quot;h 显示命令帮助&quot;</span>
+<span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+
+<span class="token function">cat</span> &lt;&lt;EOF
+	h	显示命令帮助
+	f	显示磁盘分区
+	d	显示磁盘挂载
+	m	查看内存使用
+	u	查看系统负载
+	q	退出程序
+	EOF
+
+
+
+
+<span class="token comment">#!/bin/bash</span>
+<span class="token comment">#打印菜单</span>
+<span class="token function">cat</span> &lt;&lt;<span class="token operator">-</span>EOF
+	h	显示命令帮助
+	f	显示磁盘分区
+	d	显示磁盘挂载
+	m	查看内存使用
+	u	查看系统负载
+	q	退出程序
+	EOF
+
+<span class="token comment">#让用户输入需要的操作</span>
+<span class="token keyword">while</span> true
+<span class="token keyword">do</span>
+read <span class="token operator">-</span>p <span class="token string">&quot;请输入需要操作的选项[f|d]:&quot;</span> var1
+case <span class="token variable">$var1</span> in
+	h<span class="token punctuation">)</span>
+	<span class="token function">cat</span> &lt;&lt;<span class="token operator">-</span>EOF
+        h       显示命令帮助
+        f       显示磁盘分区
+        d       显示磁盘挂载
+        m       查看内存使用
+        u       查看系统负载
+        q       退出程序
+	EOF
+	<span class="token punctuation">;</span><span class="token punctuation">;</span>
+	f<span class="token punctuation">)</span>
+	fdisk <span class="token operator">-</span>l
+	<span class="token punctuation">;</span><span class="token punctuation">;</span>
+	d<span class="token punctuation">)</span>
+	df <span class="token operator">-</span>h
+	<span class="token punctuation">;</span><span class="token punctuation">;</span>
+	m<span class="token punctuation">)</span>
+	free <span class="token operator">-</span>m
+	<span class="token punctuation">;</span><span class="token punctuation">;</span>
+	u<span class="token punctuation">)</span>
+	uptime
+	<span class="token punctuation">;</span><span class="token punctuation">;</span>
+	q<span class="token punctuation">)</span>
+	<span class="token keyword">exit</span>
+	<span class="token punctuation">;</span><span class="token punctuation">;</span>
+esac
+done
+
+
+
+<span class="token comment">#!/bin/bash</span>
+<span class="token comment">#打印菜单</span>
+menu<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+<span class="token function">cat</span> &lt;&lt;<span class="token operator">-</span><span class="token keyword">END</span>
+	h	显示命令帮助
+	f	显示磁盘分区
+	d	显示磁盘挂载
+	m	查看内存使用
+	u	查看系统负载
+	q	退出程序
+	<span class="token keyword">END</span>
+<span class="token punctuation">}</span>
+menu
+<span class="token keyword">while</span> true
+<span class="token keyword">do</span>
+read <span class="token operator">-</span>p <span class="token string">&quot;请输入你的操作[h for help]:&quot;</span> var1
+case <span class="token variable">$var1</span> in
+	h<span class="token punctuation">)</span>
+	menu
+	<span class="token punctuation">;</span><span class="token punctuation">;</span>
+	f<span class="token punctuation">)</span>
+	read <span class="token operator">-</span>p <span class="token string">&quot;请输入你要查看的设备名字[/dev/sdb]:&quot;</span> var2
+	case <span class="token variable">$var2</span> in
+		<span class="token operator">/</span>dev/sda<span class="token punctuation">)</span>
+		fdisk <span class="token operator">-</span>l <span class="token operator">/</span>dev/sda
+		<span class="token punctuation">;</span><span class="token punctuation">;</span>
+		<span class="token operator">/</span>dev/sdb<span class="token punctuation">)</span>
+		fdisk <span class="token operator">-</span>l <span class="token operator">/</span>dev/sdb
+		<span class="token punctuation">;</span><span class="token punctuation">;</span>
+	esac
+	<span class="token punctuation">;</span><span class="token punctuation">;</span>
+	d<span class="token punctuation">)</span>
+	lsblk
+	<span class="token punctuation">;</span><span class="token punctuation">;</span>
+	m<span class="token punctuation">)</span>
+	free <span class="token operator">-</span>m
+	<span class="token punctuation">;</span><span class="token punctuation">;</span>
+	u<span class="token punctuation">)</span>
+	uptime
+	<span class="token punctuation">;</span><span class="token punctuation">;</span>
+	q<span class="token punctuation">)</span>
+	<span class="token keyword">exit</span>
+	<span class="token punctuation">;</span><span class="token punctuation">;</span>
+esac
+done
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br><span class="line-number">33</span><br><span class="line-number">34</span><br><span class="line-number">35</span><br><span class="line-number">36</span><br><span class="line-number">37</span><br><span class="line-number">38</span><br><span class="line-number">39</span><br><span class="line-number">40</span><br><span class="line-number">41</span><br><span class="line-number">42</span><br><span class="line-number">43</span><br><span class="line-number">44</span><br><span class="line-number">45</span><br><span class="line-number">46</span><br><span class="line-number">47</span><br><span class="line-number">48</span><br><span class="line-number">49</span><br><span class="line-number">50</span><br><span class="line-number">51</span><br><span class="line-number">52</span><br><span class="line-number">53</span><br><span class="line-number">54</span><br><span class="line-number">55</span><br><span class="line-number">56</span><br><span class="line-number">57</span><br><span class="line-number">58</span><br><span class="line-number">59</span><br><span class="line-number">60</span><br><span class="line-number">61</span><br><span class="line-number">62</span><br><span class="line-number">63</span><br><span class="line-number">64</span><br><span class="line-number">65</span><br><span class="line-number">66</span><br><span class="line-number">67</span><br><span class="line-number">68</span><br><span class="line-number">69</span><br><span class="line-number">70</span><br><span class="line-number">71</span><br><span class="line-number">72</span><br><span class="line-number">73</span><br><span class="line-number">74</span><br><span class="line-number">75</span><br><span class="line-number">76</span><br><span class="line-number">77</span><br><span class="line-number">78</span><br><span class="line-number">79</span><br><span class="line-number">80</span><br><span class="line-number">81</span><br><span class="line-number">82</span><br><span class="line-number">83</span><br><span class="line-number">84</span><br><span class="line-number">85</span><br><span class="line-number">86</span><br><span class="line-number">87</span><br><span class="line-number">88</span><br><span class="line-number">89</span><br><span class="line-number">90</span><br><span class="line-number">91</span><br><span class="line-number">92</span><br><span class="line-number">93</span><br><span class="line-number">94</span><br><span class="line-number">95</span><br><span class="line-number">96</span><br><span class="line-number">97</span><br><span class="line-number">98</span><br><span class="line-number">99</span><br><span class="line-number">100</span><br><span class="line-number">101</span><br><span class="line-number">102</span><br><span class="line-number">103</span><br><span class="line-number">104</span><br><span class="line-number">105</span><br><span class="line-number">106</span><br><span class="line-number">107</span><br><span class="line-number">108</span><br><span class="line-number">109</span><br><span class="line-number">110</span><br><span class="line-number">111</span><br><span class="line-number">112</span><br><span class="line-number">113</span><br><span class="line-number">114</span><br><span class="line-number">115</span><br><span class="line-number">116</span><br><span class="line-number">117</span><br><span class="line-number">118</span><br><span class="line-number">119</span><br></div></div><h4 id="课堂练习1"><a href="#课堂练习1" class="header-anchor">#</a> 课堂练习1</h4> <ol><li>输入一个等级（A-E），查看每个等级的成绩；如：输入A，则显示“90分~100分”，依次类推</li> <li>模拟2人第一次相亲的场景，使用read让用户输入它的名字，性别，年龄（年龄放在性别判断后）;在case里面再嵌套case菜单，使之选项更丰富。</li></ol> <p>要求：
+1）</p> <ul><li>对性别进行判断，如果不输入男或者女，则显示”你是泰国来的吗？“</li> <li>如果是男的，对其年龄进行判断。</li></ul> <p>2）</p> <ul><li>如果男的年龄大于等于18岁则显示“某某先生，你结婚了吗？”；</li> <li>如果对方回答结了或者yes，则显示“结了你来这凑什么热闹”;</li> <li>如果对方回答没有或者no，再次询问“那你有房有车吗？”；</li> <li>如果既不说结了也不说没结则显示：“你到底结没结婚啊？”</li> <li>如果回答有房有车，则显示”咱去民政局领证吧“；</li> <li>如果回答没有，则显示“不好意思，我去下洗手间。”；</li> <li>如果既不说有又不说没有，则显示“别浪费时间，请正面回答”。</li> <li>如果男的年龄小于18岁，则显示“某某某你个小毛孩也来这凑热闹啦”</li></ul> <p>3）如果是女的，并且年龄大于等于18岁，则显示”某某女士你好“；否则显示”某某小姐你好“</p> <div class="language-powershell line-numbers-mode"><pre class="language-powershell"><code>参考：
+<span class="token comment">#!/bin/bash</span>
+read <span class="token operator">-</span>p <span class="token string">&quot;输入你的姓名:&quot;</span> name
+read <span class="token operator">-</span>p <span class="token string">&quot;输入你的性别:&quot;</span> gender
+
+case <span class="token string">&quot;<span class="token variable">$gender</span>&quot;</span> in
+	男<span class="token punctuation">|</span>man<span class="token punctuation">|</span>male<span class="token punctuation">|</span>boy <span class="token punctuation">)</span>
+		read <span class="token operator">-</span>p <span class="token string">&quot;输入你的年龄:&quot;</span> age
+		<span class="token keyword">if</span> <span class="token punctuation">[</span> <span class="token variable">$age</span> <span class="token operator">-ge</span> 18 <span class="token punctuation">]</span><span class="token punctuation">;</span>then
+			read <span class="token operator">-</span>p <span class="token string">&quot;<span class="token variable">$name</span>先生,你结婚了吗?&quot;</span> anwser
+				case <span class="token string">&quot;<span class="token variable">$anwser</span>&quot;</span> in
+					结了<span class="token punctuation">|</span>有<span class="token punctuation">|</span>yes <span class="token punctuation">)</span>
+						<span class="token function">echo</span> <span class="token string">&quot;结了你还来干嘛?&quot;</span>
+						<span class="token punctuation">;</span><span class="token punctuation">;</span>
+					没结<span class="token punctuation">|</span>没有<span class="token punctuation">|</span>没<span class="token punctuation">|</span>no <span class="token punctuation">)</span>
+						read <span class="token operator">-</span>p <span class="token string">&quot;有房有车吗?&quot;</span> anwser2
+						case <span class="token string">&quot;<span class="token variable">$anwser2</span>&quot;</span> in
+							有<span class="token punctuation">)</span>
+								<span class="token function">echo</span> <span class="token string">&quot;咱就直接去民政局领证吧&quot;</span>
+								<span class="token punctuation">;</span><span class="token punctuation">;</span>
+							没有 <span class="token punctuation">)</span>
+								<span class="token function">echo</span> <span class="token string">&quot;不好意思，我去下洗手间&quot;</span>
+								<span class="token punctuation">;</span><span class="token punctuation">;</span>
+							<span class="token operator">*</span> <span class="token punctuation">)</span>
+								<span class="token function">echo</span> <span class="token string">&quot;别浪费时间，请正面回答&quot;</span>
+						esac
+						<span class="token punctuation">;</span><span class="token punctuation">;</span>
+					<span class="token operator">*</span> <span class="token punctuation">)</span>
+						<span class="token function">echo</span> <span class="token string">&quot;你到底结没结?&quot;</span>
+				esac
+
+		<span class="token keyword">else</span>
+			<span class="token function">echo</span> <span class="token string">&quot;<span class="token variable">$name</span>小子&quot;</span>
+		fi
+		<span class="token punctuation">;</span><span class="token punctuation">;</span>
+	女<span class="token punctuation">|</span>woman<span class="token punctuation">|</span>female<span class="token punctuation">|</span>girl<span class="token punctuation">|</span>lady <span class="token punctuation">)</span>
+		read <span class="token operator">-</span>p <span class="token string">&quot;输入你的年龄:&quot;</span> age
+		<span class="token keyword">if</span> <span class="token punctuation">[</span> <span class="token variable">$age</span> <span class="token operator">-ge</span> 18 <span class="token punctuation">]</span><span class="token punctuation">;</span>then
+			<span class="token function">echo</span> <span class="token string">&quot;<span class="token variable">$name</span>女士&quot;</span>
+		<span class="token keyword">else</span>
+			<span class="token function">echo</span> <span class="token string">&quot;<span class="token variable">$name</span>小姐&quot;</span>
+		fi
+		<span class="token punctuation">;</span><span class="token punctuation">;</span>
+	<span class="token operator">*</span> <span class="token punctuation">)</span>
+		<span class="token function">echo</span> <span class="token string">&quot;你是泰国来的吗?&quot;</span>
+esac
+
+该程序有个bug：如果输入年龄为负数或者0也是可以的，如何修复bug？增加一个条件：如果输入的年龄小于等于10则显示：”不跟你玩了。。。“
+
+在最后加入如下语句即可：
+<span class="token keyword">if</span> <span class="token punctuation">[</span> <span class="token variable">$age</span> <span class="token operator">-ge</span> 18 <span class="token punctuation">]</span><span class="token punctuation">;</span>then
+                        <span class="token function">echo</span> <span class="token string">&quot;<span class="token variable">$name</span>女士&quot;</span>
+                elif
+                   <span class="token punctuation">[</span> <span class="token variable">$age</span> <span class="token operator">-le</span> 10 <span class="token punctuation">]</span><span class="token punctuation">;</span>then
+                        <span class="token function">echo</span> <span class="token string">&quot;不跟你玩了&quot;</span>
+                     <span class="token keyword">exit</span> 1
+                <span class="token keyword">else</span>
+                        <span class="token function">echo</span> <span class="token string">&quot;<span class="token variable">$name</span>小姐&quot;</span>
+                fi
+                <span class="token punctuation">;</span><span class="token punctuation">;</span>
+        <span class="token operator">*</span> <span class="token punctuation">)</span>
+                <span class="token function">echo</span> <span class="token string">&quot;你是泰国来的吗?&quot;</span>
+
+esac
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br><span class="line-number">33</span><br><span class="line-number">34</span><br><span class="line-number">35</span><br><span class="line-number">36</span><br><span class="line-number">37</span><br><span class="line-number">38</span><br><span class="line-number">39</span><br><span class="line-number">40</span><br><span class="line-number">41</span><br><span class="line-number">42</span><br><span class="line-number">43</span><br><span class="line-number">44</span><br><span class="line-number">45</span><br><span class="line-number">46</span><br><span class="line-number">47</span><br><span class="line-number">48</span><br><span class="line-number">49</span><br><span class="line-number">50</span><br><span class="line-number">51</span><br><span class="line-number">52</span><br><span class="line-number">53</span><br><span class="line-number">54</span><br><span class="line-number">55</span><br><span class="line-number">56</span><br><span class="line-number">57</span><br><span class="line-number">58</span><br><span class="line-number">59</span><br><span class="line-number">60</span><br><span class="line-number">61</span><br><span class="line-number">62</span><br><span class="line-number">63</span><br><span class="line-number">64</span><br></div></div><h3 id="二、函数"><a href="#二、函数" class="header-anchor">#</a> 二、函数</h3> <p>shell中允许将<strong>一组命令集合</strong>或<strong>语句</strong>形成一段<strong>可用代码</strong>，这些代码块称为shell函数。给这段代码起个名字称为函数名，后续可以直接调用该段代码的功能。</p> <h4 id="_2-1-函数定义"><a href="#_2-1-函数定义" class="header-anchor">#</a> 2.1 函数定义</h4> <div class="language-powershell line-numbers-mode"><pre class="language-powershell"><code>函数名<span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+  函数体（一堆命令的集合，来实现某个功能）   
+<span class="token punctuation">}</span>
+
+<span class="token keyword">function</span> 函数名<span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+   函数体（一堆命令的集合，来实现某个功能）  
+<span class="token punctuation">}</span>
+
+
+function_name<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+		command
+		command
+<span class="token punctuation">}</span>
+
+
+<span class="token keyword">function</span> function_name<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+		command
+		command
+<span class="token punctuation">}</span>
+
+
+函数中<span class="token keyword">return</span>说明：
+1<span class="token punctuation">.</span><span class="token keyword">return</span>可以结束一个函数，类似于前面讲的循环控制语句<span class="token keyword">break</span><span class="token punctuation">(</span>结束当前循环，执行循环体后面的代码<span class="token punctuation">)</span>
+2<span class="token punctuation">.</span><span class="token keyword">return</span>默认返回函数中最后一个命令的退出状态，也可以给定参数值，该参数值的范围是0-256之间。
+3<span class="token punctuation">.</span>如果没有<span class="token keyword">return</span>命令，函数将返回最后一个Shell的退出值。
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br></div></div><h4 id="_2-2-函数的调用"><a href="#_2-2-函数的调用" class="header-anchor">#</a> 2.2 函数的调用</h4> <ul><li>当前命令行调用</li></ul> <div class="language-powershell line-numbers-mode"><pre class="language-powershell"><code><span class="token namespace">[root@MissHou shell04]</span><span class="token comment"># cat fun1.sh </span>
+<span class="token comment">#!/bin/bash</span>
+hello<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+<span class="token function">echo</span> <span class="token string">&quot;hello lilei <span class="token variable">$1</span>&quot;</span>
+hostname
+<span class="token punctuation">}</span>
+menu<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+<span class="token function">cat</span> &lt;&lt;<span class="token operator">-</span>EOF
+1<span class="token punctuation">.</span> mysql
+2<span class="token punctuation">.</span> web
+3<span class="token punctuation">.</span> app
+4<span class="token punctuation">.</span> <span class="token keyword">exit</span>
+EOF
+<span class="token punctuation">}</span>
+
+<span class="token namespace">[root@MissHou shell04]</span><span class="token comment"># source fun1.sh </span>
+<span class="token namespace">[root@MissHou shell04]</span><span class="token comment"># . fun1.sh </span>
+
+<span class="token namespace">[root@MissHou shell04]</span><span class="token comment"># hello 888</span>
+hello lilei 888
+MissHou<span class="token punctuation">.</span>itcast<span class="token punctuation">.</span>cc
+<span class="token namespace">[root@MissHou shell04]</span><span class="token comment"># menu</span>
+1<span class="token punctuation">.</span> mysql
+2<span class="token punctuation">.</span> web
+3<span class="token punctuation">.</span> app
+4<span class="token punctuation">.</span> <span class="token keyword">exit</span>
+
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br></div></div><ul><li>定义到用户的环境变量中</li></ul> <div class="language-powershell line-numbers-mode"><pre class="language-powershell"><code>
+<span class="token operator">/</span>etc/profile	<span class="token operator">/</span>etc/bashrc		~<span class="token operator">/</span><span class="token punctuation">.</span>bash_profile	~<span class="token operator">/</span><span class="token punctuation">.</span>bashrc
+
+<span class="token namespace">[root@MissHou shell04]</span><span class="token comment"># cat ~/.bashrc </span>
+<span class="token comment"># .bashrc</span>
+
+<span class="token comment"># User specific aliases and functions</span>
+
+alias <span class="token function">rm</span>=<span class="token string">'rm -i'</span>
+alias <span class="token function">cp</span>=<span class="token string">'cp -i'</span>
+alias <span class="token function">mv</span>=<span class="token string">'mv -i'</span>
+<span class="token comment"># Source global definitions</span>
+<span class="token keyword">if</span> <span class="token punctuation">[</span> <span class="token operator">-</span>f <span class="token operator">/</span>etc/bashrc <span class="token punctuation">]</span><span class="token punctuation">;</span> then
+	<span class="token punctuation">.</span> <span class="token operator">/</span>etc/bashrc
+fi
+
+hello<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+<span class="token function">echo</span> <span class="token string">&quot;hello lilei <span class="token variable">$1</span>&quot;</span>
+hostname
+<span class="token punctuation">}</span>
+menu<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+<span class="token function">cat</span> &lt;&lt;<span class="token operator">-</span>EOF
+1<span class="token punctuation">.</span> mysql
+2<span class="token punctuation">.</span> web
+3<span class="token punctuation">.</span> app
+4<span class="token punctuation">.</span> <span class="token keyword">exit</span>
+EOF
+<span class="token punctuation">}</span>
+
+注意：
+当用户打开bash的时候会读取该文件
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br></div></div><ul><li>脚本中调用</li></ul> <div class="language-powershell line-numbers-mode"><pre class="language-powershell"><code><span class="token comment">#!/bin/bash</span>
+<span class="token comment">#打印菜单</span>
+source <span class="token punctuation">.</span><span class="token operator">/</span>fun1<span class="token punctuation">.</span>sh
+menu<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+<span class="token function">cat</span> &lt;&lt;<span class="token operator">-</span><span class="token keyword">END</span>
+	h	显示命令帮助
+	f	显示磁盘分区
+	d	显示磁盘挂载
+	m	查看内存使用
+	u	查看系统负载
+	q	退出程序
+	<span class="token keyword">END</span>
+<span class="token punctuation">}</span>
+menu		<span class="token operator">/</span><span class="token operator">/</span>调用函数
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br></div></div><h4 id="_2-3-应用案例"><a href="#_2-3-应用案例" class="header-anchor">#</a> 2.3 应用案例</h4> <p>需求：写一个脚本让用户输入基本信息(姓名，性别，年龄)，如不输入一直提示输入，最后根据用户的信息输出相对应的内容</p> <p>思路：</p> <ul><li>循环直到输入字符串不为空      (该功能可以定义为一个函数，方便下面脚本调用)</li> <li>根据用户输入信息做出匹配判断    case 语句</li></ul> <div class="language-powershell line-numbers-mode"><pre class="language-powershell"><code><span class="token comment">#!/bin/bash</span>
+<span class="token comment">#该函数实现用户如果不输入内容则一直循环直到用户输入为止，并且将用户输入的内容打印出来</span>
+input_fun<span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+  input_var=<span class="token string">&quot;&quot;</span>
+  output_var=<span class="token variable">$1</span>
+  <span class="token keyword">while</span> <span class="token punctuation">[</span> <span class="token operator">-</span>z <span class="token variable">$input_var</span> <span class="token punctuation">]</span>
+	<span class="token keyword">do</span>
+	read <span class="token operator">-</span>p <span class="token string">&quot;<span class="token variable">$output_var</span>&quot;</span> input_var
+	done
+	<span class="token function">echo</span> <span class="token variable">$input_var</span>
+<span class="token punctuation">}</span>
+
+input_fun 请输入你的姓名:
+
+或者
+<span class="token comment">#!/bin/bash</span>
+fun<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+read <span class="token operator">-</span>p <span class="token string">&quot;<span class="token variable">$1</span>&quot;</span> name
+<span class="token keyword">if</span> <span class="token punctuation">[</span> <span class="token operator">-</span>z <span class="token variable">$name</span> <span class="token punctuation">]</span><span class="token punctuation">;</span>then
+fun <span class="token variable">$1</span>
+<span class="token keyword">else</span>
+<span class="token function">echo</span> <span class="token variable">$name</span>
+fi
+<span class="token punctuation">}</span>
+
+
+<span class="token comment">#调用函数并且获取用户的姓名、性别、年龄分别赋值给name、sex、age变量</span>
+name=$<span class="token punctuation">(</span>input_fun 请输入你的姓名:<span class="token punctuation">)</span>
+sex=$<span class="token punctuation">(</span>input_fun 请输入你的性别:<span class="token punctuation">)</span>
+age=$<span class="token punctuation">(</span>input_fun 请输入你的年龄:<span class="token punctuation">)</span>
+
+<span class="token comment">#根据用户输入的性别进行匹配判断</span>
+case <span class="token variable">$sex</span> in
+			man<span class="token punctuation">)</span>
+			<span class="token keyword">if</span> <span class="token punctuation">[</span> <span class="token variable">$age</span> <span class="token operator">-gt</span> 18 <span class="token operator">-</span>a <span class="token variable">$age</span> <span class="token operator">-le</span> 35 <span class="token punctuation">]</span><span class="token punctuation">;</span>then
+				<span class="token function">echo</span> <span class="token string">&quot;中年大叔你油腻了吗？加油&quot;</span>
+			elif <span class="token punctuation">[</span> <span class="token variable">$age</span> <span class="token operator">-gt</span> 35 <span class="token punctuation">]</span><span class="token punctuation">;</span>then
+				<span class="token function">echo</span> <span class="token string">&quot;保温杯里泡枸杞&quot;</span>
+			<span class="token keyword">else</span>
+				<span class="token function">echo</span> <span class="token string">&quot;年轻有为。。。&quot;</span>
+			fi
+			<span class="token punctuation">;</span><span class="token punctuation">;</span>
+			woman<span class="token punctuation">)</span>
+			xxx
+			<span class="token punctuation">;</span><span class="token punctuation">;</span>
+			<span class="token operator">*</span><span class="token punctuation">)</span>
+			xxx
+			<span class="token punctuation">;</span><span class="token punctuation">;</span>
+esac
+
+	
+	
+描述以下代码含义：	
+:<span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+   :<span class="token punctuation">|</span>:&amp;
+<span class="token punctuation">}</span>
+:
+
+:<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>:<span class="token punctuation">|</span>:&amp;<span class="token punctuation">}</span>:
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br><span class="line-number">33</span><br><span class="line-number">34</span><br><span class="line-number">35</span><br><span class="line-number">36</span><br><span class="line-number">37</span><br><span class="line-number">38</span><br><span class="line-number">39</span><br><span class="line-number">40</span><br><span class="line-number">41</span><br><span class="line-number">42</span><br><span class="line-number">43</span><br><span class="line-number">44</span><br><span class="line-number">45</span><br><span class="line-number">46</span><br><span class="line-number">47</span><br><span class="line-number">48</span><br><span class="line-number">49</span><br><span class="line-number">50</span><br><span class="line-number">51</span><br><span class="line-number">52</span><br><span class="line-number">53</span><br><span class="line-number">54</span><br><span class="line-number">55</span><br><span class="line-number">56</span><br><span class="line-number">57</span><br><span class="line-number">58</span><br><span class="line-number">59</span><br><span class="line-number">60</span><br><span class="line-number">61</span><br></div></div><h3 id="三、综合案例"><a href="#三、综合案例" class="header-anchor">#</a> 三、综合案例</h3> <p><strong>任务/背景：</strong></p> <p>现有的跳板机虽然实现了统一入口来访问生产服务器，yunwei用户权限太大可以操作跳板机上的所有目录文件，存在数据被误删的安全隐患，所以希望你做一些安全策略来保证跳板机的正常使用。</p> <p><strong>具体要求：</strong></p> <ol><li>只允许yunwei用户通过跳板机远程连接后台的应用服务器做一些维护操作</li> <li>公司运维人员远程通过yunwei用户连接跳板机时，跳出以下菜单供选择：</li></ol> <div class="language-powershell line-numbers-mode"><pre class="language-powershell"><code>欢迎使用Jumper-server，请选择你要操作的主机：
+1<span class="token punctuation">.</span> DB1-Master
+2<span class="token punctuation">.</span> DB2-Slave
+3<span class="token punctuation">.</span> Web1
+4<span class="token punctuation">.</span> Web2
+h<span class="token punctuation">.</span> help
+q<span class="token punctuation">.</span> <span class="token keyword">exit</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br></div></div><ol start="3"><li>当用户选择相应主机后，直接<strong>免密码登录</strong>成功</li> <li>如果用户不输入一直提示用户输入，直到用户选择退出</li></ol> <p>分析：</p> <ol><li>==打印菜单——&gt;定义函数  echo   cat==</li> <li>==让用户选择需要操作的机器  case....esac==</li> <li>==配置免密登录==</li> <li>==每个菜单提供功能==——&gt;case...esac用户选择做的事情</li> <li>==循环让用户输入选择==</li> <li>每个功能写成函数——&gt;不是必须</li> <li>脚本放的位置——&gt;yunwei用户的家目录</li></ol> <div class="language-powershell line-numbers-mode"><pre class="language-powershell"><code><span class="token comment">#!/bin/bash</span>
+<span class="token comment"># jumper-server</span>
+<span class="token comment"># 定义菜单打印功能的函数</span>
+menu<span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+<span class="token function">cat</span> &lt;&lt;<span class="token operator">-</span>EOF
+欢迎使用Jumper-server，请选择你要操作的主机：
+1<span class="token punctuation">.</span> DB1-Master
+2<span class="token punctuation">.</span> DB2-Slave
+3<span class="token punctuation">.</span> Web1
+4<span class="token punctuation">.</span> Web2
+h<span class="token punctuation">.</span> help
+q<span class="token punctuation">.</span> <span class="token keyword">exit</span>
+	EOF
+<span class="token punctuation">}</span>
+
+<span class="token keyword">while</span> true
+<span class="token keyword">do</span>
+<span class="token comment"># 调用函数来打印菜单</span>
+clear
+menu
+<span class="token comment"># 菜单选择，case...esac语句</span>
+read <span class="token operator">-</span>p <span class="token string">&quot;请选择你要访问的主机:&quot;</span> host
+case <span class="token variable">$host</span> in
+	1<span class="token punctuation">)</span>
+	ssh root@10<span class="token punctuation">.</span>1<span class="token punctuation">.</span>1<span class="token punctuation">.</span>2
+	<span class="token punctuation">;</span><span class="token punctuation">;</span>
+	2<span class="token punctuation">)</span>
+	ssh root@10<span class="token punctuation">.</span>1<span class="token punctuation">.</span>1<span class="token punctuation">.</span>3
+	<span class="token punctuation">;</span><span class="token punctuation">;</span>
+	3<span class="token punctuation">)</span>
+	ssh root@10<span class="token punctuation">.</span>1<span class="token punctuation">.</span>1<span class="token punctuation">.</span>2
+	<span class="token punctuation">;</span><span class="token punctuation">;</span>
+	h<span class="token punctuation">)</span>
+	menu
+	<span class="token punctuation">;</span><span class="token punctuation">;</span>
+	q<span class="token punctuation">)</span>
+	<span class="token keyword">exit</span>
+	<span class="token punctuation">;</span><span class="token punctuation">;</span>
+esac
+done
+
+
+将脚本放到yunwei用户家目录里的<span class="token punctuation">.</span>bashrc里执行：
+bash ~<span class="token operator">/</span>jumper-server<span class="token punctuation">.</span>sh
+<span class="token keyword">exit</span>
+
+	
+<span class="token comment">#!/bin/bash</span>
+<span class="token comment">#公钥推送成功</span>
+<span class="token keyword">trap</span> <span class="token string">''</span> 1 2 3 19
+<span class="token comment">#打印菜单用户选择</span>
+menu<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+<span class="token function">cat</span> &lt;&lt;<span class="token operator">-</span>EOF
+欢迎使用Jumper-server，请选择你要操作的主机：
+1<span class="token punctuation">.</span> DB1-Master
+2<span class="token punctuation">.</span> DB2-Slave
+3<span class="token punctuation">.</span> Web1
+4<span class="token punctuation">.</span> Web2
+h<span class="token punctuation">.</span> help
+q<span class="token punctuation">.</span> <span class="token keyword">exit</span>
+EOF
+<span class="token punctuation">}</span>
+
+<span class="token comment">#调用函数来打印菜单</span>
+menu
+<span class="token keyword">while</span> true
+<span class="token keyword">do</span>
+read <span class="token operator">-</span>p <span class="token string">&quot;请输入你要选择的主机[h for help]：&quot;</span> host
+
+<span class="token comment">#通过case语句来匹配用户所输入的主机</span>
+case <span class="token variable">$host</span> in
+	1<span class="token punctuation">|</span>DB1<span class="token punctuation">)</span>
+	ssh root@10<span class="token punctuation">.</span>1<span class="token punctuation">.</span>1<span class="token punctuation">.</span>1
+	<span class="token punctuation">;</span><span class="token punctuation">;</span>
+	2<span class="token punctuation">|</span>DB2<span class="token punctuation">)</span>
+	ssh root@10<span class="token punctuation">.</span>1<span class="token punctuation">.</span>1<span class="token punctuation">.</span>2
+	<span class="token punctuation">;</span><span class="token punctuation">;</span>
+	3<span class="token punctuation">|</span>web1<span class="token punctuation">)</span>
+	ssh root@10<span class="token punctuation">.</span>1<span class="token punctuation">.</span>1<span class="token punctuation">.</span>250
+	<span class="token punctuation">;</span><span class="token punctuation">;</span>
+	h<span class="token punctuation">|</span>help<span class="token punctuation">)</span>
+	clear<span class="token punctuation">;</span>menu
+	<span class="token punctuation">;</span><span class="token punctuation">;</span>
+	q<span class="token punctuation">|</span>quit<span class="token punctuation">)</span>
+	<span class="token keyword">exit</span>
+	<span class="token punctuation">;</span><span class="token punctuation">;</span>
+esac
+done
+
+
+<span class="token comment">#!/bin/bash</span>
+<span class="token comment">#jumper-server</span>
+<span class="token comment">#菜单打印</span>
+<span class="token keyword">trap</span> <span class="token string">''</span> 1 2 3 
+<span class="token keyword">while</span> true
+<span class="token keyword">do</span>
+<span class="token function">cat</span> &lt;&lt;<span class="token operator">-</span><span class="token keyword">END</span>
+欢迎使用Jumper-server，请选择你要操作的主机：
+1<span class="token punctuation">.</span> DB1-Master
+2<span class="token punctuation">.</span> DB2-Slave
+3<span class="token punctuation">.</span> Web1
+4<span class="token punctuation">.</span> Web2
+5<span class="token punctuation">.</span> <span class="token keyword">exit</span>
+<span class="token keyword">END</span>
+<span class="token comment">#让用户选择相应的操作</span>
+read <span class="token operator">-</span>p <span class="token string">&quot;请输入你要操作的主机：&quot;</span> host
+case <span class="token variable">$host</span> in
+	1<span class="token punctuation">)</span>
+	ssh root@10<span class="token punctuation">.</span>1<span class="token punctuation">.</span>1<span class="token punctuation">.</span>2
+	<span class="token punctuation">;</span><span class="token punctuation">;</span>
+	2<span class="token punctuation">)</span>
+	ssh root@10<span class="token punctuation">.</span>1<span class="token punctuation">.</span>1<span class="token punctuation">.</span>3
+	<span class="token punctuation">;</span><span class="token punctuation">;</span>
+	3<span class="token punctuation">)</span>
+	ssh root@10<span class="token punctuation">.</span>1<span class="token punctuation">.</span>1<span class="token punctuation">.</span>4
+	<span class="token punctuation">;</span><span class="token punctuation">;</span>
+	5<span class="token punctuation">)</span>
+	<span class="token keyword">exit</span>
+	<span class="token punctuation">;</span><span class="token punctuation">;</span>
+	<span class="token operator">*</span><span class="token punctuation">)</span>
+	clear
+	<span class="token function">echo</span> <span class="token string">&quot;输入错误，请重新输入...&quot;</span>
+	<span class="token punctuation">;</span><span class="token punctuation">;</span>
+esac
+done
+
+自己完善功能：
+1<span class="token punctuation">.</span> 用户选择主机后，需要事先推送公钥；如何判断公钥是否已推
+2<span class="token punctuation">.</span> 比如选择web1时，再次提示需要做的操作，比如：
+clean log
+重启服务
+<span class="token function">kill</span>某个进程
+
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br><span class="line-number">33</span><br><span class="line-number">34</span><br><span class="line-number">35</span><br><span class="line-number">36</span><br><span class="line-number">37</span><br><span class="line-number">38</span><br><span class="line-number">39</span><br><span class="line-number">40</span><br><span class="line-number">41</span><br><span class="line-number">42</span><br><span class="line-number">43</span><br><span class="line-number">44</span><br><span class="line-number">45</span><br><span class="line-number">46</span><br><span class="line-number">47</span><br><span class="line-number">48</span><br><span class="line-number">49</span><br><span class="line-number">50</span><br><span class="line-number">51</span><br><span class="line-number">52</span><br><span class="line-number">53</span><br><span class="line-number">54</span><br><span class="line-number">55</span><br><span class="line-number">56</span><br><span class="line-number">57</span><br><span class="line-number">58</span><br><span class="line-number">59</span><br><span class="line-number">60</span><br><span class="line-number">61</span><br><span class="line-number">62</span><br><span class="line-number">63</span><br><span class="line-number">64</span><br><span class="line-number">65</span><br><span class="line-number">66</span><br><span class="line-number">67</span><br><span class="line-number">68</span><br><span class="line-number">69</span><br><span class="line-number">70</span><br><span class="line-number">71</span><br><span class="line-number">72</span><br><span class="line-number">73</span><br><span class="line-number">74</span><br><span class="line-number">75</span><br><span class="line-number">76</span><br><span class="line-number">77</span><br><span class="line-number">78</span><br><span class="line-number">79</span><br><span class="line-number">80</span><br><span class="line-number">81</span><br><span class="line-number">82</span><br><span class="line-number">83</span><br><span class="line-number">84</span><br><span class="line-number">85</span><br><span class="line-number">86</span><br><span class="line-number">87</span><br><span class="line-number">88</span><br><span class="line-number">89</span><br><span class="line-number">90</span><br><span class="line-number">91</span><br><span class="line-number">92</span><br><span class="line-number">93</span><br><span class="line-number">94</span><br><span class="line-number">95</span><br><span class="line-number">96</span><br><span class="line-number">97</span><br><span class="line-number">98</span><br><span class="line-number">99</span><br><span class="line-number">100</span><br><span class="line-number">101</span><br><span class="line-number">102</span><br><span class="line-number">103</span><br><span class="line-number">104</span><br><span class="line-number">105</span><br><span class="line-number">106</span><br><span class="line-number">107</span><br><span class="line-number">108</span><br><span class="line-number">109</span><br><span class="line-number">110</span><br><span class="line-number">111</span><br><span class="line-number">112</span><br><span class="line-number">113</span><br><span class="line-number">114</span><br><span class="line-number">115</span><br><span class="line-number">116</span><br><span class="line-number">117</span><br><span class="line-number">118</span><br><span class="line-number">119</span><br><span class="line-number">120</span><br><span class="line-number">121</span><br><span class="line-number">122</span><br><span class="line-number">123</span><br><span class="line-number">124</span><br><span class="line-number">125</span><br><span class="line-number">126</span><br><span class="line-number">127</span><br><span class="line-number">128</span><br><span class="line-number">129</span><br><span class="line-number">130</span><br><span class="line-number">131</span><br><span class="line-number">132</span><br><span class="line-number">133</span><br><span class="line-number">134</span><br><span class="line-number">135</span><br></div></div><p>补充：</p> <div class="language-powershell line-numbers-mode"><pre class="language-powershell"><code>1<span class="token punctuation">)</span> SIGHUP 		重新加载配置    
+2<span class="token punctuation">)</span> SIGINT		键盘中断^C
+3<span class="token punctuation">)</span> SIGQUIT      键盘退出
+9<span class="token punctuation">)</span> SIGKILL		 强制终止
+15<span class="token punctuation">)</span> SIGTERM	    终止（正常结束），缺省信号
+18<span class="token punctuation">)</span> SIGCONT	   继续
+19<span class="token punctuation">)</span> SIGSTOP	   停止
+20<span class="token punctuation">)</span> SIGTSTP     暂停^Z
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br></div></div><h3 id="四、正则表达式"><a href="#四、正则表达式" class="header-anchor">#</a> 四、正则表达式</h3> <h4 id="_1-什么是正则表达式"><a href="#_1-什么是正则表达式" class="header-anchor">#</a> 1. 什么是正则表达式</h4> <p><strong>正则表达式</strong>（Regular Expression、regex或regexp，缩写为RE），也译为正规表示法、常规表示法，是一种字符模式，用于在查找过程中匹配指定的字符。</p> <p>许多程序设计语言都支持利用正则表达式进行<strong>字符串操作</strong>。例如，在Perl中就内建了一个功能强大的正则表达式引擎。</p> <p>正则表达式这个概念最初是由Unix中的工具软件（例如sed和grep）普及开的。</p> <p>支持正则表达式的程序如：locate |find| vim| grep| sed |awk</p> <h4 id="_2-第一类正则"><a href="#_2-第一类正则" class="header-anchor">#</a> 2. 第一类正则</h4> <ul><li>名词解释：</li></ul> <p><strong>元字符</strong>:指那些在正则表达式中具有<strong>特殊意义的专用字符</strong>,如:点(.) 星(*) 问号(?)等</p> <p><strong>前导字符</strong>：即位于元字符前面的字符		ab**==c==***   aoo**==o==.**</p> <ul><li>正则中常用的元字符</li></ul> <p>示例文本：</p> <div class="language-powershell line-numbers-mode"><pre class="language-powershell"><code><span class="token namespace">[root@server ~]</span><span class="token comment"># cat 1.txt</span>
+ggle
+gogle
+google
+gooogle
+goooooogle
+gooooooogle
+taobao<span class="token punctuation">.</span>com
+taotaobaobao<span class="token punctuation">.</span>com
+
+jingdong<span class="token punctuation">.</span>com
+dingdingdongdong<span class="token punctuation">.</span>com
+10<span class="token punctuation">.</span>1<span class="token punctuation">.</span>1<span class="token punctuation">.</span>1
+Adfjd8789JHfdsdf/
+a87fdjfkdLKJK
+7kdjfd989KJK<span class="token punctuation">;</span>
+bSKJjkksdjf878<span class="token punctuation">.</span>
+cidufKJHJ6576<span class="token punctuation">,</span>
+
+hello world
+helloworld yourself
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br></div></div><div class="language-powershell line-numbers-mode"><pre class="language-powershell"><code>（1）<span class="token punctuation">.</span>		任意单个字符，除了换行符 
+（2）<span class="token operator">*</span>		前导字符出现0次或连续多次  ab*能匹配“a”，“ab”以及“abb”，但是不匹配“cb”
+（3）<span class="token punctuation">.</span><span class="token operator">*</span>		任意长度的字符  ab<span class="token punctuation">.</span><span class="token operator">*</span>  ab123 abbb abab
+（4）^		行的开头
+（5）$		行的结尾
+（6）^$		空行
+
+
+（7）<span class="token punctuation">[</span><span class="token punctuation">]</span>		匹配指定字符组内的任一单个字符   <span class="token namespace">[abc]</span>
+（8）<span class="token punctuation">[</span>^<span class="token punctuation">]</span>	匹配不在指定字符组内的任一字符 	<span class="token punctuation">[</span>^abc<span class="token punctuation">]</span>
+
+（9）^<span class="token punctuation">[</span><span class="token punctuation">]</span>	匹配以指定字符组内的任一字符开头   ^<span class="token namespace">[abc]</span>
+（10）^<span class="token punctuation">[</span>^<span class="token punctuation">]</span>	匹配不以指定字符组内的任一字符开头  ^<span class="token punctuation">[</span>^abc<span class="token punctuation">]</span> 
+
+
+
+（11）\&lt;		取单词的头
+（12）\&gt;		取单词的尾
+（13）\&lt;\&gt;		精确匹配符号 	grep <span class="token operator">-</span>w <span class="token string">'xxx'</span>
+
+
+（14）\<span class="token punctuation">{</span>n\<span class="token punctuation">}</span>	匹配前导字符连续出现n次    go\<span class="token punctuation">{</span>2\<span class="token punctuation">}</span>   google  gooogle
+（15）\<span class="token punctuation">{</span>n<span class="token punctuation">,</span>\<span class="token punctuation">}</span>	匹配前导字符至少出现n次 
+（16）\<span class="token punctuation">{</span>n<span class="token punctuation">,</span>m\<span class="token punctuation">}</span>	匹配前导字符出现n次与m次之间 
+
+
+ <span class="token punctuation">(</span>17<span class="token punctuation">)</span> \<span class="token punctuation">(</span>strings\<span class="token punctuation">)</span>	保存被匹配的字符
+
+
+将192<span class="token punctuation">.</span>168<span class="token punctuation">.</span>0<span class="token punctuation">.</span>254 换成 192<span class="token punctuation">.</span>168<span class="token punctuation">.</span>1<span class="token punctuation">.</span>254
+vim 1<span class="token punctuation">.</span>txt
+:<span class="token operator">%</span>s<span class="token comment">#\(192\.168\)\.0\.\(254\)#\1\.100\.\2	//底行模式下匹配</span>
+将10<span class="token punctuation">.</span>1<span class="token punctuation">.</span>1<span class="token punctuation">.</span>1替换成10<span class="token punctuation">.</span>1<span class="token punctuation">.</span>1<span class="token punctuation">.</span>254
+:<span class="token operator">%</span>s<span class="token comment">#\(10.1.1\).1#\1.254#g </span>
+:<span class="token operator">%</span>s/\<span class="token punctuation">(</span>10<span class="token punctuation">.</span>1<span class="token punctuation">.</span>1\<span class="token punctuation">)</span><span class="token punctuation">.</span>1/\1<span class="token punctuation">.</span>254/g 
+
+<span class="token comment"># sed -n 's#\(192\.168\)\.0\.254#\1\.1\.254#p'      </span>
+找出含有192<span class="token punctuation">.</span>168的行，同时保留192<span class="token punctuation">.</span>168并标记为标签1，之后可以使用\1来引用它。最多可以定义9个标签，从左边开始编号，最左边的是第一个。
+
+<span class="token namespace">[root@server shell05]</span><span class="token comment"># sed -n 's#10.1.1.1#10.1.1.254#p' 1.txt</span>
+10<span class="token punctuation">.</span>1<span class="token punctuation">.</span>1<span class="token punctuation">.</span>254
+<span class="token namespace">[root@server shell05]</span><span class="token comment"># sed -n 's#\(10.1.1\).1#\1.254#p' 1.txt</span>
+10<span class="token punctuation">.</span>1<span class="token punctuation">.</span>1<span class="token punctuation">.</span>254
+
+将helloworld yourself 换成hellolilei myself
+
+vim 1<span class="token punctuation">.</span>txt
+:<span class="token operator">%</span>s<span class="token comment">#\(hello\)world your\(self\)#\1lilei my\2#g</span>
+
+<span class="token comment"># sed -n 's/\(hello\)world your\(self\)/\1lilei my\2/p' 1.txt </span>
+hellolilei myself
+
+<span class="token namespace">[root@server shell05]</span><span class="token comment"># sed -n 's/helloworld yourself/hellolilei myself/p' 1.txt </span>
+hellolilei myself
+<span class="token namespace">[root@server shell05]</span><span class="token comment"># sed -n 's/\(hello\)world your\(self\)/\1lilei my\2/p' 1.txt </span>
+hellolilei myself
+
+
+
+<span class="token punctuation">[</span>0-9<span class="token punctuation">]</span> <span class="token namespace">[a-z]</span> <span class="token namespace">[A-Z]</span> <span class="token namespace">[a-zA-Z]</span> <span class="token namespace">[a-Z]</span>
+=================================================================================
+Perl内置正则：
+\d      匹配数字  <span class="token punctuation">[</span>0-9<span class="token punctuation">]</span>
+\w      匹配字母数字下划线<span class="token namespace">[a-zA-Z0-9_]</span>
+\s      匹配空格、制表符、换页符<span class="token punctuation">[</span>\t\r\n<span class="token punctuation">]</span>
+
+<span class="token comment">#grep -P '\d' test.txt</span>
+<span class="token comment">#grep -P '\w' test.txt</span>
+<span class="token comment">#grep -P '\s' test.txt</span>
+
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br><span class="line-number">33</span><br><span class="line-number">34</span><br><span class="line-number">35</span><br><span class="line-number">36</span><br><span class="line-number">37</span><br><span class="line-number">38</span><br><span class="line-number">39</span><br><span class="line-number">40</span><br><span class="line-number">41</span><br><span class="line-number">42</span><br><span class="line-number">43</span><br><span class="line-number">44</span><br><span class="line-number">45</span><br><span class="line-number">46</span><br><span class="line-number">47</span><br><span class="line-number">48</span><br><span class="line-number">49</span><br><span class="line-number">50</span><br><span class="line-number">51</span><br><span class="line-number">52</span><br><span class="line-number">53</span><br><span class="line-number">54</span><br><span class="line-number">55</span><br><span class="line-number">56</span><br><span class="line-number">57</span><br><span class="line-number">58</span><br><span class="line-number">59</span><br><span class="line-number">60</span><br><span class="line-number">61</span><br><span class="line-number">62</span><br><span class="line-number">63</span><br><span class="line-number">64</span><br><span class="line-number">65</span><br><span class="line-number">66</span><br><span class="line-number">67</span><br><span class="line-number">68</span><br><span class="line-number">69</span><br><span class="line-number">70</span><br><span class="line-number">71</span><br></div></div><ul><li>扩展类的正则表达式 grep -E 或则 egrep</li></ul> <div class="language-powershell line-numbers-mode"><pre class="language-powershell"><code>扩展正则表达式元字符
+<span class="token operator">+</span>			匹配一个或多个前导字符		bo+	boo bo
+?			匹配零个或一个前导字符		bo?	b bo
+
+a<span class="token punctuation">|</span>b		匹配a或b
+<span class="token punctuation">(</span><span class="token punctuation">)</span>			组字符	   hello myself yourself     <span class="token punctuation">(</span>my<span class="token punctuation">|</span>your<span class="token punctuation">)</span>self
+
+<span class="token punctuation">{</span>n<span class="token punctuation">}</span>		前导字符重复n次			\<span class="token punctuation">{</span>n\<span class="token punctuation">}</span>
+<span class="token punctuation">{</span>n<span class="token punctuation">,</span><span class="token punctuation">}</span>		前导字符重复至少n次	  \<span class="token punctuation">{</span>n<span class="token punctuation">,</span>\<span class="token punctuation">}</span>
+<span class="token punctuation">{</span>n<span class="token punctuation">,</span>m<span class="token punctuation">}</span>		前导字符重复n到m次		\<span class="token punctuation">{</span>n<span class="token punctuation">,</span>m\<span class="token punctuation">}</span>
+
+
+<span class="token comment"># grep &quot;root|ftp|adm&quot; /etc/passwd</span>
+<span class="token comment"># egrep &quot;root|ftp|adm&quot; /etc/passwd</span>
+<span class="token comment"># grep -E &quot;root|ftp|adm&quot; /etc/passwd</span>
+
+<span class="token comment"># grep -E 'o+gle' test.txt </span>
+<span class="token comment"># grep -E 'o?gle' test.txt </span>
+
+<span class="token comment"># egrep 'go{2,}' 1.txt</span>
+<span class="token comment"># egrep '(my|your)self' 1.txt</span>
+
+
+<span class="token namespace">[root@jumper shell06]</span><span class="token comment"># grep '[0-9]\{2\}\.[0-9]\{1\}\.[0-9]\{1\}\.[0-9]\{1\}' 1.txt </span>
+10<span class="token punctuation">.</span>1<span class="token punctuation">.</span>1<span class="token punctuation">.</span>1
+<span class="token namespace">[root@jumper shell06]</span><span class="token comment"># grep '[0-9]{2}\.[0-9]{1}\.[0-9]{1}\.[0-9]{1}' 1.txt </span>
+<span class="token namespace">[root@jumper shell06]</span><span class="token comment"># grep -E '[0-9]{2}\.[0-9]{1}\.[0-9]{1}\.[0-9]{1}' 1.txt </span>
+10<span class="token punctuation">.</span>1<span class="token punctuation">.</span>1<span class="token punctuation">.</span>1
+<span class="token namespace">[root@jumper shell06]</span><span class="token comment"># grep -E '[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}' 1.txt </span>
+10<span class="token punctuation">.</span>1<span class="token punctuation">.</span>1<span class="token punctuation">.</span>1
+<span class="token namespace">[root@jumper shell06]</span><span class="token comment"># grep -E '([0-9]{1,3}\.){3}[0-9]{1,3}' 1.txt </span>
+10<span class="token punctuation">.</span>1<span class="token punctuation">.</span>1<span class="token punctuation">.</span>1
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br><span class="line-number">33</span><br></div></div><h4 id="_3-第二类正则"><a href="#_3-第二类正则" class="header-anchor">#</a> 3. 第二类正则</h4> <table><thead><tr><th>表达式</th> <th>功能</th> <th>示例</th></tr></thead> <tbody><tr><td>[:alnum:]</td> <td>字母与数字字符</td> <td>[[:alnum:]]+</td></tr> <tr><td>[:alpha:]</td> <td>字母字符(包括大小写字母)</td> <td>[[:alpha:]]{4}</td></tr> <tr><td>[:blank:]</td> <td>空格与制表符</td> <td>[[:blank:]]*</td></tr> <tr><td>[:digit:]</td> <td>数字</td> <td>[[:digit:]]?</td></tr> <tr><td>[:lower:]</td> <td>小写字母</td> <td>[[:lower:]]{4,}</td></tr> <tr><td>[:upper:]</td> <td>大写字母</td> <td>[[:upper:]]+</td></tr> <tr><td>[:punct:]</td> <td>标点符号</td> <td>[[:punct:]]</td></tr> <tr><td>[:space:]</td> <td>包括换行符，回车等在内的所有空白</td> <td>[[:space:]]+</td></tr></tbody></table> <div class="language-powershell line-numbers-mode"><pre class="language-powershell"><code><span class="token namespace">[root@server shell05]</span><span class="token comment"># grep -E '^[[:digit:]]+' 1.txt</span>
+<span class="token namespace">[root@server shell05]</span><span class="token comment"># grep -E '^[^[:digit:]]+' 1.txt</span>
+<span class="token namespace">[root@server shell05]</span><span class="token comment"># grep -E '[[:lower:]]{4,}' 1.txt</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br></div></div><h4 id="_4-课堂作业"><a href="#_4-课堂作业" class="header-anchor">#</a> 4. 课堂作业</h4> <div class="language-powershell line-numbers-mode"><pre class="language-powershell"><code>在自己虚拟机里创建如下内容的文件：
+<span class="token comment"># cat test.txt </span>
+Aieur45869Root0000
+9h847RkjfkIIIhello
+rootHllow88000dfjj
+8ikuioerhfhupliooking
+hello world
+192<span class="token punctuation">.</span>168<span class="token punctuation">.</span>0<span class="token punctuation">.</span>254
+welcome to uplooking<span class="token punctuation">.</span>
+abcderfkdjfkdtest
+rlllA899kdfkdfj
+iiiA848890ldkfjdkfj
+abc
+12345678908374
+123456@qq<span class="token punctuation">.</span>com
+123456@163<span class="token punctuation">.</span>com
+abcdefg@itcast<span class="token punctuation">.</span>com23ed
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br></div></div><p>要求如下：</p> <div class="language-powershell line-numbers-mode"><pre class="language-powershell"><code>1、查找不以大写字母开头的行（三种写法）。
+2、查找有数字的行（两种写法）
+3、查找一个数字和一个字母连起来的
+4、查找不以r开头的行
+5、查找以数字开头的
+6、查找以大写字母开头的
+7、查找以小写字母开头的 
+8、查找以点结束的
+9、去掉空行
+10、查找完全匹配abc的行
+11、查找A后有三个数字的行
+12、统计root在<span class="token operator">/</span>etc/passwd里出现了几次
+13、用正则表达式找出自己的IP地址、广播地址、子网掩码
+ifconfig eth0<span class="token punctuation">|</span>grep Bcast<span class="token punctuation">|</span>grep <span class="token operator">-</span>o <span class="token string">'[0-9]\{1,3\}\.[0-9]\{1,3\}\.[0-9]\{1,3\}\.[0-9]\{1,3\}'</span>
+ifconfig eth0<span class="token punctuation">|</span>grep Bcast<span class="token punctuation">|</span> grep <span class="token operator">-</span>E <span class="token operator">-</span>o <span class="token string">'([0-9]{1,3}.){3}[0-9]{1,3}'</span>
+ifconfig eth0<span class="token punctuation">|</span>grep Bcast<span class="token punctuation">|</span> grep <span class="token operator">-</span>P <span class="token operator">-</span>o <span class="token string">'\d{1,3}.\d{1,3}.\d{1,3}.\d{1,3}'</span>
+ifconfig eth0<span class="token punctuation">|</span>grep Bcast<span class="token punctuation">|</span> grep <span class="token operator">-</span>P <span class="token operator">-</span>o <span class="token string">'(\d{1,3}.){3}\d{1,3}'</span>
+ifconfig eth0<span class="token punctuation">|</span>grep Bcast<span class="token punctuation">|</span> grep <span class="token operator">-</span>P <span class="token operator">-</span>o <span class="token string">'(\d+.){3}\d+'</span>
+
+<span class="token comment"># egrep --color '[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}' /etc/sysconfig/network-scripts/ifcfg-eth0</span>
+IPADDR=10<span class="token punctuation">.</span>1<span class="token punctuation">.</span>1<span class="token punctuation">.</span>1
+NETMASK=255<span class="token punctuation">.</span>255<span class="token punctuation">.</span>255<span class="token punctuation">.</span>0
+GATEWAY=10<span class="token punctuation">.</span>1<span class="token punctuation">.</span>1<span class="token punctuation">.</span>254
+
+<span class="token comment"># egrep --color '[[:digit:]]{1,3}\.[[:digit:]]{1,3}\.[[:digit:]]{1,3}\.[[:digit:]]{1,3}' /etc/sysconfig/network-scripts/ifcfg-eth0 </span>
+IPADDR=10<span class="token punctuation">.</span>1<span class="token punctuation">.</span>1<span class="token punctuation">.</span>1
+NETMASK=255<span class="token punctuation">.</span>255<span class="token punctuation">.</span>255<span class="token punctuation">.</span>0
+GATEWAY=10<span class="token punctuation">.</span>1<span class="token punctuation">.</span>1<span class="token punctuation">.</span>254
+
+
+14、找出文件中的ip地址并且打印替换成172<span class="token punctuation">.</span>16<span class="token punctuation">.</span>2<span class="token punctuation">.</span>254
+grep <span class="token operator">-</span>o <span class="token operator">-</span>E <span class="token string">'([0-9]{1,3}\.){3}[0-9]{1,3}'</span> 1<span class="token punctuation">.</span>txt <span class="token punctuation">|</span>sed <span class="token operator">-</span>n <span class="token string">'s/192.168.0.\(254\)/172.16.2.\1/p'</span>
+
+15、找出文件中的ip地址
+grep <span class="token operator">-</span>o <span class="token operator">-</span>E <span class="token string">'([0-9]{1,3}\.){3}[0-9]{1,3}'</span> 1<span class="token punctuation">.</span>txt
+
+16、找出全部是数字的行
+grep <span class="token operator">-</span>E <span class="token string">'^[0-9]+$'</span> test
+17、找出邮箱地址
+grep <span class="token operator">-</span>E <span class="token string">'^[0-9]+@[a-z0-9]+\.[a-z]+$'</span>
+
+
+grep <span class="token operator">--</span>help:
+匹配模式选择：
+Regexp selection and interpretation:
+  <span class="token operator">-</span>E<span class="token punctuation">,</span> <span class="token operator">--</span>extended-regexp     扩展正则
+  <span class="token operator">-</span>G<span class="token punctuation">,</span> <span class="token operator">--</span>basic-regexp        基本正则
+  <span class="token operator">-</span>P<span class="token punctuation">,</span> <span class="token operator">--</span>perl-regexp         调用perl的正则
+  <span class="token operator">-</span>e<span class="token punctuation">,</span> <span class="token operator">--</span>regexp=PATTERN      use PATTERN <span class="token keyword">for</span> matching
+  <span class="token operator">-</span>f<span class="token punctuation">,</span> <span class="token operator">--</span>file=FILE           obtain PATTERN <span class="token keyword">from</span> FILE
+  <span class="token operator">-</span>i<span class="token punctuation">,</span> <span class="token operator">--</span>ignore-case         忽略大小写
+  <span class="token operator">-</span>w<span class="token punctuation">,</span> <span class="token operator">--</span>word-regexp         匹配整个单词
+  
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br><span class="line-number">33</span><br><span class="line-number">34</span><br><span class="line-number">35</span><br><span class="line-number">36</span><br><span class="line-number">37</span><br><span class="line-number">38</span><br><span class="line-number">39</span><br><span class="line-number">40</span><br><span class="line-number">41</span><br><span class="line-number">42</span><br><span class="line-number">43</span><br><span class="line-number">44</span><br><span class="line-number">45</span><br><span class="line-number">46</span><br><span class="line-number">47</span><br><span class="line-number">48</span><br><span class="line-number">49</span><br><span class="line-number">50</span><br><span class="line-number">51</span><br><span class="line-number">52</span><br><span class="line-number">53</span><br></div></div><h3 id="五、正则总结"><a href="#五、正则总结" class="header-anchor">#</a> 五、正则总结</h3> <p>元字符：在正则中，具有特殊意义的专用字符。.  *</p> <p>前导字符：元字符前面的字符叫前导字符</p> <table><thead><tr><th>元字符</th> <th>字符说明</th> <th>示例</th></tr></thead> <tbody><tr><td>*</td> <td>前导字符出现0次或者连续多次</td> <td>ab*  abbbb</td></tr> <tr><td>.</td> <td>除了换行符以外，任意单个字符</td> <td>ab.   ab8 abu</td></tr> <tr><td>.*</td> <td>任意长度的字符</td> <td>ab.*  adfdfdf</td></tr> <tr><td>[]</td> <td>括号里的任意单个字符或一组单个字符</td> <td>[abc][0-9][a-z]</td></tr> <tr><td>[^]</td> <td>不匹配括号里的任意单个字符或一组单个字符</td> <td>[^abc]</td></tr> <tr><td>^[]</td> <td>匹配以括号里的任意单个字符开头</td> <td>^[abc]</td></tr> <tr><td>^[^]</td> <td>不匹配以括号里的任意单个字符开头</td> <td></td></tr> <tr><td>^</td> <td>行的开头</td> <td>^root</td></tr> <tr><td>$</td> <td>行的结尾</td> <td>bash$</td></tr> <tr><td>^$</td> <td>空行</td> <td></td></tr> <tr><td>\{n\}和{n}</td> <td>前导字符连续出现n次</td> <td>[0-9]\{3\}</td></tr> <tr><td>\{n,\}和{n,}</td> <td>前导字符至少出现n次</td> <td>[a-z]{4,}</td></tr> <tr><td>\{n,m\}和{n,m}</td> <td>前导字符连续出现n-m次</td> <td>go{2,4}</td></tr> <tr><td>\&lt;\&gt;</td> <td>精确匹配单词</td> <td>\&lt;hello\&gt;</td></tr> <tr><td>\(\)</td> <td>保留匹配到的字符</td> <td>\(hello\)</td></tr> <tr><td>+</td> <td>前导字符出现1次或者多次</td> <td>[0-9]+</td></tr> <tr><td>?</td> <td>前导字符出现0次或者1次</td> <td>go?</td></tr> <tr><td>|</td> <td>或</td> <td>^root|^ftp</td></tr> <tr><td>()</td> <td>组字符</td> <td>(hello|world)123</td></tr> <tr><td>\d</td> <td>perl内置正则</td> <td>grep -P  \d+</td></tr> <tr><td>\w</td> <td>匹配字母数字下划线</td> <td></td></tr></tbody></table> <h3 id="六、课后作业"><a href="#六、课后作业" class="header-anchor">#</a> 六、课后作业</h3> <p>写一个自动搭建apache服务的脚本，要求如下：
+1、用户输入web服务器的IP、域名以及数据根目录
+2、如果用户不输入则一直提示输入，直到输入为止
+3、当访问www.test.cc时可以访问到数据根目录里的首页文件“this is test page”</p> <div class="language-powershell line-numbers-mode"><pre class="language-powershell"><code>参考：
+<span class="token comment">#!/bin/bash</span>
+conf=<span class="token operator">/</span>etc/httpd/conf/httpd<span class="token punctuation">.</span>conf
+input_fun<span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+  input_var=<span class="token string">&quot;&quot;</span>
+  output_var=<span class="token variable">$1</span>
+  <span class="token keyword">while</span> <span class="token punctuation">[</span> <span class="token operator">-</span>z <span class="token variable">$input_var</span> <span class="token punctuation">]</span>
+	<span class="token keyword">do</span>
+	read <span class="token operator">-</span>p <span class="token string">&quot;<span class="token variable">$output_var</span>&quot;</span> input_var
+	done
+	<span class="token function">echo</span> <span class="token variable">$input_var</span>
+<span class="token punctuation">}</span>
+ipaddr=$<span class="token punctuation">(</span>input_fun <span class="token string">&quot;Input Host ip[192.168.0.1]:&quot;</span><span class="token punctuation">)</span>
+web_host_name=$<span class="token punctuation">(</span>input_fun <span class="token string">&quot;Input VirtualHostName [www.test.cc]:&quot;</span><span class="token punctuation">)</span>
+root_dir=$<span class="token punctuation">(</span>input_fun <span class="token string">&quot;Input host Documentroot dir:[/var/www/html]:&quot;</span><span class="token punctuation">)</span>
+
+<span class="token punctuation">[</span> <span class="token operator">!</span> <span class="token operator">-</span>d <span class="token variable">$root_dir</span> <span class="token punctuation">]</span> &amp;&amp; mkdir <span class="token operator">-</span>p <span class="token variable">$root_dir</span>
+chown apache<span class="token punctuation">.</span>apache <span class="token variable">$root_dir</span> &amp;&amp; chmod 755 <span class="token variable">$root_dir</span>
+<span class="token function">echo</span> this is <span class="token variable">$web_host_name</span> &gt; <span class="token variable">$root_dir</span><span class="token operator">/</span>index<span class="token punctuation">.</span>html
+<span class="token function">echo</span> <span class="token string">&quot;<span class="token variable">$ipaddr</span> <span class="token variable">$web_host_name</span>&quot;</span> &gt;&gt; <span class="token operator">/</span>etc/hosts
+
+<span class="token punctuation">[</span> <span class="token operator">-</span>f <span class="token variable">$conf</span> <span class="token punctuation">]</span> &amp;&amp; <span class="token function">cat</span> &gt;&gt; <span class="token variable">$conf</span> &lt;&lt;<span class="token keyword">end</span>
+NameVirtualHost <span class="token variable">$ipaddr</span>:80
+&lt;VirtualHost <span class="token variable">$ipaddr</span>:80&gt;
+	ServerAdmin webmaster@<span class="token variable">$web_host_name</span>
+	DocumentRoot <span class="token variable">$root_dir</span>
+	ServerName <span class="token variable">$web_host_name</span>
+	ErrorLog logs/<span class="token variable">$web_host_name</span><span class="token operator">-</span>error_log
+	CustomLog logs/<span class="token variable">$web_host_name</span><span class="token operator">-</span>access_loh common
+&lt;<span class="token operator">/</span>VirtualHost&gt;
+<span class="token keyword">end</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br></div></div></div></div> <!----> <div class="page-edit"><!----> <!----> <!----></div> <div class="page-nav-wapper"><div class="page-nav-centre-wrap"><a href="/pages/a7f796/" class="page-nav-centre page-nav-centre-prev"><div class="tooltip">SHELL编程之嵌套循环+随机数及综合案例</div></a> <a href="/pages/b7c6f0/" class="page-nav-centre page-nav-centre-next"><div class="tooltip">SHELL编程之CASE语句+函数+正则</div></a></div> <div class="page-nav"><p class="inner"><span class="prev">
+        ←
+        <a href="/pages/a7f796/" class="prev">SHELL编程之嵌套循环+随机数及综合案例</a></span> <span class="next"><a href="/pages/b7c6f0/">SHELL编程之CASE语句+函数+正则</a>→
+      </span></p></div></div></div> <div class="article-list"><div class="article-title"><a href="/archives/" class="iconfont icon-bi">最近更新</a></div> <div class="article-wrapper"><dl><dd>01</dd> <dt><a href="/pages/505cd2/"><div>
+            ansible部署k8s问题点复盘
+            <!----></div></a> <span class="date">04-02</span></dt></dl><dl><dd>02</dd> <dt><a href="/pages/5d43b3/"><div>
+            博客部署
+            <!----></div></a> <span class="date">04-02</span></dt></dl><dl><dd>03</dd> <dt><a href="/pages/fb6db2/"><div>
+            ansible远程重启系统之后继续执行命令
+            <!----></div></a> <span class="date">03-15</span></dt></dl> <dl><dd></dd> <dt><a href="/archives/" class="more">更多文章&gt;</a></dt></dl></div></div></main></div> <div class="footer"><div class="icons"><a href="mailto:473618849@qq.com" title="发邮件" target="_blank" class="iconfont icon-youjian"></a></div> 
+  Theme by
+  <a href="https://github.com/xugaoyi/vuepress-theme-vdoing" target="_blank" title="本站主题">Vdoing</a> 
+    | Copyright © 2019-2023
+    <span>备案号 | <a href="https://beian.miit.gov.cn/#/Integrated/index" target="_blank">川公网安备 51012202001343号</a></span></div> <div class="buttons"><div title="返回顶部" class="button blur go-to-top iconfont icon-fanhuidingbu" style="display:none;"></div> <div title="去评论" class="button blur go-to-comment iconfont icon-pinglun" style="display:none;"></div> <div title="主题模式" class="button blur theme-mode-but iconfont icon-zhuti"><ul class="select-box" style="display:none;"><li class="iconfont icon-zidong">
+          跟随系统
+        </li><li class="iconfont icon-rijianmoshi">
+          浅色模式
+        </li><li class="iconfont icon-yejianmoshi">
+          深色模式
+        </li><li class="iconfont icon-yuedu">
+          阅读模式
+        </li></ul></div></div> <!----> <!----> <!----></div><div class="global-ui"></div></div>
+    <script src="/assets/js/app.59a8e6e3.js" defer></script><script src="/assets/js/7.5b954204.js" defer></script><script src="/assets/js/11.e66a5eb7.js" defer></script><script src="/assets/js/48.b4cefb73.js" defer></script>
+  </body>
+</html>

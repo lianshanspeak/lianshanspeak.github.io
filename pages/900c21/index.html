@@ -1,0 +1,1018 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>SHELL编程之变量定义 | YAO blog</title>
+    <meta name="generator" content="VuePress 1.9.5">
+    <link rel="icon" href="/img/favicon.ico">
+    <link rel="stylesheet" href="https://at.alicdn.com/t/font_3077305_pt8umhrn4k9.css">
+    <script>var _hmt = _hmt || [];
+          (function() {
+            var hm = document.createElement("script");
+            hm.src = "https://hm.baidu.com/hm.js?67b18e147ab89b527558aac88ec1f0d1"; 
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+          })();
+          </script>
+    <meta name="description" content="记录">
+    <meta name="keywords" content="个人技术博客">
+    <meta name="theme-color" content="#11a8cd">
+    <meta name="referrer" content="no-referrer-when-downgrade">
+    
+    <link rel="preload" href="/assets/css/0.styles.4d143ccc.css" as="style"><link rel="preload" href="/assets/js/app.59a8e6e3.js" as="script"><link rel="preload" href="/assets/js/7.5b954204.js" as="script"><link rel="preload" href="/assets/js/11.e66a5eb7.js" as="script"><link rel="preload" href="/assets/js/45.622ff538.js" as="script"><link rel="prefetch" href="/assets/js/10.8a2a77f4.js"><link rel="prefetch" href="/assets/js/100.af833779.js"><link rel="prefetch" href="/assets/js/101.3e099687.js"><link rel="prefetch" href="/assets/js/102.c9d471cf.js"><link rel="prefetch" href="/assets/js/103.d6d1a625.js"><link rel="prefetch" href="/assets/js/104.162f33cc.js"><link rel="prefetch" href="/assets/js/105.f1e54397.js"><link rel="prefetch" href="/assets/js/106.7f19132a.js"><link rel="prefetch" href="/assets/js/107.25371832.js"><link rel="prefetch" href="/assets/js/108.14a43b70.js"><link rel="prefetch" href="/assets/js/109.37e03610.js"><link rel="prefetch" href="/assets/js/110.e940d0fa.js"><link rel="prefetch" href="/assets/js/111.5d476651.js"><link rel="prefetch" href="/assets/js/112.d0b7a263.js"><link rel="prefetch" href="/assets/js/113.c0bff7cc.js"><link rel="prefetch" href="/assets/js/114.3dd80315.js"><link rel="prefetch" href="/assets/js/115.22645312.js"><link rel="prefetch" href="/assets/js/116.f56a9f42.js"><link rel="prefetch" href="/assets/js/117.d3fdb340.js"><link rel="prefetch" href="/assets/js/118.a85c5b68.js"><link rel="prefetch" href="/assets/js/119.cde4ed8e.js"><link rel="prefetch" href="/assets/js/12.7976eb91.js"><link rel="prefetch" href="/assets/js/13.e34ffe26.js"><link rel="prefetch" href="/assets/js/14.abe41aab.js"><link rel="prefetch" href="/assets/js/15.2f6b2d7e.js"><link rel="prefetch" href="/assets/js/16.7a6c465a.js"><link rel="prefetch" href="/assets/js/17.e7c80b0c.js"><link rel="prefetch" href="/assets/js/18.cde4ea2c.js"><link rel="prefetch" href="/assets/js/19.185b6820.js"><link rel="prefetch" href="/assets/js/2.b39077a8.js"><link rel="prefetch" href="/assets/js/20.cba57736.js"><link rel="prefetch" href="/assets/js/21.6809dd05.js"><link rel="prefetch" href="/assets/js/22.dcbc5cc3.js"><link rel="prefetch" href="/assets/js/23.6d0df575.js"><link rel="prefetch" href="/assets/js/24.16dea3e3.js"><link rel="prefetch" href="/assets/js/25.a2b79fc1.js"><link rel="prefetch" href="/assets/js/26.c5f5308d.js"><link rel="prefetch" href="/assets/js/27.8bbc4428.js"><link rel="prefetch" href="/assets/js/28.5c54dc8e.js"><link rel="prefetch" href="/assets/js/29.a42e46bb.js"><link rel="prefetch" href="/assets/js/3.cffbebe7.js"><link rel="prefetch" href="/assets/js/30.b43bac5d.js"><link rel="prefetch" href="/assets/js/31.0c62fcfe.js"><link rel="prefetch" href="/assets/js/32.34648702.js"><link rel="prefetch" href="/assets/js/33.08c87895.js"><link rel="prefetch" href="/assets/js/34.4d59a704.js"><link rel="prefetch" href="/assets/js/35.646b44d2.js"><link rel="prefetch" href="/assets/js/36.80a66b27.js"><link rel="prefetch" href="/assets/js/37.421e403a.js"><link rel="prefetch" href="/assets/js/38.9d29f791.js"><link rel="prefetch" href="/assets/js/39.d0200840.js"><link rel="prefetch" href="/assets/js/4.8b2ef19f.js"><link rel="prefetch" href="/assets/js/40.1891e335.js"><link rel="prefetch" href="/assets/js/41.97d3fd6c.js"><link rel="prefetch" href="/assets/js/42.7aa1318f.js"><link rel="prefetch" href="/assets/js/43.aab7a212.js"><link rel="prefetch" href="/assets/js/44.4b5fa36a.js"><link rel="prefetch" href="/assets/js/46.d610e05a.js"><link rel="prefetch" href="/assets/js/47.12e2255c.js"><link rel="prefetch" href="/assets/js/48.b4cefb73.js"><link rel="prefetch" href="/assets/js/49.6c3bf149.js"><link rel="prefetch" href="/assets/js/5.42a2c2db.js"><link rel="prefetch" href="/assets/js/50.1c8ab9e9.js"><link rel="prefetch" href="/assets/js/51.31841acd.js"><link rel="prefetch" href="/assets/js/52.23852199.js"><link rel="prefetch" href="/assets/js/53.502b55d4.js"><link rel="prefetch" href="/assets/js/54.b331ed80.js"><link rel="prefetch" href="/assets/js/55.bf542ba6.js"><link rel="prefetch" href="/assets/js/56.06f8cb6c.js"><link rel="prefetch" href="/assets/js/57.ae52b41c.js"><link rel="prefetch" href="/assets/js/58.a2c555a8.js"><link rel="prefetch" href="/assets/js/59.41061973.js"><link rel="prefetch" href="/assets/js/6.90de7719.js"><link rel="prefetch" href="/assets/js/60.afd2f7e6.js"><link rel="prefetch" href="/assets/js/61.432756d0.js"><link rel="prefetch" href="/assets/js/62.3d00c9f9.js"><link rel="prefetch" href="/assets/js/63.fac02541.js"><link rel="prefetch" href="/assets/js/64.db31a905.js"><link rel="prefetch" href="/assets/js/65.afdcd498.js"><link rel="prefetch" href="/assets/js/66.778ae81f.js"><link rel="prefetch" href="/assets/js/67.582bbbfe.js"><link rel="prefetch" href="/assets/js/68.c44f2518.js"><link rel="prefetch" href="/assets/js/69.8b84437e.js"><link rel="prefetch" href="/assets/js/70.d9666edf.js"><link rel="prefetch" href="/assets/js/71.00fc5abd.js"><link rel="prefetch" href="/assets/js/72.fc04c1ec.js"><link rel="prefetch" href="/assets/js/73.13c1b537.js"><link rel="prefetch" href="/assets/js/74.8dc2ad4d.js"><link rel="prefetch" href="/assets/js/75.200d8e30.js"><link rel="prefetch" href="/assets/js/76.7adde9e3.js"><link rel="prefetch" href="/assets/js/77.9358fcea.js"><link rel="prefetch" href="/assets/js/78.40ebfe7c.js"><link rel="prefetch" href="/assets/js/79.7101d682.js"><link rel="prefetch" href="/assets/js/8.92500b61.js"><link rel="prefetch" href="/assets/js/80.29a4e018.js"><link rel="prefetch" href="/assets/js/81.3b09ac83.js"><link rel="prefetch" href="/assets/js/82.04f9540f.js"><link rel="prefetch" href="/assets/js/83.1abe25fb.js"><link rel="prefetch" href="/assets/js/84.5522a475.js"><link rel="prefetch" href="/assets/js/85.77fd8cc9.js"><link rel="prefetch" href="/assets/js/86.242da1b1.js"><link rel="prefetch" href="/assets/js/87.c1fd2733.js"><link rel="prefetch" href="/assets/js/88.e7217205.js"><link rel="prefetch" href="/assets/js/89.97500137.js"><link rel="prefetch" href="/assets/js/9.c42660e0.js"><link rel="prefetch" href="/assets/js/90.57fd7b16.js"><link rel="prefetch" href="/assets/js/91.f9553e3a.js"><link rel="prefetch" href="/assets/js/92.27cac0ad.js"><link rel="prefetch" href="/assets/js/93.19a43abc.js"><link rel="prefetch" href="/assets/js/94.351f08fe.js"><link rel="prefetch" href="/assets/js/95.36d4d224.js"><link rel="prefetch" href="/assets/js/96.952d6929.js"><link rel="prefetch" href="/assets/js/97.58bb623b.js"><link rel="prefetch" href="/assets/js/98.d3e75111.js"><link rel="prefetch" href="/assets/js/99.a46116ac.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.4d143ccc.css">
+  </head>
+  <body class="theme-mode-light">
+    <div id="app" data-server-rendered="true"><div class="theme-container sidebar-open have-rightmenu"><header class="navbar blur"><div title="目录" class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><img src="/img/logo.png" alt="YAO blog" class="logo"> <span class="site-name can-hide">YAO blog</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/" class="nav-link">首页</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="数据库" class="dropdown-title"><a href="/shujuku/" class="link-title">数据库</a> <span class="title" style="display:none;">数据库</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>传统数据库</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/pages/ee767f/" class="nav-link">postgresql</a></li><li class="dropdown-subitem"><a href="/pages/8143cc480faf9a11/" class="nav-link">mysql</a></li><li class="dropdown-subitem"><a href="/pages/8143cc480faf9a11/" class="nav-link">oracle</a></li></ul></li><li class="dropdown-item"><h4>学习笔记</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/note/sql/" class="nav-link">《sql编程》</a></li><li class="dropdown-subitem"><a href="/note/dashuju/" class="nav-link">《大数据》</a></li><li class="dropdown-subitem"><a href="/note/postgresql/" class="nav-link">《postgresql》</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="运维专项" class="dropdown-title"><a href="/yunwei/" class="link-title">运维专项</a> <span class="title" style="display:none;">运维专项</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/pages/331efa/" class="nav-link">Docker&amp;k8s</a></li><li class="dropdown-item"><!----> <a href="/pages/0d801d/" class="nav-link">网络</a></li><li class="dropdown-item"><!----> <a href="/pages/48e74d/" class="nav-link">监控</a></li><li class="dropdown-item"><!----> <a href="/pages/d11aa9/" class="nav-link">linux知识</a></li><li class="dropdown-item"><!----> <a href="/pages/2f40d8/" class="nav-link">ansible</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="编程" class="dropdown-title"><a href="/biancheng/" class="link-title">编程</a> <span class="title" style="display:none;">编程</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/pages/74c26a/" class="nav-link">python</a></li><li class="dropdown-item"><!----> <a href="/pages/4c778760be26d8b3/" class="nav-link">java</a></li><li class="dropdown-item"><!----> <a href="/pages/117708e0af7f0bd9/" class="nav-link">shell</a></li><li class="dropdown-item"><!----> <a href="/pages/41f87d890d0a02af/" class="nav-link">C/C++/GO</a></li><li class="dropdown-item"><!----> <a href="/pages/41f87d890d0a02af/" class="nav-link">前端</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="梦工厂" class="dropdown-title"><a href="/dream/" class="link-title">梦工厂</a> <span class="title" style="display:none;">梦工厂</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/pages/115b2f/" class="nav-link">树莓派</a></li><li class="dropdown-item"><!----> <a href="/pages/aea6571b7a8bae86/" class="nav-link">Stm32/arduino</a></li><li class="dropdown-item"><!----> <a href="/pages/2d615df9a36a98ed/" class="nav-link">人工智能</a></li></ul></div></div><div class="nav-item"><a href="/guanyu/" class="nav-link">关于</a></div><div class="nav-item"><a href="/pages/339240/" class="nav-link">一个人的世界观</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="索引" class="dropdown-title"><a href="/archives/" class="link-title">索引</a> <span class="title" style="display:none;">索引</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/categories/" class="nav-link">分类</a></li><li class="dropdown-item"><!----> <a href="/tags/" class="nav-link">标签</a></li><li class="dropdown-item"><!----> <a href="/archives/" class="nav-link">归档</a></li></ul></div></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <div class="sidebar-hover-trigger"></div> <aside class="sidebar" style="display:none;"><div class="blogger"><img src="/img/logo.png"> <div class="blogger-info"><h3>luoyao</h3> <span>不积跬步 无以至千里</span></div></div> <nav class="nav-links"><div class="nav-item"><a href="/" class="nav-link">首页</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="数据库" class="dropdown-title"><a href="/shujuku/" class="link-title">数据库</a> <span class="title" style="display:none;">数据库</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>传统数据库</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/pages/ee767f/" class="nav-link">postgresql</a></li><li class="dropdown-subitem"><a href="/pages/8143cc480faf9a11/" class="nav-link">mysql</a></li><li class="dropdown-subitem"><a href="/pages/8143cc480faf9a11/" class="nav-link">oracle</a></li></ul></li><li class="dropdown-item"><h4>学习笔记</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/note/sql/" class="nav-link">《sql编程》</a></li><li class="dropdown-subitem"><a href="/note/dashuju/" class="nav-link">《大数据》</a></li><li class="dropdown-subitem"><a href="/note/postgresql/" class="nav-link">《postgresql》</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="运维专项" class="dropdown-title"><a href="/yunwei/" class="link-title">运维专项</a> <span class="title" style="display:none;">运维专项</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/pages/331efa/" class="nav-link">Docker&amp;k8s</a></li><li class="dropdown-item"><!----> <a href="/pages/0d801d/" class="nav-link">网络</a></li><li class="dropdown-item"><!----> <a href="/pages/48e74d/" class="nav-link">监控</a></li><li class="dropdown-item"><!----> <a href="/pages/d11aa9/" class="nav-link">linux知识</a></li><li class="dropdown-item"><!----> <a href="/pages/2f40d8/" class="nav-link">ansible</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="编程" class="dropdown-title"><a href="/biancheng/" class="link-title">编程</a> <span class="title" style="display:none;">编程</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/pages/74c26a/" class="nav-link">python</a></li><li class="dropdown-item"><!----> <a href="/pages/4c778760be26d8b3/" class="nav-link">java</a></li><li class="dropdown-item"><!----> <a href="/pages/117708e0af7f0bd9/" class="nav-link">shell</a></li><li class="dropdown-item"><!----> <a href="/pages/41f87d890d0a02af/" class="nav-link">C/C++/GO</a></li><li class="dropdown-item"><!----> <a href="/pages/41f87d890d0a02af/" class="nav-link">前端</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="梦工厂" class="dropdown-title"><a href="/dream/" class="link-title">梦工厂</a> <span class="title" style="display:none;">梦工厂</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/pages/115b2f/" class="nav-link">树莓派</a></li><li class="dropdown-item"><!----> <a href="/pages/aea6571b7a8bae86/" class="nav-link">Stm32/arduino</a></li><li class="dropdown-item"><!----> <a href="/pages/2d615df9a36a98ed/" class="nav-link">人工智能</a></li></ul></div></div><div class="nav-item"><a href="/guanyu/" class="nav-link">关于</a></div><div class="nav-item"><a href="/pages/339240/" class="nav-link">一个人的世界观</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="索引" class="dropdown-title"><a href="/archives/" class="link-title">索引</a> <span class="title" style="display:none;">索引</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/categories/" class="nav-link">分类</a></li><li class="dropdown-item"><!----> <a href="/tags/" class="nav-link">标签</a></li><li class="dropdown-item"><!----> <a href="/archives/" class="nav-link">归档</a></li></ul></div></div> <!----></nav>  <ul class="sidebar-links"><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>Docker&amp;k8s</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>网络</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>监控</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading open"><span>linux知识</span> <span class="arrow down"></span></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/pages/d11aa9/" class="sidebar-link">shell实用命令</a></li><li><a href="/pages/8ef1b1/" class="sidebar-link">ssh测试，为什么有的端口需要密码，有的端口不要</a></li><li><a href="/pages/900c21/" aria-current="page" class="active sidebar-link">SHELL编程之变量定义</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header level2"><a href="/pages/900c21/#shell编程" class="sidebar-link">SHELL编程</a></li><li class="sidebar-sub-header level2"><a href="/pages/900c21/#学习前奏" class="sidebar-link">学习前奏</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header level3"><a href="/pages/900c21/#_1-文件处理工具" class="sidebar-link">1. 文件处理工具</a></li><li class="sidebar-sub-header level4"><a href="/pages/900c21/#_1-1-grep工具" class="sidebar-link">1.1 grep工具</a></li><li class="sidebar-sub-header level4"><a href="/pages/900c21/#_1-2-cut工具" class="sidebar-link">1.2 cut工具</a></li><li class="sidebar-sub-header level4"><a href="/pages/900c21/#_1-3-sort工具" class="sidebar-link">1.3 sort工具</a></li><li class="sidebar-sub-header level4"><a href="/pages/900c21/#_1-4-uniq工具" class="sidebar-link">1.4 uniq工具</a></li><li class="sidebar-sub-header level4"><a href="/pages/900c21/#_1-5-tee工具" class="sidebar-link">1.5 tee工具</a></li><li class="sidebar-sub-header level4"><a href="/pages/900c21/#_1-6-paste工具" class="sidebar-link">1.6 paste工具</a></li><li class="sidebar-sub-header level4"><a href="/pages/900c21/#_1-7-tr工具" class="sidebar-link">1.7 tr工具</a></li><li class="sidebar-sub-header level4"><a href="/pages/900c21/#小试牛刀" class="sidebar-link">小试牛刀</a></li><li class="sidebar-sub-header level3"><a href="/pages/900c21/#_2-编程语言分类" class="sidebar-link">2. 编程语言分类</a></li><li class="sidebar-sub-header level3"><a href="/pages/900c21/#_3-shell介绍" class="sidebar-link">3. shell介绍</a></li><li class="sidebar-sub-header level3"><a href="/pages/900c21/#_5-bash基本特性" class="sidebar-link">5. bash基本特性</a></li></ul></li><li class="sidebar-sub-header level2"><a href="/pages/900c21/#变量的定义" class="sidebar-link">变量的定义</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header level3"><a href="/pages/900c21/#_4-总结" class="sidebar-link">4. 总结</a></li></ul></li></ul></li><li><a href="/pages/91e047/" class="sidebar-link">SHELL编程之流程控制和循环语句</a></li><li><a href="/pages/a7f796/" class="sidebar-link">SHELL编程之嵌套循环+随机数及综合案例</a></li><li><a href="/pages/f8da75/" class="sidebar-link">SHELL编程之CASE语句+函数+正则</a></li><li><a href="/pages/b7c6f0/" class="sidebar-link">SHELL编程之CASE语句+函数+正则</a></li><li><a href="/pages/16ec00/" class="sidebar-link">SHELL编程之文本处理工具AWK</a></li><li><a href="/pages/30aaec/" class="sidebar-link">记录一次vm上，磁盘扩容</a></li><li><a href="/pages/3aefc9/" class="sidebar-link">rsync数据同步</a></li><li><a href="/pages/95e5a4/" class="sidebar-link">rsync托管给xinetd</a></li><li><a href="/pages/ed01a6/" class="sidebar-link">dns相关知识</a></li></ul></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>ansible</span> <span class="arrow right"></span></p> <!----></section></li></ul> </aside> <div><main class="page"><div class="theme-vdoing-wrapper "><div class="articleInfo-wrap" data-v-5add8e0a><div class="articleInfo" data-v-5add8e0a><ul class="breadcrumbs" data-v-5add8e0a><li data-v-5add8e0a><a href="/" title="首页" class="iconfont icon-home router-link-active" data-v-5add8e0a></a></li> <li data-v-5add8e0a><a href="/yunwei/#运维" data-v-5add8e0a>运维</a></li><li data-v-5add8e0a><a href="/yunwei/#linux知识" data-v-5add8e0a>linux知识</a></li></ul> <div class="info" data-v-5add8e0a><div title="作者" class="author iconfont icon-touxiang" data-v-5add8e0a><a href="javascript:;" data-v-5add8e0a>luoyao</a></div> <div title="创建时间" class="date iconfont icon-riqi" data-v-5add8e0a><a href="javascript:;" data-v-5add8e0a>2022-08-29</a></div> <!----></div></div></div> <!----> <div class="content-wrapper"><div class="right-menu-wrapper"><div class="right-menu-margin"><div class="right-menu-title">目录</div> <div class="right-menu-content"></div></div></div> <h1><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAAAXNSR0IArs4c6QAABH1JREFUSA3tVl1oHFUUPmdmd2ltklqbpJDiNnXFmgbFktho7YMPNiJSSZM0+CAYSkUELVhM6YuwIPpgoOKDqOBDC0XE2CQoNtQXBUFTTcCi+Wlh1V2TQExsUzcltd3M9Tt3ZjZzZ2fT+OJTL8yeM+eee757fmeJbq//KQL8X3DUSFOcfr7cRsRtxNQMWueeVzOkaITIGqQHNg5y8+jNW9ldM7A6nTpAjuolUikAwq7CE3WcM2RRDz+XGVgN3FptU/aUSlvq9Pa3iZ1+sgAqJyyAFqkipd9dqiwHF3P65YycLWc/6sqGrvoEoIp6DOFaX5h6+dnfjkWprwqsPk0dUGq5vySwDImC10KxFHgGL1SWoc92O3eVht09qdXNH11I2SsTsJYqMWzihqGMi+A+Garf3BAuuLI5oGlULyNfyB/HYNujwktOfRrMr5t77NmevqaUopx0grnKAyvVpmwUDB4x6FPXuGvYLTDwWsejwgtgkYKPqRJg8SV6xaiZ3ZTppGneS4yfH5/66fZSDHv+QZci/+h5c5UHtpy67JUqGppM0sh0Nc1dW6/N1W5Yoqat8/TU/VnadmdeW2PLLSyh0cvxBs3KbqTmwYPpxN4do/mzE8nEpvX/UMu2Wbp74zUAK5q6WkHns7V0eWkdPbPzd3rxkTGybadYySumVzhcaJFbs5UrEkQ/+CK8gF5dnh/6ciIZ73gwQ927L1IitoxKLXYP3SjYdOrHHfTZhRRlFyrorafPk20B3HPD1y2G3qKZME5Jcf3t/HUC13/8tSd++vqFveMUTwAUxSUFI1QekR1+bIze3D9MF2aq6cPvG72CgnldWCFqyRw3lwH8ZMerjTD9ElRO7Gv44wNpC90aASqGfVlz/Rx17srQ57/UU26hkhQqUB7dBR71WmzQhHUnblGmVOEw0jhbV1n9OlXUDCIRGaNV5Jp43N516fN7JmnTHdfp7Hgy0luO4aMhtkLL8Bi3bUWYvzh5Mn1dTxrL6QmGuRhGL/TiTTxRoEdTszSaq9GR0NGA3KdkOz3hqSV3MIDhQ5IVX/Ivx3umBti2es2h4eZby7x8br1rkf7Mo90AqC8aQ3sJeNzqFRu+vSANAQe3PL7l0HGOAdwDCeZYvNKeoZp1Qfs6Aipndh86HmFRi0LAnEO47wsqM6cdfjh3jBPUzhZy7nvlUfFsamED1VQt6aISHVymXZ/B2aCtIG8AI8xfobj2d3en1wWVhOeHELKmLQ1s211s88comkv4UCwWyF787mJdYXtNfhKAXVqnKTq8QZvGAGGOfaTo5pGZ/PwbUCr5+DPr/1J92JNHr9aOl/F3iI5+O1nfybsGxoimvZ3ViWSluDITw3P37mypheDIPY0tw7+O/5ApbkYw+zpfaUVu32Pi98+defdUhEpZkRFq0aqyNh9FuL9hpYbEm6iwi0z2REd09ZmyENEbuhjDWzKvZXTqKYaBIr3tt5kuPtQBZFvEUwHt60vfCNu41XsksH9Ij1BMMz1Y0OOunHNShFIP5868g5zeXmuLwL9T4b6Q2+KejgAAAABJRU5ErkJggg==">SHELL编程之变量定义<!----></h1> <!----> <div class="theme-vdoing-content content__default"><h2 id="shell编程"><a href="#shell编程" class="header-anchor">#</a> SHELL编程</h2> <ul><li><p>该课程主要包括以下内容：</p> <p>① Shell的基本语法结构</p> <p>如：变量定义、条件判断、循环语句(for、until、while)、分支语句、函数和数组等；</p> <p>② 基本正则表达式的运用；</p> <p>③ 文件处理三剑客：grep、sed、awk工具的使用；</p> <p>④ 使用shell脚本完成一些较复杂的任务，如：服务搭建、批量处理等。</p> <p><em><strong>说明：以上内容仅仅是基本要求，还有很多更深更难的语法需要扩充学习。</strong></em></p></li> <li><p><strong>今日目标</strong></p> <ul><li>熟悉grep、cut、sort等小工具和shell中的通配符的使用</li> <li>==熟练掌握shell变量的定义和获取（重点）==</li> <li>==能够进行shell简单的四则运算==</li> <li>==熟悉条件判断语句,如判断整数，判断字符串等==</li></ul></li></ul> <h2 id="学习前奏"><a href="#学习前奏" class="header-anchor">#</a> 学习前奏</h2> <h3 id="_1-文件处理工具"><a href="#_1-文件处理工具" class="header-anchor">#</a> 1. 文件处理工具</h3> <h4 id="_1-1-grep工具"><a href="#_1-1-grep工具" class="header-anchor">#</a> 1.1 grep工具</h4> <p><strong>行</strong>过滤</p> <div class="language-powershell line-numbers-mode"><pre class="language-powershell"><code>grep用于根据关键字进行行过滤
+grep options <span class="token string">'keys'</span> filename
+OPTIONS:
+    <span class="token operator">-</span>i: 不区分大小写
+    <span class="token operator">-</span>v: 查找不包含指定内容的行<span class="token punctuation">,</span>反向选择
+    <span class="token operator">-</span>w: 按单词搜索
+    <span class="token operator">-</span>o: 打印匹配关键字
+    <span class="token operator">-</span>c: 统计匹配到的次数
+    <span class="token operator">-</span>n: 显示行号
+    <span class="token operator">-</span>r: 逐层遍历目录查找
+    <span class="token operator">-</span>A: 显示匹配行及后面多少行	
+    <span class="token operator">-</span>B: 显示匹配行及前面多少行
+    <span class="token operator">-</span>C: 显示匹配行前后多少行
+    <span class="token operator">-</span>l：只列出匹配的文件名
+    <span class="token operator">-</span>L：列出不匹配的文件名
+    <span class="token operator">-</span>e: 使用正则匹配
+    <span class="token operator">-</span>E:使用扩展正则匹配
+    ^key:以关键字开头
+    key$:以关键字结尾
+    ^$:匹配空行
+    <span class="token operator">--</span>color=auto ：可以将找到的关键词部分加上颜色的显示
+
+临时设置：
+<span class="token comment"># alias grep='grep --color=auto'			//只针对当前终端和当前用户生效</span>
+
+永久设置：
+1）全局（针对所有用户生效）
+vim <span class="token operator">/</span>etc/bashrc
+alias grep=<span class="token string">'grep --color=auto'</span>
+source <span class="token operator">/</span>etc/bashrc
+
+2）局部（针对具体的某个用户）
+vim ~<span class="token operator">/</span><span class="token punctuation">.</span>bashrc
+alias grep=<span class="token string">'grep --color=auto'</span>
+source ~<span class="token operator">/</span><span class="token punctuation">.</span>bashrc
+
+示例：
+<span class="token comment"># grep -i root passwd				忽略大小写匹配包含root的行</span>
+<span class="token comment"># grep -w ftp passwd 				精确匹配ftp单词</span>
+<span class="token comment"># grep -w hello passwd 				精确匹配hello单词;自己添加包含hello的行到文件中</span>
+<span class="token comment"># grep -wo ftp passwd 				打印匹配到的关键字ftp</span>
+<span class="token comment"># grep -n root passwd 				打印匹配到root关键字的行好</span>
+<span class="token comment"># grep -ni root passwd 				忽略大小写匹配统计包含关键字root的行</span>
+<span class="token comment"># grep -nic root passwd				忽略大小写匹配统计包含关键字root的行数</span>
+<span class="token comment"># grep -i ^root passwd 				忽略大小写匹配以root开头的行</span>
+<span class="token comment"># grep bash$ passwd 							匹配以bash结尾的行</span>
+<span class="token comment"># grep -n ^$ passwd 							匹配空行并打印行号</span>
+<span class="token comment"># grep ^# /etc/vsftpd/vsftpd.conf		匹配以#号开头的行</span>
+<span class="token comment"># grep -v ^# /etc/vsftpd/vsftpd.conf	匹配不以#号开头的行</span>
+<span class="token comment"># grep -A 5 mail passwd 				 	匹配包含mail关键字及其后5行</span>
+<span class="token comment"># grep -B 5 mail passwd 				 	匹配包含mail关键字及其前5行</span>
+<span class="token comment"># grep -C 5 mail passwd 					匹配包含mail关键字及其前后5行</span>
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br><span class="line-number">33</span><br><span class="line-number">34</span><br><span class="line-number">35</span><br><span class="line-number">36</span><br><span class="line-number">37</span><br><span class="line-number">38</span><br><span class="line-number">39</span><br><span class="line-number">40</span><br><span class="line-number">41</span><br><span class="line-number">42</span><br><span class="line-number">43</span><br><span class="line-number">44</span><br><span class="line-number">45</span><br><span class="line-number">46</span><br><span class="line-number">47</span><br><span class="line-number">48</span><br><span class="line-number">49</span><br><span class="line-number">50</span><br><span class="line-number">51</span><br><span class="line-number">52</span><br><span class="line-number">53</span><br></div></div><h4 id="_1-2-cut工具"><a href="#_1-2-cut工具" class="header-anchor">#</a> 1.2 cut工具</h4> <p><strong>列</strong>截取</p> <div class="language-powershell line-numbers-mode"><pre class="language-powershell"><code>cut用于列截取
+<span class="token operator">-</span>c:	以字符为单位进行分割。
+<span class="token operator">-</span>d:	自定义分隔符，默认为制表符。\t
+<span class="token operator">-</span>f:	与<span class="token operator">-</span>d一起使用，指定显示哪个区域。
+
+<span class="token comment"># cut -d: -f1 1.txt 			以:冒号分割，截取第1列内容</span>
+<span class="token comment"># cut -d: -f1,6,7 1.txt 	以:冒号分割，截取第1,6,7列内容</span>
+<span class="token comment"># cut -c4 1.txt 				截取文件中每行第4个字符</span>
+<span class="token comment"># cut -c1-4 1.txt 			截取文件中每行的1-4个字符</span>
+<span class="token comment"># cut -c4-10 1.txt 			</span>
+<span class="token comment"># cut -c5- 1.txt 				从第5个字符开始截取后面所有字符</span>
+
+课堂练习：
+用小工具列出你当系统的运行级别。5/3
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br></div></div><h4 id="_1-3-sort工具"><a href="#_1-3-sort工具" class="header-anchor">#</a> 1.3 sort工具</h4> <p><strong>排序</strong></p> <div class="language-powershell line-numbers-mode"><pre class="language-powershell"><code><span class="token function">sort</span>：将文件的每一行作为一个单位，从首字符向后，依次按ASCII码值进行比较，最后将他们按升序输出。
+
+<span class="token operator">-</span>u ：去除重复行
+<span class="token operator">-</span>r ：降序排列，默认是升序
+<span class="token operator">-</span>o : 将排序结果输出到文件中  类似 重定向符号&gt;
+<span class="token operator">-</span>n ：以数字排序，默认是按字符排序
+<span class="token operator">-</span>t ：分隔符
+<span class="token operator">-</span>k ：第N列
+<span class="token operator">-</span>b ：忽略前导空格。
+<span class="token operator">-</span>R ：随机排序，每次运行的结果均不同。
+ 
+ 示例：
+<span class="token comment"># sort -n -t: -k3 1.txt 			按照用户的uid进行升序排列</span>
+<span class="token comment"># sort -nr -t: -k3 1.txt 			按照用户的uid进行降序排列</span>
+<span class="token comment"># sort -n 2.txt 						按照数字排序</span>
+<span class="token comment"># sort -nu 2.txt 						按照数字排序并且去重</span>
+<span class="token comment"># sort -nr 2.txt </span>
+<span class="token comment"># sort -nru 2.txt </span>
+<span class="token comment"># sort -nru 2.txt </span>
+<span class="token comment"># sort -n 2.txt -o 3.txt 		按照数字排序并将结果重定向到文件</span>
+<span class="token comment"># sort -R 2.txt </span>
+<span class="token comment"># sort -u 2.txt </span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br></div></div><h4 id="_1-4-uniq工具"><a href="#_1-4-uniq工具" class="header-anchor">#</a> 1.4 uniq工具</h4> <p>去除<strong>连续</strong>的<strong>重复</strong>行</p> <div class="language-powershell line-numbers-mode"><pre class="language-powershell"><code>uniq：去除连续重复行
+<span class="token operator">-</span>i: 忽略大小写
+<span class="token operator">-</span>c: 统计重复行次数
+<span class="token operator">-</span>d:只显示重复行
+
+<span class="token comment"># uniq 2.txt </span>
+<span class="token comment"># uniq -d 2.txt </span>
+<span class="token comment"># uniq -dc 2.txt </span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br></div></div><h4 id="_1-5-tee工具"><a href="#_1-5-tee工具" class="header-anchor">#</a> 1.5 tee工具</h4> <div class="language-powershell line-numbers-mode"><pre class="language-powershell"><code><span class="token function">tee</span>工具从标准输入读取并写入标准输出和文件，即：双向覆盖重定向&lt;屏幕输出<span class="token punctuation">|</span>文本输入&gt;
+<span class="token operator">-</span>a 双向追加重定向
+
+<span class="token comment"># echo hello world</span>
+<span class="token comment"># echo hello world|tee file1</span>
+<span class="token comment"># cat file1 </span>
+<span class="token comment"># echo 999|tee -a file1</span>
+<span class="token comment"># cat file1 </span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br></div></div><h4 id="_1-6-paste工具"><a href="#_1-6-paste工具" class="header-anchor">#</a> 1.6 paste工具</h4> <div class="language-powershell line-numbers-mode"><pre class="language-powershell"><code>paste工具用于合并文件行
+
+<span class="token operator">-</span>d：自定义间隔符，默认是tab
+<span class="token operator">-</span>s：串行处理，非并行
+
+<span class="token namespace">[root@server shell01]</span><span class="token comment"># cat a.txt </span>
+hello
+<span class="token namespace">[root@server shell01]</span><span class="token comment"># cat b.txt </span>
+hello world
+888
+999
+<span class="token namespace">[root@server shell01]</span><span class="token comment"># paste a.txt b.txt </span>
+hello   hello world
+        888
+        999
+<span class="token namespace">[root@server shell01]</span><span class="token comment"># paste b.txt a.txt   </span>
+hello world     hello
+888
+999
+
+<span class="token namespace">[root@server shell01]</span><span class="token comment"># paste -d'@' b.txt a.txt </span>
+hello world@hello
+888@
+999@
+
+<span class="token namespace">[root@server shell01]</span><span class="token comment"># paste -s b.txt a.txt </span>
+hello world     888     999
+hello
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br></div></div><h4 id="_1-7-tr工具"><a href="#_1-7-tr工具" class="header-anchor">#</a> 1.7 tr工具</h4> <p>==字符转换：替换，删除==</p> <div class="language-powershell line-numbers-mode"><pre class="language-powershell"><code>tr用来从标准输入中通过替换或删除操作进行字符转换；主要用于删除文件中控制字符或进行字符转换。
+使用tr时要转换两个字符串：字符串1用于查询，字符串2用于处理各种转换。
+
+语法：
+commands<span class="token punctuation">|</span>tr  <span class="token string">'string1'</span>  <span class="token string">'string2'</span>
+tr  <span class="token string">'string1'</span>  <span class="token string">'string2'</span> &lt; filename
+
+tr options <span class="token string">'string1'</span> &lt; filename
+
+<span class="token operator">-</span>d 删除字符串1中所有输入字符。
+<span class="token operator">-</span>s 删除所有重复出现字符序列，只保留第一个；即将重复出现字符串压缩为一个字符串。
+
+
+	a-z 任意小写
+	A-Z 任意大写
+	0-9 任意数字
+  <span class="token punctuation">[</span>:alnum:<span class="token punctuation">]</span>       all letters and digits		所有字母和数字
+  <span class="token punctuation">[</span>:alpha:<span class="token punctuation">]</span>       all letters						所有字母
+  <span class="token punctuation">[</span>:blank:<span class="token punctuation">]</span>       all horizontal whitespace	所有水平空白
+  <span class="token punctuation">[</span>:cntrl:<span class="token punctuation">]</span>       all control characters		所有控制字符
+\b Ctrl-H  		退格符
+\f Ctrl-L  		走行换页
+\n Ctrl-J  		新行
+\r Ctrl-M  		回车
+\t Ctrl-I  		tab键
+  <span class="token punctuation">[</span>:digit:<span class="token punctuation">]</span>    all digits	所有数字
+  <span class="token punctuation">[</span>:graph:<span class="token punctuation">]</span>    all printable characters<span class="token punctuation">,</span> not including space
+  所有可打印的字符，不包含空格
+  <span class="token punctuation">[</span>:lower:<span class="token punctuation">]</span>       all lower case letters		所有小写字母
+  <span class="token punctuation">[</span>:print:<span class="token punctuation">]</span>       all printable characters<span class="token punctuation">,</span> including space
+  所有可打印的字符，包含空格
+  <span class="token punctuation">[</span>:punct:<span class="token punctuation">]</span>       all punctuation characters			所有的标点符号
+  <span class="token punctuation">[</span>:space:<span class="token punctuation">]</span>       all horizontal or vertical whitespace	所有水平或垂直的空格
+  <span class="token punctuation">[</span>:upper:<span class="token punctuation">]</span>       all upper case letters				所有大写字母
+  <span class="token punctuation">[</span>:xdigit:<span class="token punctuation">]</span>      all hexadecimal digits				所有十六进制数字
+  <span class="token punctuation">[</span>=CHAR=<span class="token punctuation">]</span>        all characters which are equivalent to CHAR	所有字符
+  
+ 
+
+<span class="token namespace">[root@server shell01]</span><span class="token comment"># cat 3.txt 	自己创建该文件用于测试</span>
+ROOT:x:0:0:root:<span class="token operator">/</span>root:<span class="token operator">/</span>bin/bash
+bin:x:1:1:bin:<span class="token operator">/</span>bin:<span class="token operator">/</span>sbin/nologin
+daemon:x:2:2:daemon:<span class="token operator">/</span>sbin:<span class="token operator">/</span>sbin/nologin
+adm:x:3:4:adm:<span class="token operator">/</span><span class="token keyword">var</span><span class="token operator">/</span>adm:<span class="token operator">/</span>sbin/nologin
+<span class="token function">lp</span>:x:4:7:<span class="token function">lp</span>:<span class="token operator">/</span><span class="token keyword">var</span><span class="token operator">/</span>spool/lpd:<span class="token operator">/</span>sbin/nologin
+sync:x:5:0:sync:<span class="token operator">/</span>sbin:<span class="token operator">/</span>bin/sync
+shutdown:x:6:0:shutdown:<span class="token operator">/</span>sbin:<span class="token operator">/</span>sbin/shutdown
+halt:x:7:0:halt:<span class="token operator">/</span>sbin:<span class="token operator">/</span>sbin/halt
+mail:x:8:12:mail:<span class="token operator">/</span><span class="token keyword">var</span><span class="token operator">/</span>spool/mail:<span class="token operator">/</span>sbin/nologin
+uucp:x:10:14:uucp:<span class="token operator">/</span><span class="token keyword">var</span><span class="token operator">/</span>spool/uucp:<span class="token operator">/</span>sbin/nologin
+boss02:x:516:511::<span class="token operator">/</span>home/boss02:<span class="token operator">/</span>bin/bash
+vip:x:517:517::<span class="token operator">/</span>home/vip:<span class="token operator">/</span>bin/bash
+stu1:x:518:518::<span class="token operator">/</span>home/stu1:<span class="token operator">/</span>bin/bash
+mailnull:x:47:47::<span class="token operator">/</span><span class="token keyword">var</span><span class="token operator">/</span>spool/mqueue:<span class="token operator">/</span>sbin/nologin
+smmsp:x:51:51::<span class="token operator">/</span><span class="token keyword">var</span><span class="token operator">/</span>spool/mqueue:<span class="token operator">/</span>sbin/nologin
+aaaaaaaaaaaaaaaaaaaa
+bbbbbb111111122222222222233333333cccccccc
+hello world 888
+666
+777
+999
+
+
+<span class="token comment"># tr -d '[:/]' &lt; 3.txt 				删除文件中的:和/</span>
+<span class="token comment"># cat 3.txt |tr -d '[:/]'			删除文件中的:和/</span>
+<span class="token comment"># tr '[0-9]' '@' &lt; 3.txt 			将文件中的数字替换为@符号</span>
+<span class="token comment"># tr '[a-z]' '[A-Z]' &lt; 3.txt 		将文件中的小写字母替换成大写字母</span>
+<span class="token comment"># tr -s '[a-z]' &lt; 3.txt 			匹配小写字母并将重复的压缩为一个</span>
+<span class="token comment"># tr -s '[a-z0-9]' &lt; 3.txt 		匹配小写字母和数字并将重复的压缩为一个</span>
+<span class="token comment"># tr -d '[:digit:]' &lt; 3.txt 		删除文件中的数字</span>
+<span class="token comment"># tr -d '[:blank:]' &lt; 3.txt 		删除水平空白</span>
+<span class="token comment"># tr -d '[:space:]' &lt; 3.txt 		删除所有水平和垂直空白</span>
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br><span class="line-number">33</span><br><span class="line-number">34</span><br><span class="line-number">35</span><br><span class="line-number">36</span><br><span class="line-number">37</span><br><span class="line-number">38</span><br><span class="line-number">39</span><br><span class="line-number">40</span><br><span class="line-number">41</span><br><span class="line-number">42</span><br><span class="line-number">43</span><br><span class="line-number">44</span><br><span class="line-number">45</span><br><span class="line-number">46</span><br><span class="line-number">47</span><br><span class="line-number">48</span><br><span class="line-number">49</span><br><span class="line-number">50</span><br><span class="line-number">51</span><br><span class="line-number">52</span><br><span class="line-number">53</span><br><span class="line-number">54</span><br><span class="line-number">55</span><br><span class="line-number">56</span><br><span class="line-number">57</span><br><span class="line-number">58</span><br><span class="line-number">59</span><br><span class="line-number">60</span><br><span class="line-number">61</span><br><span class="line-number">62</span><br><span class="line-number">63</span><br><span class="line-number">64</span><br><span class="line-number">65</span><br><span class="line-number">66</span><br><span class="line-number">67</span><br><span class="line-number">68</span><br><span class="line-number">69</span><br><span class="line-number">70</span><br><span class="line-number">71</span><br><span class="line-number">72</span><br><span class="line-number">73</span><br></div></div><h4 id="小试牛刀"><a href="#小试牛刀" class="header-anchor">#</a> 小试牛刀</h4> <ol><li>使用小工具分别截取当前主机IP；截取NETMASK；截取广播地址；截取MAC地址</li></ol> <div class="language-powershell line-numbers-mode"><pre class="language-powershell"><code>
+<span class="token namespace">[root@server shell01]</span><span class="token comment"># ifconfig eth0|grep 'Bcast'|tr -d '[a-zA-Z ]'|cut -d: -f2,3,4</span>
+10<span class="token punctuation">.</span>1<span class="token punctuation">.</span>1<span class="token punctuation">.</span>1:10<span class="token punctuation">.</span>1<span class="token punctuation">.</span>1<span class="token punctuation">.</span>255:255<span class="token punctuation">.</span>255<span class="token punctuation">.</span>255<span class="token punctuation">.</span>0
+<span class="token namespace">[root@server shell01]</span><span class="token comment"># ifconfig eth0|grep 'Bcast'|tr -d '[a-zA-Z ]'|cut -d: -f2,3,4|tr ':' '\n'</span>
+10<span class="token punctuation">.</span>1<span class="token punctuation">.</span>1<span class="token punctuation">.</span>1
+10<span class="token punctuation">.</span>1<span class="token punctuation">.</span>1<span class="token punctuation">.</span>255
+255<span class="token punctuation">.</span>255<span class="token punctuation">.</span>255<span class="token punctuation">.</span>0
+<span class="token namespace">[root@server shell01]</span><span class="token comment"># ifconfig eth0|grep 'HWaddr'|cut -d: -f2-|cut -d' ' -f4</span>
+00:0C:29:25:AE:54
+
+<span class="token comment"># ifconfig eth1|grep Bcast|cut -d: -f2|cut -d' ' -f1</span>
+<span class="token comment"># ifconfig eth1|grep Bcast|cut -d: -f2|tr -d '[ a-zA-Z]'</span>
+<span class="token comment"># ifconfig eth1|grep Bcast|tr -d '[:a-zA-Z]'|tr ' ' '@'|tr -s '@'|tr '@' '\n'|grep -v ^$</span>
+<span class="token comment"># ifconfig eth0|grep 'Bcast'|tr -d [:alpha:]|tr '[ :]' '\n'|grep -v ^$</span>
+<span class="token comment"># ifconfig eth1|grep HWaddr|cut -d ' ' -f11</span>
+<span class="token comment"># ifconfig eth0|grep HWaddr|tr -s ' '|cut -d' ' -f5</span>
+<span class="token comment"># ifconfig eth1|grep HWaddr|tr -s ' '|cut -d' ' -f5</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br></div></div><ol start="2"><li>将系统中所有普通用户的用户名、密码和默认shell保存到一个文件中，要求用户名密码和默认shell之间用tab键分割</li></ol> <div class="language-powershell line-numbers-mode"><pre class="language-powershell"><code><span class="token namespace">[root@server shell01]</span><span class="token comment"># grep 'bash$' passwd |grep -v '^root'|cut -d: -f1,2,7|tr ':' '\t'</span>
+stu1    x       <span class="token operator">/</span>bin/bash
+code    x       <span class="token operator">/</span>bin/bash
+kefu    x       <span class="token operator">/</span>bin/bash
+kefu1   x       <span class="token operator">/</span>bin/bash
+kefu2   x       <span class="token operator">/</span>bin/bash
+user01  x       <span class="token operator">/</span>bin/bash
+stu2    x       <span class="token operator">/</span>bin/bash
+<span class="token namespace">[root@server shell01]</span><span class="token comment"># grep bash$ passwd |grep -viE 'root|mysql'|cut -d: -f1,2,7|tr ':' '\t' |tee a.txt</span>
+
+注释：
+<span class="token operator">-</span>E 匹配扩展正则表达式，<span class="token punctuation">|</span>代表或者，是一个扩展正则
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br></div></div><h3 id="_2-编程语言分类"><a href="#_2-编程语言分类" class="header-anchor">#</a> 2. 编程语言分类</h3> <ul><li><strong>编译型语言：</strong></li></ul> <p>​    ==程序在执行之前需要一个专门的编译过程==，把程序编译成为机器语言文件，运行时不需要重新翻译，直接使用编译的结果就行了。程序执行效率高，依赖编译器，跨平台性差些。如C、C++</p> <ul><li><strong>解释型语言：</strong></li></ul> <p>​    程序不需要编译，程序在运行时由**==解释器==**翻译成机器语言，每执行一次都要翻译一次。因此效率比较低。比如Python/JavaScript/ Perl /ruby/Shell等都是解释型语言。</p> <p><img src="%E8%AF%AD%E8%A8%80%E5%88%86%E7%B1%BB.png" alt="/语言分类"></p> <ul><li><strong>总结：</strong></li></ul> <p>编译型语言比解释型语言==速度较快==，但是不如解释型语言==跨平台性好==。如果做底层开发或者大型应用程序或者操作系开发一==般都用编译型语言==；如果是一些服务器脚本及一些辅助的接口，对速度要求不高、对各个平台的==兼容性有要求==的话则一般都用==解释型语言==。</p> <h3 id="_3-shell介绍"><a href="#_3-shell介绍" class="header-anchor">#</a> 3. shell介绍</h3> <p><img src="/00_shell%E4%BB%8B%E7%BB%8D.png" alt="00_shell介绍"></p> <p><strong>总结：</strong></p> <ul><li>==shell就是人机交互的一个桥梁==</li> <li>shell的种类</li></ul> <div class="language-powershell line-numbers-mode"><pre class="language-powershell"><code><span class="token namespace">[root@MissHou ~]</span><span class="token comment"># cat /etc/shells </span>
+<span class="token operator">/</span>bin/sh			<span class="token comment">#是bash shell的一个快捷方式</span>
+<span class="token operator">/</span>bin/bash		<span class="token comment">#bash shell是大多数Linux默认的shell，包含的功能几乎可以涵盖shell所有的功能</span>
+<span class="token operator">/</span>sbin/nologin	<span class="token comment">#表示非交互，不能登录操作系统</span>
+<span class="token operator">/</span>bin/dash		<span class="token comment">#小巧，高效，功能相比少一些</span>
+<span class="token operator">/</span>bin/tcsh		<span class="token comment">#是csh的增强版，完全兼容csh</span>
+<span class="token operator">/</span>bin/csh		<span class="token comment">#具有C语言风格的一种shell，具有许多特性，但也有一些缺陷</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br></div></div><ul><li><p>用户在终端（终端就是bash的接口）输入命令</p> <p>​		 |
+​      	      bash    		//bash就是shell的一种类型（bash shell）
+​		 |
+​	    kernel
+​		 |	
+​        物理硬件等</p></li></ul> <p>###4. shell脚本</p> <ul><li><p><strong>什么是shell脚本？</strong></p> <ul><li>一句话概括</li></ul> <p>简单来说就是将需要执行的命令保存到文本中，==按照顺序执行==。它是解释型的，意味着不需要编译。</p> <ul><li>准确叙述</li></ul> <p><strong>若干命令 + 脚本的基本格式 + 脚本特定语法 + 思想= shell脚本</strong></p></li> <li><p><strong>什么时候用到脚本？</strong></p> <p>重复化、复杂化的工作，通过把工作的命令写成脚本，以后仅仅需要执行脚本就能完成这些工作。</p> <p>①自动化分析处理</p> <p>②自动化备份</p> <p>③自动化批量部署安装</p> <p>④等等...</p></li> <li><p><strong>如何学习shell脚本？</strong></p></li></ul> <ol><li>尽可能记忆更多的命令</li> <li>掌握脚本的标准的格式（指定魔法字节、使用标准的执行方式运行脚本）</li> <li>必须==<strong>熟悉掌握</strong>==脚本的基本语法（重点)</li></ol> <ul><li><strong>学习脚本的秘诀：</strong></li></ul> <p>多看（看懂）——&gt;多模仿（多练）——&gt;多思考</p> <ul><li><strong>脚本的基本写法：</strong></li></ul> <div class="language-shell line-numbers-mode"><pre class="language-shell"><code><span class="token shebang important">#!/bin/bash</span>
+//脚本第一行， <span class="token comment">#！魔法字符，指定脚本代码执行的程序。即它告诉系统这个脚本需要什么解释器来执行，也就是使用哪一种Shell</span>
+
+//以下内容是对脚本的基本信息的描述
+<span class="token comment"># Name: 名字</span>
+<span class="token comment"># Desc:描述describe</span>
+<span class="token comment"># Path:存放路径</span>
+<span class="token comment"># Usage:用法</span>
+<span class="token comment"># Update:更新时间</span>
+
+//下面就是脚本的具体内容
+commands
+<span class="token punctuation">..</span>.
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br></div></div><ul><li><p><strong>脚本执行方法：</strong></p> <ul><li>标准脚本执行方法（建议）：（魔法字节指定的程序会生效）</li></ul> <div class="language-shell line-numbers-mode"><pre class="language-shell"><code><span class="token punctuation">[</span>root@MissHou shell01<span class="token punctuation">]</span><span class="token comment"># cat 1.sh </span>
+<span class="token comment">#!/bin/bash</span>
+<span class="token comment">#xxxx</span>
+<span class="token comment">#xxx</span>
+<span class="token comment">#xxx</span>
+<span class="token function">hostname</span>
+<span class="token function">date</span>
+<span class="token punctuation">[</span>root@MissHou shell01<span class="token punctuation">]</span><span class="token comment"># chmod +x 1.sh </span>
+<span class="token punctuation">[</span>root@MissHou shell01<span class="token punctuation">]</span><span class="token comment"># ll</span>
+total <span class="token number">4</span>
+-rwxr-xr-x <span class="token number">1</span> root root <span class="token number">42</span> Jul <span class="token number">22</span> <span class="token number">14</span>:40 <span class="token number">1</span>.sh
+<span class="token punctuation">[</span>root@MissHou shell01<span class="token punctuation">]</span><span class="token comment"># /shell/shell01/1.sh </span>
+MissHou.itcast.cc
+Sun Jul <span class="token number">22</span> <span class="token number">14</span>:41:00 CST <span class="token number">2018</span>
+<span class="token punctuation">[</span>root@MissHou shell01<span class="token punctuation">]</span><span class="token comment"># ./1.sh </span>
+MissHou.itcast.cc
+Sun Jul <span class="token number">22</span> <span class="token number">14</span>:41:30 CST <span class="token number">2018</span>
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br></div></div><ul><li>非标准的执行方法（不建议）：（魔法字节指定的程序不会运作）</li></ul> <div class="language-shell line-numbers-mode"><pre class="language-shell"><code><span class="token punctuation">[</span>root@MissHou shell01<span class="token punctuation">]</span><span class="token comment"># bash 1.sh </span>
+MissHou.itcast.cc
+Sun Jul <span class="token number">22</span> <span class="token number">14</span>:42:51 CST <span class="token number">2018</span>
+<span class="token punctuation">[</span>root@MissHou shell01<span class="token punctuation">]</span><span class="token comment"># sh 1.sh</span>
+MissHou.itcast.cc
+Sun Jul <span class="token number">22</span> <span class="token number">14</span>:43:01 CST <span class="token number">2018</span>
+<span class="token punctuation">[</span>root@MissHou shell01<span class="token punctuation">]</span><span class="token comment"># </span>
+<span class="token punctuation">[</span>root@MissHou shell01<span class="token punctuation">]</span><span class="token comment"># bash -x 1.sh</span>
++ <span class="token function">hostname</span>
+MissHou.itcast.cc
++ <span class="token function">date</span>
+Sun Jul <span class="token number">22</span> <span class="token number">14</span>:43:20 CST <span class="token number">2018</span>
+
+-x:一般用于排错，查看脚本的执行过程
+-n:用来查看脚本的语法是否有问题
+
+注意：如果脚本没有加可执行权限，不能使用标准的执行方法执行，bash <span class="token number">1</span>.sh
+
+其他：
+<span class="token punctuation">[</span>root@server shell01<span class="token punctuation">]</span><span class="token comment"># source 2.sh</span>
+server
+Thu Nov <span class="token number">22</span> <span class="token number">15</span>:45:50 CST <span class="token number">2018</span>
+<span class="token punctuation">[</span>root@server shell01<span class="token punctuation">]</span><span class="token comment"># . 2.sh</span>
+server
+Thu Nov <span class="token number">22</span> <span class="token number">15</span>:46:07 CST <span class="token number">2018</span>
+
+<span class="token builtin class-name">source</span> 和 <span class="token builtin class-name">.</span> 表示读取文件，执行文件里的命令
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br></div></div></li></ul> <h3 id="_5-bash基本特性"><a href="#_5-bash基本特性" class="header-anchor">#</a> 5. bash基本特性</h3> <p>####5.1 命令和文件自动补全</p> <p>Tab只能补全命令和文件 （RHEL6/Centos6）</p> <p>####5.2 常见的快捷键</p> <div class="language-powershell line-numbers-mode"><pre class="language-powershell"><code>^c   			终止前台运行的程序
+^z	  			将前台运行的程序挂起到后台
+^d   			退出 等价<span class="token keyword">exit</span>
+^l   			清屏 
+^a <span class="token punctuation">|</span>home  	光标移到命令行的最前端
+^e <span class="token punctuation">|</span><span class="token keyword">end</span>  	光标移到命令行的后端
+^u   			删除光标前所有字符
+^k   			删除光标后所有字符
+^r	 			搜索历史命令
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br></div></div><p>####5.3 常用的通配符（重点）</p> <div class="language-powershell line-numbers-mode"><pre class="language-powershell"><code><span class="token operator">*</span>:	匹配0或多个任意字符
+?:	匹配任意单个字符
+<span class="token namespace">[list]</span>:	匹配<span class="token namespace">[list]</span>中的任意单个字符
+<span class="token punctuation">[</span><span class="token operator">!</span>list<span class="token punctuation">]</span>: 匹配除list中的任意单个字符
+<span class="token punctuation">{</span>string1<span class="token punctuation">,</span>string2<span class="token punctuation">,</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">}</span>：匹配string1<span class="token punctuation">,</span>string2或更多字符串
+
+举例：
+touch file<span class="token punctuation">{</span>1<span class="token punctuation">.</span><span class="token punctuation">.</span>3<span class="token punctuation">}</span>
+touch file<span class="token punctuation">{</span>1<span class="token punctuation">.</span><span class="token punctuation">.</span>13<span class="token punctuation">}</span><span class="token punctuation">.</span>jpg
+<span class="token comment"># ls file*</span>
+<span class="token comment"># ls *.jpg</span>
+<span class="token comment"># ll file?</span>
+<span class="token comment"># ll file?.jpg</span>
+<span class="token comment"># ll file??.jpg</span>
+<span class="token comment"># ll file1?.jpg</span>
+<span class="token comment"># ll file?.jpg</span>
+<span class="token comment"># ll file[1023].jpg</span>
+<span class="token comment"># ll file[0-13].jpg</span>
+<span class="token comment"># ll file1[0-9].jpg</span>
+<span class="token comment"># ll file[0-9].jpg</span>
+<span class="token comment"># ll file?[1-13].jpg</span>
+<span class="token comment"># ll file[1,2,3,10,11,12].jpg</span>
+<span class="token comment"># ll file1{11,10,1,2,3}.jpg</span>
+<span class="token comment"># ll file{1..10}.jpg</span>
+<span class="token comment"># ll file{1...10}.jpg</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br></div></div><p>####5.4 bash中的引号（重点）</p> <ul><li>双引号&quot;&quot;   :会把引号的内容当成整体来看待，允许通过$符号引用其他变量值</li> <li>单引号''     :会把引号的内容当成整体来看待，禁止引用其他变量值，shell中特殊符号都被视为普通字符</li> <li>反撇号``  :反撇号和$()一样，引号或括号里的命令会优先执行，如果存在嵌套，反撇号不能用</li></ul> <div class="language-powershell line-numbers-mode"><pre class="language-powershell"><code><span class="token namespace">[root@server dir1]</span><span class="token comment"># echo &quot;$(hostname)&quot;</span>
+server
+<span class="token namespace">[root@server dir1]</span><span class="token comment"># echo '$(hostname)'</span>
+$<span class="token punctuation">(</span>hostname<span class="token punctuation">)</span>
+<span class="token namespace">[root@server dir1]</span><span class="token comment"># echo &quot;hello world&quot;</span>
+hello world
+<span class="token namespace">[root@server dir1]</span><span class="token comment"># echo 'hello world'</span>
+hello world
+
+<span class="token namespace">[root@server dir1]</span><span class="token comment"># echo $(date +%F)</span>
+2018-11-22
+<span class="token namespace">[root@server dir1]</span><span class="token comment"># echo `echo $(date +%F)`</span>
+2018-11-22
+<span class="token namespace">[root@server dir1]</span><span class="token comment"># echo `date +%F`</span>
+2018-11-22
+<span class="token namespace">[root@server dir1]</span><span class="token comment"># echo `echo `date +%F``</span>
+date <span class="token operator">+</span><span class="token operator">%</span>F
+<span class="token namespace">[root@server dir1]</span><span class="token comment"># echo $(echo `date +%F`)</span>
+2018-11-22
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br></div></div><h2 id="变量的定义"><a href="#变量的定义" class="header-anchor">#</a> 变量的定义</h2> <p>###1. 变量的分类</p> <ul><li><strong>本地变量</strong>：当前用户自定义的变量。当前进程中有效，其他进程及当前进程的子进程无效。</li> <li><strong>环境变量</strong>：当前进程有效，并且能够被<strong>子进程</strong>调用。
+<ul><li>查看当前用户的环境变量						<strong>env</strong></li> <li>查询当前用户的所有变量(临时变量与环境变量)         **set **</li> <li>**export    //将当前变量变成环境变量 **</li></ul></li></ul> <div class="language-powershell line-numbers-mode"><pre class="language-powershell"><code><span class="token namespace">[root@MissHou tmp]</span><span class="token comment"># export A=hello		//临时将一个本地变量（临时变量）变成环境变量</span>
+<span class="token namespace">[root@MissHou tmp]</span><span class="token comment"># env|grep ^A</span>
+A=hello
+
+永久生效：
+vim <span class="token operator">/</span>etc/profile 或者 ~<span class="token operator">/</span><span class="token punctuation">.</span>bashrc
+export A=hello
+或者
+A=hello
+export A
+
+说明：系统中有一个变量PATH，环境变量
+export PATH=<span class="token operator">/</span>usr/local/mysql/bin:<span class="token variable">$PATH</span>
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br></div></div><ul><li><strong>全局变量</strong>：全局所有的用户和程序都能调用，且继承，新建的用户也默认能调用.</li></ul> <div class="language-powershell line-numbers-mode"><pre class="language-powershell"><code><span class="token variable">$HOME</span><span class="token operator">/</span><span class="token punctuation">.</span>bashrc     		当前用户的bash信息（aliase、umask等）
+<span class="token variable">$HOME</span><span class="token operator">/</span><span class="token punctuation">.</span>bash_profile  	当前用户的环境变量（）
+oracle——&gt;oracle用户——&gt;<span class="token variable">$oracle</span><span class="token operator">/</span><span class="token punctuation">.</span>bash_profile——&gt;export home_install=<span class="token operator">/</span>u01/app/xxx
+
+<span class="token variable">$HOME</span><span class="token operator">/</span><span class="token punctuation">.</span>bash_logout  		每个用户退出当前shell时最后读取的文件
+
+<span class="token operator">/</span>etc/bashrc             使用bash shell用户全局变量
+grep <span class="token operator">--</span>color=auto
+umask
+
+<span class="token operator">/</span>etc/profile   		   系统和每个用户的环境变量信息
+
+mycat_home=<span class="token operator">/</span>usr/local/mycat/bin
+export mycat_home
+执行mycat命令
+<span class="token comment"># mycat</span>
+$ mycat
+
+用户登录系统读取相关文件的顺序：
+<span class="token operator">/</span>etc/profile——&gt;<span class="token variable">$HOME</span><span class="token operator">/</span><span class="token punctuation">.</span>bash_profile——&gt;<span class="token variable">$HOME</span><span class="token operator">/</span><span class="token punctuation">.</span>bashrc——&gt;<span class="token operator">/</span>etc/bashrc——&gt;<span class="token variable">$HOME</span><span class="token operator">/</span><span class="token punctuation">.</span>bash_logout
+
+source <span class="token operator">/</span>etc/bashrc
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br></div></div><ul><li><strong>系统变量(内置bash中变量)</strong> ： shell本身已经固定好了它的名字和作用.</li></ul> <div class="language-powershell line-numbers-mode"><pre class="language-powershell"><code>$?：上一条命令执行后返回的状态，当返回状态值为0时表示执行正常，非0值表示执行异常或出错
+ 若退出状态值为0，表示命令运行成功
+ 若退出状态值为127<span class="token punctuation">,</span>表示command not found
+ 若退出状态值为126<span class="token punctuation">,</span>表示找到了该命令但无法执行（权限不够）
+ 若退出状态值为1&amp;2<span class="token punctuation">,</span>表示没有那个文件或目录
+ 
+$$：当前所在进程的进程号     <span class="token function">echo</span> $$   eg：<span class="token function">kill</span> <span class="token operator">-</span>9 `<span class="token function">echo</span> $$`  = <span class="token keyword">exit</span>   退出当前会话
+$<span class="token operator">!</span>：后台运行的最后一个进程号  （当前终端）  <span class="token comment"># gedit &amp;</span>
+<span class="token operator">!</span>$	调用最后一条命令历史中的参数
+<span class="token operator">!</span><span class="token operator">!</span>	调用最后一条命令历史
+
+
+$<span class="token comment">#：脚本后面接的参数的个数</span>
+$<span class="token operator">*</span>：脚本后面所有参数，参数当成一个整体输出，每一个变量参数之间以空格隔开
+$@: 脚本后面所有参数，参数是独立的，也是全部输出
+
+<span class="token variable">$0</span>：当前执行的进程<span class="token operator">/</span>程序名  <span class="token function">echo</span> <span class="token variable">$0</span>	    
+<span class="token variable">$1</span>~<span class="token variable">$9</span> 位置参数变量
+$<span class="token punctuation">{</span>10<span class="token punctuation">}</span>~$<span class="token punctuation">{</span>n<span class="token punctuation">}</span> 扩展位置参数变量  第10个位置变量必须用<span class="token punctuation">{</span><span class="token punctuation">}</span>大括号括起来
+<span class="token punctuation">.</span><span class="token operator">/</span>1<span class="token punctuation">.</span>sh a b c
+
+<span class="token namespace">[root@MissHou shell01]</span><span class="token comment"># cat 2.sh </span>
+<span class="token comment">#!/bin/bash</span>
+<span class="token comment">#xxxx</span>
+<span class="token function">echo</span> <span class="token string">&quot;\<span class="token variable">$0</span> = <span class="token variable">$0</span>&quot;</span>
+<span class="token function">echo</span> <span class="token string">&quot;\$# = $#&quot;</span>
+<span class="token function">echo</span> <span class="token string">&quot;\$* = $*&quot;</span>
+<span class="token function">echo</span> <span class="token string">&quot;\$@ = $@&quot;</span>
+<span class="token function">echo</span> <span class="token string">&quot;\<span class="token variable">$1</span> = <span class="token variable">$1</span>&quot;</span> 
+<span class="token function">echo</span> <span class="token string">&quot;\<span class="token variable">$2</span> = <span class="token variable">$2</span>&quot;</span> 
+<span class="token function">echo</span> <span class="token string">&quot;\<span class="token variable">$3</span> = <span class="token variable">$3</span>&quot;</span> 
+<span class="token function">echo</span> <span class="token string">&quot;\<span class="token variable">$11</span> = ${11}&quot;</span> 
+<span class="token function">echo</span> <span class="token string">&quot;\<span class="token variable">$12</span> = ${12}&quot;</span> 
+
+了解$<span class="token operator">*</span>和$@的区别：
+$<span class="token operator">*</span>	:表示将变量看成一个整体
+$@	:表示变量是独立的
+
+<span class="token comment">#!/bin/bash</span>
+<span class="token keyword">for</span> i in <span class="token string">&quot;$@&quot;</span>
+<span class="token keyword">do</span>
+<span class="token function">echo</span> <span class="token variable">$i</span>
+done
+
+<span class="token function">echo</span> <span class="token string">&quot;======我是分割线=======&quot;</span>
+
+<span class="token keyword">for</span> i in <span class="token string">&quot;$*&quot;</span>
+<span class="token keyword">do</span>
+<span class="token function">echo</span> <span class="token variable">$i</span>
+done
+
+<span class="token namespace">[root@MissHou shell01]</span><span class="token comment"># bash 3.sh a b c</span>
+a
+b
+c
+======我是分割线=======
+a b c
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br><span class="line-number">33</span><br><span class="line-number">34</span><br><span class="line-number">35</span><br><span class="line-number">36</span><br><span class="line-number">37</span><br><span class="line-number">38</span><br><span class="line-number">39</span><br><span class="line-number">40</span><br><span class="line-number">41</span><br><span class="line-number">42</span><br><span class="line-number">43</span><br><span class="line-number">44</span><br><span class="line-number">45</span><br><span class="line-number">46</span><br><span class="line-number">47</span><br><span class="line-number">48</span><br><span class="line-number">49</span><br><span class="line-number">50</span><br><span class="line-number">51</span><br><span class="line-number">52</span><br><span class="line-number">53</span><br><span class="line-number">54</span><br><span class="line-number">55</span><br><span class="line-number">56</span><br><span class="line-number">57</span><br><span class="line-number">58</span><br></div></div><p>###2. 什么时候需要定义变量？</p> <ul><li>如果某个内容需要多次使用，并且在代码中<strong>重复出现</strong>，那么可以用变量代表该内容。这样在修改内容的时候，仅仅需要修改变量的值。</li> <li>在代码运作的过程中，可能会把某些命令的执行结果保存起来，后续代码需要使用这些结果，就可以直接使用这个变量。</li></ul> <p>###3. 变量的定义规则</p> <div class="language-powershell line-numbers-mode"><pre class="language-powershell"><code>1<span class="token punctuation">.</span> 默认情况下，shell里定义的变量是不分类型的，可以给变量赋与任何类型的值；等号两边不能有空格，对于有空格的字符串做为赋值时，要用引号引起来
+变量名=变量值
+
+2<span class="token punctuation">.</span> 变量的获取方式：	$变量名     $<span class="token punctuation">{</span>变量名<span class="token punctuation">}</span>	
+<span class="token namespace">[root@MissHou shell01]</span><span class="token comment"># a=12345678</span>
+<span class="token namespace">[root@MissHou shell01]</span><span class="token comment"># echo $a</span>
+12345678
+<span class="token namespace">[root@MissHou shell01]</span><span class="token comment"># echo ${a}</span>
+12345678
+<span class="token namespace">[root@MissHou shell01]</span><span class="token comment"># echo ${a:2:3}		a表示变量名；2表示从第3个字符开始；3表示后面3个字符</span>
+345
+
+如果获取变量的全部两个都可以；如果获取变量的某一部分，用$<span class="token punctuation">{</span><span class="token punctuation">}</span>
+
+3<span class="token punctuation">.</span> 取消变量:     unset  变量名
+
+4<span class="token punctuation">.</span> 变量名区分大小写，同名称但大小写不同的变量名是不同的变量
+5<span class="token punctuation">.</span> 变量名可以是字母或数字或下划线，但是不能以数字开头或者特殊字符
+<span class="token namespace">[root@MissHou shell01]</span><span class="token comment"># 1a=hello</span>
+<span class="token operator">-</span>bash: 1a=hello: command not found
+<span class="token namespace">[root@MissHou shell01]</span><span class="token comment"># ?a=hello</span>
+<span class="token operator">-</span>bash: ?a=hello: command not found
+<span class="token namespace">[root@MissHou shell01]</span><span class="token comment"># _a=hello</span>
+<span class="token namespace">[root@MissHou shell01]</span><span class="token comment"># echo $_a</span>
+hello
+
+6<span class="token punctuation">.</span> 命令的执行结果可以保存到变量
+<span class="token namespace">[root@server shell01]</span><span class="token comment"># kernel=`uname -r`</span>
+<span class="token namespace">[root@server shell01]</span><span class="token comment"># echo $kernel</span>
+2<span class="token punctuation">.</span>6<span class="token punctuation">.</span>32-431<span class="token punctuation">.</span>el6<span class="token punctuation">.</span>x86_64
+<span class="token namespace">[root@server shell01]</span><span class="token comment"># name=$(uname -n)</span>
+<span class="token namespace">[root@server shell01]</span><span class="token comment"># echo $name</span>
+server<span class="token punctuation">.</span>itcast<span class="token punctuation">.</span>cc
+
+7<span class="token punctuation">.</span> 有类型变量 declare
+<span class="token operator">-</span>i 将变量看成整数 
+<span class="token operator">-</span>r 使变量只读  readonly
+<span class="token operator">-</span>x 标记变量通过环境导出  export
+<span class="token operator">-</span>a	指定为索引数组（普通数组）；查看普通数组
+<span class="token operator">-</span>A 指定为关联数组；查看关联数组
+
+<span class="token namespace">[root@server shell01]</span><span class="token comment"># a=10</span>
+<span class="token namespace">[root@server shell01]</span><span class="token comment"># b=20</span>
+<span class="token namespace">[root@server shell01]</span><span class="token comment"># echo $a+$b</span>
+10+20
+
+<span class="token namespace">[root@server shell01]</span><span class="token comment"># declare -i a=2</span>
+<span class="token namespace">[root@server shell01]</span><span class="token comment"># declare -i b=4</span>
+<span class="token namespace">[root@server shell01]</span><span class="token comment"># declare -i c=$a+$b</span>
+<span class="token namespace">[root@server shell01]</span><span class="token comment"># echo $c</span>
+6
+
+<span class="token namespace">[root@server shell01]</span><span class="token comment"># AAAA=hello</span>
+<span class="token namespace">[root@server shell01]</span><span class="token comment"># export AAAA</span>
+<span class="token namespace">[root@server shell01]</span><span class="token comment"># env|grep AAAA</span>
+AAAA=hello
+<span class="token namespace">[root@server shell01]</span><span class="token comment"># declare -x BBBB=hello</span>
+<span class="token namespace">[root@server shell01]</span><span class="token comment"># env|grep BBBB</span>
+BBBB=hello
+
+
+8<span class="token punctuation">.</span> 数组
+普通数组：只能使用整数作为数组索引<span class="token punctuation">(</span>元素的下标<span class="token punctuation">)</span>
+关联数组：可以使用字符串作为数组索引<span class="token punctuation">(</span>元素的下标<span class="token punctuation">)</span>
+
+普通数组定义：用括号来表示数组，数组元素<span class="token punctuation">(</span>变量<span class="token punctuation">)</span>用“空格”符号分割开。定义数组的一般形式为：
+一次赋一个值：
+变量名=变量值
+array<span class="token punctuation">[</span>0<span class="token punctuation">]</span>=v1
+array<span class="token punctuation">[</span>1<span class="token punctuation">]</span>=v2
+array<span class="token punctuation">[</span>3<span class="token punctuation">]</span>=v3
+一次赋多个值：
+array=<span class="token punctuation">(</span>var1 var2 var3 var4<span class="token punctuation">)</span>
+array1=<span class="token punctuation">(</span>`<span class="token function">cat</span> <span class="token operator">/</span>etc/passwd`<span class="token punctuation">)</span>			<span class="token operator">/</span><span class="token operator">/</span>将文件中每一行赋值给array1数组
+array2=<span class="token punctuation">(</span>`<span class="token function">ls</span> <span class="token operator">/</span>root`<span class="token punctuation">)</span>
+array3=<span class="token punctuation">(</span>harry amy jack <span class="token string">&quot;Miss Hou&quot;</span><span class="token punctuation">)</span>
+array4=<span class="token punctuation">(</span>1 2 3 4 <span class="token string">&quot;hello world&quot;</span> <span class="token punctuation">[</span>10<span class="token punctuation">]</span>=linux<span class="token punctuation">)</span>
+
+读取数组：
+$<span class="token punctuation">{</span>array<span class="token namespace">[i]</span><span class="token punctuation">}</span>  i表示元素的下标
+使用@ 或 <span class="token operator">*</span> 可以获取数组中的所有元素：
+获取第一个元素
+<span class="token function">echo</span> $<span class="token punctuation">{</span>array<span class="token punctuation">[</span>0<span class="token punctuation">]</span><span class="token punctuation">}</span>
+<span class="token function">echo</span> $<span class="token punctuation">{</span>array<span class="token punctuation">[</span><span class="token operator">*</span><span class="token punctuation">]</span><span class="token punctuation">}</span>			获取数组里的所有元素
+<span class="token function">echo</span> $<span class="token punctuation">{</span><span class="token comment">#array[*]}			获取数组里所有元素个数</span>
+<span class="token function">echo</span> $<span class="token punctuation">{</span><span class="token operator">!</span>array<span class="token punctuation">[</span>@<span class="token punctuation">]</span><span class="token punctuation">}</span>    	获取数组元素的索引下标
+<span class="token function">echo</span> $<span class="token punctuation">{</span>array<span class="token punctuation">[</span>@<span class="token punctuation">]</span>:1:2<span class="token punctuation">}</span>    访问指定的元素；1代表从下标为1的元素开始获取；2代表获取后面几个元素
+
+
+<span class="token namespace">[root@server shell01]</span><span class="token comment"># array[0]=var1</span>
+<span class="token namespace">[root@server shell01]</span><span class="token comment"># array[1]=var2</span>
+<span class="token namespace">[root@server shell01]</span><span class="token comment"># array[2]=var3</span>
+<span class="token namespace">[root@server shell01]</span><span class="token comment"># array1=(uu1 uu2 uu3 uu4)</span>
+<span class="token namespace">[root@server shell01]</span><span class="token comment"># ls</span>
+1<span class="token punctuation">.</span>sh  2<span class="token punctuation">.</span>sh  3<span class="token punctuation">.</span>sh  4<span class="token punctuation">.</span>sh  passwd
+<span class="token namespace">[root@server shell01]</span><span class="token comment"># array2=(`ls ./`)</span>
+<span class="token namespace">[root@server shell01]</span><span class="token comment"># array3=(jack harry &quot;Miss Hou&quot; [5]=tom)</span>
+
+查看普通数组信息：
+<span class="token namespace">[root@server shell01]</span><span class="token comment"># declare -a</span>
+declare <span class="token operator">-</span>a array=<span class="token string">'([0]=&quot;var1&quot; [1]=&quot;var2&quot; [2]=&quot;var3&quot;)'</span>
+declare <span class="token operator">-</span>a array1=<span class="token string">'([0]=&quot;uu1&quot; [1]=&quot;uu2&quot; [2]=&quot;uu3&quot; [3]=&quot;uu4&quot;)'</span>
+declare <span class="token operator">-</span>a array2=<span class="token string">'([0]=&quot;1.sh&quot; [1]=&quot;2.sh&quot; [2]=&quot;3.sh&quot; [3]=&quot;4.sh&quot; [4]=&quot;passwd&quot;)'</span>
+declare <span class="token operator">-</span>a array3=<span class="token string">'([0]=&quot;jack&quot; [1]=&quot;harry&quot; [2]=&quot;Miss Hou&quot; [5]=&quot;tom&quot;)'</span>
+<span class="token namespace">[root@server shell01]</span><span class="token comment"># </span>
+<span class="token namespace">[root@server shell01]</span><span class="token comment"># </span>
+<span class="token namespace">[root@server shell01]</span><span class="token comment"># echo ${array[*]}</span>
+var1 var2 var3
+<span class="token namespace">[root@server shell01]</span><span class="token comment"># echo ${array[@]}</span>
+var1 var2 var3
+<span class="token namespace">[root@server shell01]</span><span class="token comment"># echo ${array[2]}</span>
+var3
+<span class="token namespace">[root@server shell01]</span><span class="token comment"># echo ${array2[@]}</span>
+1<span class="token punctuation">.</span>sh 2<span class="token punctuation">.</span>sh 3<span class="token punctuation">.</span>sh 4<span class="token punctuation">.</span>sh passwd
+<span class="token namespace">[root@server shell01]</span><span class="token comment"># echo ${array2[3]}</span>
+4<span class="token punctuation">.</span>sh
+<span class="token namespace">[root@server shell01]</span><span class="token comment"># </span>
+<span class="token namespace">[root@server shell01]</span><span class="token comment"># echo ${array2[*]:2:2}</span>
+3<span class="token punctuation">.</span>sh 4<span class="token punctuation">.</span>sh
+<span class="token namespace">[root@server shell01]</span><span class="token comment"># echo ${#array2[*]}</span>
+5
+<span class="token namespace">[root@server shell01]</span><span class="token comment"># echo ${!array2[*]}</span>
+0 1 2 3 4
+<span class="token namespace">[root@server shell01]</span><span class="token comment"># echo ${!array3[*]}</span>
+0 1 2 5
+
+
+关联数组定义：
+首先声明关联数组
+declare <span class="token operator">-</span>A asso_array1
+declare <span class="token operator">-</span>A asso_array2
+declare <span class="token operator">-</span>A asso_array3
+
+数组赋值：
+一次赋一个值：
+数组名<span class="token punctuation">[</span>索引<span class="token punctuation">|</span>下标<span class="token punctuation">]</span>=变量值
+<span class="token namespace">[root@server ~]</span><span class="token comment"># asso_array1[linux]=one</span>
+<span class="token namespace">[root@server ~]</span><span class="token comment"># asso_array1[java]=two</span>
+<span class="token namespace">[root@server ~]</span><span class="token comment"># asso_array1[php]=three</span>
+一次赋多个值：
+<span class="token namespace">[root@server ~]</span><span class="token comment"># asso_array2=([name1]=harry [name2]=jack [name3]=amy [name4]=&quot;Miss Hou&quot;)</span>
+查看关联数组：
+<span class="token namespace">[root@server ~]</span><span class="token comment"># declare -A</span>
+declare <span class="token operator">-</span>A asso_array1=<span class="token string">'([php]=&quot;three&quot; [java]=&quot;two&quot; [linux]=&quot;one&quot; )'</span>
+declare <span class="token operator">-</span>A asso_array2=<span class="token string">'([name3]=&quot;amy&quot; [name2]=&quot;jack&quot; [name1]=&quot;harry&quot; [name4]=&quot;Miss Hou&quot; )'</span>
+
+<span class="token namespace">[root@server ~]</span><span class="token comment"># echo ${asso_array1[linux]}</span>
+one
+<span class="token namespace">[root@server ~]</span><span class="token comment"># echo ${asso_array1[php]}</span>
+three
+<span class="token namespace">[root@server ~]</span><span class="token comment"># echo ${asso_array1[*]}</span>
+three two one
+<span class="token namespace">[root@server ~]</span><span class="token comment"># echo ${!asso_array1[*]}</span>
+php java linux
+<span class="token namespace">[root@server ~]</span><span class="token comment"># echo ${#asso_array1[*]}</span>
+3
+<span class="token namespace">[root@server ~]</span><span class="token comment"># echo ${#asso_array2[*]}</span>
+4
+<span class="token namespace">[root@server ~]</span><span class="token comment"># echo ${!asso_array2[*]}</span>
+name3 name2 name1 name4
+
+
+9<span class="token punctuation">.</span> 交互式定义变量的值 read    主要用于让用户去定义变量值
+<span class="token operator">-</span>p 提示信息
+<span class="token operator">-</span>n 字符数 （限制变量值的字符数）
+<span class="token operator">-</span>s 不显示   
+<span class="token operator">-</span>t 超时（默认单位秒）（限制用户输入变量值的超时时间）
+
+<span class="token namespace">[root@MissHou shell01]</span><span class="token comment"># cat 1.txt </span>
+10<span class="token punctuation">.</span>1<span class="token punctuation">.</span>1<span class="token punctuation">.</span>1 255<span class="token punctuation">.</span>255<span class="token punctuation">.</span>255<span class="token punctuation">.</span>0
+
+<span class="token namespace">[root@MissHou shell01]</span><span class="token comment"># read -p &quot;Input your IP and Netmask:&quot; ip mask &lt; 1.txt </span>
+<span class="token namespace">[root@MissHou shell01]</span><span class="token comment"># echo $ip</span>
+10<span class="token punctuation">.</span>1<span class="token punctuation">.</span>1<span class="token punctuation">.</span>1
+<span class="token namespace">[root@MissHou shell01]</span><span class="token comment"># echo $mask</span>
+255<span class="token punctuation">.</span>255<span class="token punctuation">.</span>255<span class="token punctuation">.</span>0
+
+
+10<span class="token punctuation">.</span> 其他变量（扩展）
+1）取出一个目录下的目录和文件：dirname和 basename 
+2）变量<span class="token string">&quot;内容&quot;</span>的删除和替换
+一个“<span class="token operator">%</span>”代表从右往左去掉一个<span class="token operator">/</span>key/
+两个“<span class="token operator">%</span><span class="token operator">%</span>”代表从右往左最大去掉<span class="token operator">/</span>key/
+一个“<span class="token comment">#”代表从左往右去掉一个/key/</span>
+两个“<span class="token comment">##”代表从左往右最大去掉/key/</span>
+
+<span class="token comment"># A=/root/Desktop/shell/mem.txt </span>
+<span class="token comment"># echo $A</span>
+<span class="token operator">/</span>root/Desktop/shell/mem<span class="token punctuation">.</span>txt
+<span class="token comment"># dirname $A   取出目录</span>
+<span class="token operator">/</span>root/Desktop/shell
+<span class="token comment"># basename $A  取出文件</span>
+mem<span class="token punctuation">.</span>txt
+
+<span class="token comment"># url=www.taobao.com</span>
+<span class="token comment"># echo ${#url}		     获取变量的长度</span>
+<span class="token comment"># echo ${url#*.}</span>
+<span class="token comment"># echo ${url##*.}</span>
+<span class="token comment"># echo ${url%.*}</span>
+<span class="token comment"># echo ${url%%.*}</span>
+
+<span class="token operator">++</span><span class="token operator">++</span><span class="token operator">++</span><span class="token operator">++</span><span class="token operator">++</span><span class="token operator">++</span><span class="token operator">++</span><span class="token operator">++</span><span class="token operator">++</span><span class="token operator">++</span><span class="token operator">++</span><span class="token operator">++</span><span class="token operator">++</span><span class="token operator">++</span><span class="token operator">++</span><span class="token operator">++</span><span class="token operator">++</span><span class="token operator">++</span><span class="token operator">++</span><span class="token operator">++</span><span class="token operator">++</span><span class="token operator">++</span><span class="token operator">++</span><span class="token operator">++</span><span class="token operator">++</span>
+以下内容自己完成：
+替换：<span class="token operator">/</span> 和 <span class="token operator">/</span><span class="token operator">/</span>
+ 1015  <span class="token function">echo</span> $<span class="token punctuation">{</span>url/ao/AO<span class="token punctuation">}</span>
+ 1017  <span class="token function">echo</span> $<span class="token punctuation">{</span>url/<span class="token operator">/</span>ao/AO<span class="token punctuation">}</span>   贪婪替换
+ 
+替代： <span class="token operator">-</span> 和 :<span class="token operator">-</span>  <span class="token operator">+</span>和:<span class="token operator">+</span>
+ 1019  <span class="token function">echo</span> $<span class="token punctuation">{</span>abc-123<span class="token punctuation">}</span>
+ 1020  abc=hello
+ 1021  <span class="token function">echo</span> $<span class="token punctuation">{</span>abc-444<span class="token punctuation">}</span>
+ 1022  <span class="token function">echo</span> <span class="token variable">$abc</span>
+ 1024  abc=
+ 1025  <span class="token function">echo</span> $<span class="token punctuation">{</span>abc-222<span class="token punctuation">}</span>
+
+$<span class="token punctuation">{</span>变量名<span class="token operator">-</span>新的变量值<span class="token punctuation">}</span> 或者 $<span class="token punctuation">{</span>变量名=新的变量值<span class="token punctuation">}</span>
+变量没有被赋值：会使用“新的变量值“ 替代
+变量有被赋值（包括空值）： 不会被替代
+
+ 1062  <span class="token function">echo</span> $<span class="token punctuation">{</span>ABC:<span class="token operator">-</span>123<span class="token punctuation">}</span>
+ 1063  ABC=HELLO
+ 1064  <span class="token function">echo</span> $<span class="token punctuation">{</span>ABC:<span class="token operator">-</span>123<span class="token punctuation">}</span>
+ 1065  ABC=
+ 1066  <span class="token function">echo</span> $<span class="token punctuation">{</span>ABC:<span class="token operator">-</span>123<span class="token punctuation">}</span>
+
+$<span class="token punctuation">{</span>变量名:<span class="token operator">-</span>新的变量值<span class="token punctuation">}</span> 或者 $<span class="token punctuation">{</span>变量名:=新的变量值<span class="token punctuation">}</span>
+变量没有被赋值或者赋空值：会使用“新的变量值“ 替代
+变量有被赋值： 不会被替代
+
+ 1116  <span class="token function">echo</span> $<span class="token punctuation">{</span>abc=123<span class="token punctuation">}</span>
+ 1118  <span class="token function">echo</span> $<span class="token punctuation">{</span>abc:=123<span class="token punctuation">}</span>
+
+<span class="token namespace">[root@server ~]</span><span class="token comment"># unset abc</span>
+<span class="token namespace">[root@server ~]</span><span class="token comment"># echo ${abc:+123}</span>
+
+<span class="token namespace">[root@server ~]</span><span class="token comment"># abc=hello</span>
+<span class="token namespace">[root@server ~]</span><span class="token comment"># echo ${abc:+123}</span>
+123
+<span class="token namespace">[root@server ~]</span><span class="token comment"># abc=</span>
+<span class="token namespace">[root@server ~]</span><span class="token comment"># echo ${abc:+123}</span>
+
+$<span class="token punctuation">{</span>变量名<span class="token operator">+</span>新的变量值<span class="token punctuation">}</span>
+变量没有被赋值或者赋空值：不会使用“新的变量值“ 替代
+变量有被赋值： 会被替代
+<span class="token namespace">[root@server ~]</span><span class="token comment"># unset abc</span>
+<span class="token namespace">[root@server ~]</span><span class="token comment"># echo ${abc+123}</span>
+
+<span class="token namespace">[root@server ~]</span><span class="token comment"># abc=hello</span>
+<span class="token namespace">[root@server ~]</span><span class="token comment"># echo ${abc+123}</span>
+123
+<span class="token namespace">[root@server ~]</span><span class="token comment"># abc=</span>
+<span class="token namespace">[root@server ~]</span><span class="token comment"># echo ${abc+123}</span>
+123
+$<span class="token punctuation">{</span>变量名:<span class="token operator">+</span>新的变量值<span class="token punctuation">}</span>
+变量没有被赋值：不会使用“新的变量值“ 替代
+变量有被赋值（包括空值）： 会被替代
+
+<span class="token namespace">[root@server ~]</span><span class="token comment"># unset abc</span>
+<span class="token namespace">[root@server ~]</span><span class="token comment"># echo ${abc?123}</span>
+<span class="token operator">-</span>bash: abc: 123
+
+<span class="token namespace">[root@server ~]</span><span class="token comment"># abc=hello</span>
+<span class="token namespace">[root@server ~]</span><span class="token comment"># echo ${abc?123}</span>
+hello
+<span class="token namespace">[root@server ~]</span><span class="token comment"># abc=</span>
+<span class="token namespace">[root@server ~]</span><span class="token comment"># echo ${abc?123}</span>
+
+$<span class="token punctuation">{</span>变量名?新的变量值<span class="token punctuation">}</span>
+变量没有被赋值:提示错误信息
+变量被赋值（包括空值）：不会使用“新的变量值“ 替代
+
+<span class="token namespace">[root@server ~]</span><span class="token comment"># unset abc</span>
+<span class="token namespace">[root@server ~]</span><span class="token comment"># echo ${abc:?123}</span>
+<span class="token operator">-</span>bash: abc: 123
+<span class="token namespace">[root@server ~]</span><span class="token comment"># abc=hello</span>
+<span class="token namespace">[root@server ~]</span><span class="token comment"># echo ${abc:?123}</span>
+hello
+<span class="token namespace">[root@server ~]</span><span class="token comment"># abc=</span>
+<span class="token namespace">[root@server ~]</span><span class="token comment"># echo ${abc:?123}</span>
+<span class="token operator">-</span>bash: abc: 123
+
+$<span class="token punctuation">{</span>变量名:?新的变量值<span class="token punctuation">}</span>
+变量没有被赋值或者赋空值时:提示错误信息
+变量被赋值：不会使用“新的变量值“ 替代
+
+说明：?主要是当变量没有赋值提示错误信息的，没有赋值功能
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br><span class="line-number">33</span><br><span class="line-number">34</span><br><span class="line-number">35</span><br><span class="line-number">36</span><br><span class="line-number">37</span><br><span class="line-number">38</span><br><span class="line-number">39</span><br><span class="line-number">40</span><br><span class="line-number">41</span><br><span class="line-number">42</span><br><span class="line-number">43</span><br><span class="line-number">44</span><br><span class="line-number">45</span><br><span class="line-number">46</span><br><span class="line-number">47</span><br><span class="line-number">48</span><br><span class="line-number">49</span><br><span class="line-number">50</span><br><span class="line-number">51</span><br><span class="line-number">52</span><br><span class="line-number">53</span><br><span class="line-number">54</span><br><span class="line-number">55</span><br><span class="line-number">56</span><br><span class="line-number">57</span><br><span class="line-number">58</span><br><span class="line-number">59</span><br><span class="line-number">60</span><br><span class="line-number">61</span><br><span class="line-number">62</span><br><span class="line-number">63</span><br><span class="line-number">64</span><br><span class="line-number">65</span><br><span class="line-number">66</span><br><span class="line-number">67</span><br><span class="line-number">68</span><br><span class="line-number">69</span><br><span class="line-number">70</span><br><span class="line-number">71</span><br><span class="line-number">72</span><br><span class="line-number">73</span><br><span class="line-number">74</span><br><span class="line-number">75</span><br><span class="line-number">76</span><br><span class="line-number">77</span><br><span class="line-number">78</span><br><span class="line-number">79</span><br><span class="line-number">80</span><br><span class="line-number">81</span><br><span class="line-number">82</span><br><span class="line-number">83</span><br><span class="line-number">84</span><br><span class="line-number">85</span><br><span class="line-number">86</span><br><span class="line-number">87</span><br><span class="line-number">88</span><br><span class="line-number">89</span><br><span class="line-number">90</span><br><span class="line-number">91</span><br><span class="line-number">92</span><br><span class="line-number">93</span><br><span class="line-number">94</span><br><span class="line-number">95</span><br><span class="line-number">96</span><br><span class="line-number">97</span><br><span class="line-number">98</span><br><span class="line-number">99</span><br><span class="line-number">100</span><br><span class="line-number">101</span><br><span class="line-number">102</span><br><span class="line-number">103</span><br><span class="line-number">104</span><br><span class="line-number">105</span><br><span class="line-number">106</span><br><span class="line-number">107</span><br><span class="line-number">108</span><br><span class="line-number">109</span><br><span class="line-number">110</span><br><span class="line-number">111</span><br><span class="line-number">112</span><br><span class="line-number">113</span><br><span class="line-number">114</span><br><span class="line-number">115</span><br><span class="line-number">116</span><br><span class="line-number">117</span><br><span class="line-number">118</span><br><span class="line-number">119</span><br><span class="line-number">120</span><br><span class="line-number">121</span><br><span class="line-number">122</span><br><span class="line-number">123</span><br><span class="line-number">124</span><br><span class="line-number">125</span><br><span class="line-number">126</span><br><span class="line-number">127</span><br><span class="line-number">128</span><br><span class="line-number">129</span><br><span class="line-number">130</span><br><span class="line-number">131</span><br><span class="line-number">132</span><br><span class="line-number">133</span><br><span class="line-number">134</span><br><span class="line-number">135</span><br><span class="line-number">136</span><br><span class="line-number">137</span><br><span class="line-number">138</span><br><span class="line-number">139</span><br><span class="line-number">140</span><br><span class="line-number">141</span><br><span class="line-number">142</span><br><span class="line-number">143</span><br><span class="line-number">144</span><br><span class="line-number">145</span><br><span class="line-number">146</span><br><span class="line-number">147</span><br><span class="line-number">148</span><br><span class="line-number">149</span><br><span class="line-number">150</span><br><span class="line-number">151</span><br><span class="line-number">152</span><br><span class="line-number">153</span><br><span class="line-number">154</span><br><span class="line-number">155</span><br><span class="line-number">156</span><br><span class="line-number">157</span><br><span class="line-number">158</span><br><span class="line-number">159</span><br><span class="line-number">160</span><br><span class="line-number">161</span><br><span class="line-number">162</span><br><span class="line-number">163</span><br><span class="line-number">164</span><br><span class="line-number">165</span><br><span class="line-number">166</span><br><span class="line-number">167</span><br><span class="line-number">168</span><br><span class="line-number">169</span><br><span class="line-number">170</span><br><span class="line-number">171</span><br><span class="line-number">172</span><br><span class="line-number">173</span><br><span class="line-number">174</span><br><span class="line-number">175</span><br><span class="line-number">176</span><br><span class="line-number">177</span><br><span class="line-number">178</span><br><span class="line-number">179</span><br><span class="line-number">180</span><br><span class="line-number">181</span><br><span class="line-number">182</span><br><span class="line-number">183</span><br><span class="line-number">184</span><br><span class="line-number">185</span><br><span class="line-number">186</span><br><span class="line-number">187</span><br><span class="line-number">188</span><br><span class="line-number">189</span><br><span class="line-number">190</span><br><span class="line-number">191</span><br><span class="line-number">192</span><br><span class="line-number">193</span><br><span class="line-number">194</span><br><span class="line-number">195</span><br><span class="line-number">196</span><br><span class="line-number">197</span><br><span class="line-number">198</span><br><span class="line-number">199</span><br><span class="line-number">200</span><br><span class="line-number">201</span><br><span class="line-number">202</span><br><span class="line-number">203</span><br><span class="line-number">204</span><br><span class="line-number">205</span><br><span class="line-number">206</span><br><span class="line-number">207</span><br><span class="line-number">208</span><br><span class="line-number">209</span><br><span class="line-number">210</span><br><span class="line-number">211</span><br><span class="line-number">212</span><br><span class="line-number">213</span><br><span class="line-number">214</span><br><span class="line-number">215</span><br><span class="line-number">216</span><br><span class="line-number">217</span><br><span class="line-number">218</span><br><span class="line-number">219</span><br><span class="line-number">220</span><br><span class="line-number">221</span><br><span class="line-number">222</span><br><span class="line-number">223</span><br><span class="line-number">224</span><br><span class="line-number">225</span><br><span class="line-number">226</span><br><span class="line-number">227</span><br><span class="line-number">228</span><br><span class="line-number">229</span><br><span class="line-number">230</span><br><span class="line-number">231</span><br><span class="line-number">232</span><br><span class="line-number">233</span><br><span class="line-number">234</span><br><span class="line-number">235</span><br><span class="line-number">236</span><br><span class="line-number">237</span><br><span class="line-number">238</span><br><span class="line-number">239</span><br><span class="line-number">240</span><br><span class="line-number">241</span><br><span class="line-number">242</span><br><span class="line-number">243</span><br><span class="line-number">244</span><br><span class="line-number">245</span><br><span class="line-number">246</span><br><span class="line-number">247</span><br><span class="line-number">248</span><br><span class="line-number">249</span><br><span class="line-number">250</span><br><span class="line-number">251</span><br><span class="line-number">252</span><br><span class="line-number">253</span><br><span class="line-number">254</span><br><span class="line-number">255</span><br><span class="line-number">256</span><br><span class="line-number">257</span><br><span class="line-number">258</span><br><span class="line-number">259</span><br><span class="line-number">260</span><br><span class="line-number">261</span><br><span class="line-number">262</span><br><span class="line-number">263</span><br><span class="line-number">264</span><br><span class="line-number">265</span><br><span class="line-number">266</span><br><span class="line-number">267</span><br><span class="line-number">268</span><br><span class="line-number">269</span><br><span class="line-number">270</span><br><span class="line-number">271</span><br><span class="line-number">272</span><br><span class="line-number">273</span><br><span class="line-number">274</span><br><span class="line-number">275</span><br><span class="line-number">276</span><br><span class="line-number">277</span><br><span class="line-number">278</span><br><span class="line-number">279</span><br><span class="line-number">280</span><br><span class="line-number">281</span><br><span class="line-number">282</span><br><span class="line-number">283</span><br><span class="line-number">284</span><br><span class="line-number">285</span><br><span class="line-number">286</span><br></div></div><p>##简单的四则运算</p> <p>算术运算：默认情况下，shell就只能支持简单的==整数==运算</p> <div class="language-powershell line-numbers-mode"><pre class="language-powershell"><code><span class="token operator">+</span> <span class="token operator">-</span> <span class="token operator">*</span> <span class="token operator">/</span>  <span class="token operator">%</span>（取模，求余数） 
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br></div></div><div class="language-powershell line-numbers-mode"><pre class="language-powershell"><code>Bash shell 的算术运算有四种方式:
+1<span class="token punctuation">.</span> 使用 $<span class="token punctuation">(</span><span class="token punctuation">(</span> <span class="token punctuation">)</span><span class="token punctuation">)</span>
+2<span class="token punctuation">.</span> 使用$<span class="token punctuation">[</span> <span class="token punctuation">]</span>
+3<span class="token punctuation">.</span> 使用 expr 外部程式
+4<span class="token punctuation">.</span> 使用let 命令
+
+注意：
+n=1
+let n+=1  等价于let n=n+1
+
+
+
+思考：能不能用shell做小数运算？
+<span class="token namespace">[root@server shell01]</span><span class="token comment"># echo 1+1.5|bc</span>
+2<span class="token punctuation">.</span>5
+
+
+i+<span class="token operator">+</span> 和 <span class="token operator">++</span>i （了解）
+对变量的值的影响：
+<span class="token namespace">[root@node1 ~]</span><span class="token comment"># i=1</span>
+<span class="token namespace">[root@node1 ~]</span><span class="token comment"># let i++</span>
+<span class="token namespace">[root@node1 ~]</span><span class="token comment"># echo $i</span>
+2
+<span class="token namespace">[root@node1 ~]</span><span class="token comment"># j=1</span>
+<span class="token namespace">[root@node1 ~]</span><span class="token comment"># let ++j</span>
+<span class="token namespace">[root@node1 ~]</span><span class="token comment"># echo $j</span>
+2
+
+对表达式的值的影响：
+<span class="token namespace">[root@node1 ~]</span><span class="token comment"># unset i j</span>
+<span class="token namespace">[root@node1 ~]</span><span class="token comment"># i=1;j=1</span>
+<span class="token namespace">[root@node1 ~]</span><span class="token comment"># let x=i++         先赋值，再运算</span>
+<span class="token namespace">[root@node1 ~]</span><span class="token comment"># let y=++j         先运算，再赋值</span>
+<span class="token namespace">[root@node1 ~]</span><span class="token comment"># echo $i</span>
+2
+<span class="token namespace">[root@node1 ~]</span><span class="token comment"># echo $j</span>
+2
+<span class="token namespace">[root@node1 ~]</span><span class="token comment"># echo $x</span>
+1
+<span class="token namespace">[root@node1 ~]</span><span class="token comment"># echo $y</span>
+2
+
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br><span class="line-number">33</span><br><span class="line-number">34</span><br><span class="line-number">35</span><br><span class="line-number">36</span><br><span class="line-number">37</span><br><span class="line-number">38</span><br><span class="line-number">39</span><br><span class="line-number">40</span><br><span class="line-number">41</span><br><span class="line-number">42</span><br><span class="line-number">43</span><br></div></div><p>总结：</p> <div class="language-powershell line-numbers-mode"><pre class="language-powershell"><code>$<span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>  $<span class="token punctuation">[</span><span class="token punctuation">]</span>
+expr 注意空格，<span class="token operator">*</span>要进行转义 \
+
+let n+=1  等价   let n=n+1
+let n=n*<span class="token operator">*</span>5		n有初值，然后求次幂
+
+i+<span class="token operator">+</span>	<span class="token operator">++</span>i	
+对变量本身没有影响（自己<span class="token operator">+</span>1）；
+表达式中有影响；i+<span class="token operator">+</span> 先赋值再运算  <span class="token operator">++</span>i先运算再赋值
+let x=i+<span class="token operator">+</span>   let x=<span class="token operator">++</span>i
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br></div></div><p>##条件判断</p> <p>###1. 语法格式</p> <ul><li>格式1： ==<strong>test</strong>== 条件表达式</li> <li>格式2： <strong>[</strong> 条件表达式 ]</li> <li>格式3： <strong>[[</strong> 条件表达式 ]]  支持正则 =~</li></ul> <p><strong>说明：</strong></p> <p><em><strong>man test去查看，很多的参数都用来进行条件判断</strong></em></p> <p>###2. 条件判断相关参数</p> <ul><li><strong>与文件存在与否的判断</strong></li></ul> <div class="language-powershell line-numbers-mode"><pre class="language-powershell"><code><span class="token operator">-</span>e	是否存在   不管是文件还是目录，只要存在，条件就成立
+<span class="token operator">-</span>f	是否为普通文件
+<span class="token operator">-</span>d	是否为目录
+<span class="token operator">-</span>S	socket
+<span class="token operator">-</span>p	pipe
+<span class="token operator">-</span>c	character
+<span class="token operator">-</span>b	block
+<span class="token operator">-</span>L	软link
+
+三种语法格式：
+test <span class="token operator">-</span>e file					只要文件存在条件为真
+<span class="token punctuation">[</span> <span class="token operator">-</span>d <span class="token operator">/</span>shell01/dir1 <span class="token punctuation">]</span>		 	判断目录是否存在，存在条件为真
+<span class="token punctuation">[</span> <span class="token operator">!</span> <span class="token operator">-</span>d <span class="token operator">/</span>shell01/dir1 <span class="token punctuation">]</span>		判断目录是否存在<span class="token punctuation">,</span>不存在条件为真
+<span class="token punctuation">[</span><span class="token punctuation">[</span> <span class="token operator">-</span>f <span class="token operator">/</span>shell01/1<span class="token punctuation">.</span>sh <span class="token punctuation">]</span><span class="token punctuation">]</span>		判断文件是否存在，并且是一个普通的文件
+
+<span class="token operator">-</span>s 判断文件是否有内容（大小），非空文件条件满足
+说明：<span class="token operator">-</span>s表示非空，！ <span class="token operator">-</span>s 表示空文件
+说明：1<span class="token punctuation">.</span>sh文件里有内容的。
+<span class="token namespace">[root@server shell01]</span><span class="token comment"># test -s 1.sh</span>
+<span class="token namespace">[root@server shell01]</span><span class="token comment"># echo $?</span>
+0
+<span class="token namespace">[root@server shell01]</span><span class="token comment"># touch aaa</span>
+<span class="token namespace">[root@server shell01]</span><span class="token comment"># cat aaa</span>
+<span class="token namespace">[root@server shell01]</span><span class="token comment"># test -s aaa</span>
+<span class="token namespace">[root@server shell01]</span><span class="token comment"># echo $?</span>
+1
+<span class="token namespace">[root@server shell01]</span><span class="token comment"># test ! -s aaa</span>
+<span class="token namespace">[root@server shell01]</span><span class="token comment"># echo $?</span>
+0
+<span class="token namespace">[root@server shell01]</span><span class="token comment"># test ! -s 1.sh</span>
+<span class="token namespace">[root@server shell01]</span><span class="token comment"># echo $?</span>
+1
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br><span class="line-number">33</span><br></div></div><ul><li><strong>文件权限相关的判断</strong></li></ul> <div class="language-powershell line-numbers-mode"><pre class="language-powershell"><code><span class="token operator">-</span>r	当前用户对其是否可读
+<span class="token operator">-</span>w	当前用户对其是否可写
+<span class="token operator">-</span>x	当前用户对其是否可执行
+<span class="token operator">-</span>u	是否有suid
+<span class="token operator">-</span>g	是否sgid
+<span class="token operator">-</span>k	是否有t位
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br></div></div><ul><li><strong>两个文件的比较判断</strong></li></ul> <div class="language-powershell line-numbers-mode"><pre class="language-powershell"><code>file1 <span class="token operator">-</span>nt  file2	比较file1是否比file2新	
+file1 <span class="token operator">-</span>ot  file2 	比较file1是否比file2旧
+file1 <span class="token operator">-</span>ef  file2	比较是否为同一个文件，或者用于判断硬连接，是否指向同一个inode
+
+test file1 <span class="token operator">-</span>nt file2	
+<span class="token punctuation">[</span> file1 <span class="token operator">-</span>ot file2 <span class="token punctuation">]</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br></div></div><ul><li><strong>整数之间的判断</strong></li></ul> <div class="language-powershell line-numbers-mode"><pre class="language-powershell"><code><span class="token operator">-eq</span>	相等
+<span class="token operator">-ne</span>	不等
+<span class="token operator">-gt</span>	大于
+<span class="token operator">-lt</span>	小于
+<span class="token operator">-ge</span>   大于等于
+<span class="token operator">-le</span>	小于等于
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br></div></div><ul><li><strong>字符串之间的判断</strong></li></ul> <div class="language-powershell line-numbers-mode"><pre class="language-powershell"><code><span class="token operator">-</span>z  是否为空字符串   		字符串长度为0，就成立
+<span class="token operator">-</span>n  是否为非空字符串    	只要字符串非空，就是成立
+string1 = string2 		是否相等
+string1 <span class="token operator">!</span>= string2 		不等
+
+<span class="token namespace">[root@server shell01]</span><span class="token comment"># AAA=hello</span>
+<span class="token namespace">[root@server shell01]</span><span class="token comment"># BBB=world</span>
+<span class="token namespace">[root@server shell01]</span><span class="token comment"># test -z $AAA</span>
+<span class="token namespace">[root@server shell01]</span><span class="token comment"># echo $?</span>
+1
+<span class="token namespace">[root@server shell01]</span><span class="token comment"># test -n $AAA</span>
+<span class="token namespace">[root@server shell01]</span><span class="token comment"># echo $?</span>
+0
+
+<span class="token namespace">[root@server shell01]</span><span class="token comment"># [ $AAA = $BBB ]</span>
+<span class="token namespace">[root@server shell01]</span><span class="token comment"># echo $?</span>
+1
+<span class="token namespace">[root@server shell01]</span><span class="token comment"># [ $AAA != $BBB ]</span>
+<span class="token namespace">[root@server shell01]</span><span class="token comment"># echo $?</span>
+0
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br></div></div><ul><li><strong>多重条件判断</strong></li></ul> <div class="language-powershell line-numbers-mode"><pre class="language-powershell"><code>逻辑判断符号：
+ <span class="token operator">-</span>a     和 &amp;&amp;  	<span class="token punctuation">(</span>and 逻辑与<span class="token punctuation">)</span> 		两个条件同时满足，整个大条件为真
+ <span class="token operator">-</span>o     和 <span class="token punctuation">|</span><span class="token punctuation">|</span>	<span class="token punctuation">(</span>or 逻辑或<span class="token punctuation">)</span>		  	两个条件满足任意一个，整个大条件为真
+
+ 
+<span class="token punctuation">[</span> 1 <span class="token operator">-eq</span> 1 <span class="token operator">-</span>a 1 <span class="token operator">-ne</span> 0 <span class="token punctuation">]</span>				整个表达式为真
+<span class="token punctuation">[</span> 1 <span class="token operator">-eq</span> 1 <span class="token punctuation">]</span> &amp;&amp; <span class="token punctuation">[</span> 1 <span class="token operator">-ne</span> 0 <span class="token punctuation">]</span>			
+
+
+<span class="token punctuation">[</span> 1 <span class="token operator">-eq</span> 1 <span class="token operator">-</span>o 1 <span class="token operator">-ne</span> 1 <span class="token punctuation">]</span>				整个表达式为真
+<span class="token punctuation">[</span> 1 <span class="token operator">-eq</span> 1 <span class="token punctuation">]</span> <span class="token punctuation">|</span><span class="token punctuation">|</span> <span class="token punctuation">[</span> 1 <span class="token operator">-ne</span> 1 <span class="token punctuation">]</span>
+
+<span class="token namespace">[root@server shell01]</span><span class="token comment"># [ 1 -eq 0 ] &amp;&amp; echo true || echo false</span>
+false
+<span class="token namespace">[root@server shell01]</span><span class="token comment"># [ 1 -eq 1 ] &amp;&amp; echo true || echo false</span>
+true
+
+&amp;&amp;:前面的表达式为真
+<span class="token punctuation">|</span><span class="token punctuation">|</span>：前面的表达式为假
+
+
+
+总结：
+1、<span class="token punctuation">;</span> &amp;&amp; <span class="token punctuation">|</span><span class="token punctuation">|</span>都可以用来分割命令或者表达式
+2、<span class="token punctuation">;</span> 完全不考虑前面的语句是否正确执行，都会执行<span class="token punctuation">;</span>号后面的内容
+3、&amp;&amp; 需要考虑&amp;&amp;前面的语句的正确性，前面语句正确执行才会执行&amp;&amp;后的内容；反之亦然
+make &amp;&amp; make install
+4、<span class="token punctuation">|</span><span class="token punctuation">|</span> 需要考虑<span class="token punctuation">|</span><span class="token punctuation">|</span>前面的语句的非正确性，前面语句执行错误才会执行<span class="token punctuation">|</span><span class="token punctuation">|</span>后的内容；反之亦然
+5、如果&amp;&amp;和<span class="token punctuation">|</span><span class="token punctuation">|</span>一起出现，从左往右依次看，按照以上原则
+
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br></div></div><p>###3. 示例</p> <div class="language-powershell line-numbers-mode"><pre class="language-powershell"><code>示例：
+数值比较：
+<span class="token namespace">[root@server ~]</span><span class="token comment"># [ $(id -u) -eq 0 ] &amp;&amp; echo &quot;the user is admin&quot;</span>
+<span class="token namespace">[root@server ~]</span>$ <span class="token punctuation">[</span> $<span class="token punctuation">(</span>id <span class="token operator">-</span>u<span class="token punctuation">)</span> <span class="token operator">-ne</span> 0 <span class="token punctuation">]</span> &amp;&amp; <span class="token function">echo</span> <span class="token string">&quot;the user is not admin&quot;</span>
+<span class="token namespace">[root@server ~]</span>$ <span class="token punctuation">[</span> $<span class="token punctuation">(</span>id <span class="token operator">-</span>u<span class="token punctuation">)</span> <span class="token operator">-eq</span> 0 <span class="token punctuation">]</span> &amp;&amp; <span class="token function">echo</span> <span class="token string">&quot;the user is admin&quot;</span> <span class="token punctuation">|</span><span class="token punctuation">|</span> <span class="token function">echo</span> <span class="token string">&quot;the user is not admin&quot;</span>
+
+<span class="token namespace">[root@server ~]</span><span class="token comment"># uid=`id -u`</span>
+<span class="token namespace">[root@server ~]</span><span class="token comment"># test $uid -eq 0 &amp;&amp; echo this is admin</span>
+this is admin
+<span class="token namespace">[root@server ~]</span><span class="token comment"># [ $(id -u) -ne 0 ]  || echo this is admin</span>
+this is admin
+<span class="token namespace">[root@server ~]</span><span class="token comment"># [ $(id -u) -eq 0 ]  &amp;&amp; echo this is admin || echo this is not admin</span>
+this is admin
+<span class="token namespace">[root@server ~]</span><span class="token comment"># su - stu1</span>
+<span class="token namespace">[stu1@server ~]</span>$ <span class="token punctuation">[</span> $<span class="token punctuation">(</span>id <span class="token operator">-</span>u<span class="token punctuation">)</span> <span class="token operator">-eq</span> 0 <span class="token punctuation">]</span>  &amp;&amp; <span class="token function">echo</span> this is admin <span class="token punctuation">|</span><span class="token punctuation">|</span> <span class="token function">echo</span> this is not admin
+this is not admin
+<span class="token namespace">[stu1@server ~]</span>$ 
+
+
+类C风格的数值比较：
+注意：在<span class="token punctuation">(</span><span class="token punctuation">(</span> <span class="token punctuation">)</span><span class="token punctuation">)</span>中，=表示赋值；==表示判断
+ 1159  <span class="token punctuation">(</span><span class="token punctuation">(</span>1==2<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token function">echo</span> $?
+ 1160  <span class="token punctuation">(</span><span class="token punctuation">(</span>1&lt;2<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token function">echo</span> $?
+ 1161  <span class="token punctuation">(</span><span class="token punctuation">(</span>2&gt;=1<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token function">echo</span> $?
+ 1162  <span class="token punctuation">(</span><span class="token punctuation">(</span>2!=1<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token function">echo</span> $?
+ 1163  <span class="token punctuation">(</span><span class="token punctuation">(</span>`id <span class="token operator">-</span>u`==0<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token function">echo</span> $?
+ 
+ 1209  <span class="token punctuation">(</span><span class="token punctuation">(</span>a=123<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token function">echo</span> <span class="token variable">$a</span>
+ 1210  unset a
+ 1211  <span class="token punctuation">(</span><span class="token punctuation">(</span>a==123<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token function">echo</span> $?
+ 
+
+
+字符串比较：
+注意：双引号引起来，看作一个整体；= 和 == 在 <span class="token punctuation">[</span> 字符串 <span class="token punctuation">]</span> 比较中都表示判断
+ 1196  a=<span class="token string">'hello world'</span><span class="token punctuation">;</span>b=world
+ 1197  <span class="token punctuation">[</span> <span class="token variable">$a</span> = <span class="token variable">$b</span> <span class="token punctuation">]</span><span class="token punctuation">;</span><span class="token function">echo</span> $?
+ 1198  <span class="token punctuation">[</span> <span class="token string">&quot;<span class="token variable">$a</span>&quot;</span> = <span class="token string">&quot;<span class="token variable">$b</span>&quot;</span> <span class="token punctuation">]</span><span class="token punctuation">;</span><span class="token function">echo</span> $?
+ 1199  <span class="token punctuation">[</span> <span class="token string">&quot;<span class="token variable">$a</span>&quot;</span> <span class="token operator">!</span>= <span class="token string">&quot;<span class="token variable">$b</span>&quot;</span> <span class="token punctuation">]</span><span class="token punctuation">;</span><span class="token function">echo</span> $?
+ 1200  <span class="token punctuation">[</span> <span class="token string">&quot;<span class="token variable">$a</span>&quot;</span> <span class="token operator">!</span>== <span class="token string">&quot;<span class="token variable">$b</span>&quot;</span> <span class="token punctuation">]</span><span class="token punctuation">;</span><span class="token function">echo</span> $?        错误
+ 1201  <span class="token punctuation">[</span> <span class="token string">&quot;<span class="token variable">$a</span>&quot;</span> == <span class="token string">&quot;<span class="token variable">$b</span>&quot;</span> <span class="token punctuation">]</span><span class="token punctuation">;</span><span class="token function">echo</span> $?
+ 1202  test <span class="token string">&quot;<span class="token variable">$a</span>&quot;</span> <span class="token operator">!</span>= <span class="token string">&quot;<span class="token variable">$b</span>&quot;</span><span class="token punctuation">;</span><span class="token function">echo</span> $?
+
+
+
+思考：<span class="token punctuation">[</span> <span class="token punctuation">]</span> 和 <span class="token punctuation">[</span><span class="token punctuation">[</span> <span class="token punctuation">]</span><span class="token punctuation">]</span> 有什么区别？
+
+ 1213  a=
+ 1214  test <span class="token operator">-</span>z <span class="token variable">$a</span><span class="token punctuation">;</span><span class="token function">echo</span> $?
+ 1215  a=hello
+ 1216  test <span class="token operator">-</span>z <span class="token variable">$a</span><span class="token punctuation">;</span><span class="token function">echo</span> $?
+ 1217  test <span class="token operator">-</span>n <span class="token variable">$a</span><span class="token punctuation">;</span><span class="token function">echo</span> $?
+ 1217  test <span class="token operator">-</span>n <span class="token string">&quot;<span class="token variable">$a</span>&quot;</span><span class="token punctuation">;</span><span class="token function">echo</span> $?
+
+<span class="token comment"># [ '' = $a ];echo $?</span>
+<span class="token operator">-</span>bash: <span class="token punctuation">[</span>: : unary operator expected
+2
+<span class="token comment"># [[ '' = $a ]];echo $?</span>
+0
+
+
+ 1278  <span class="token punctuation">[</span> 1 <span class="token operator">-eq</span> 0 <span class="token operator">-</span>a 1 <span class="token operator">-ne</span> 0 <span class="token punctuation">]</span><span class="token punctuation">;</span><span class="token function">echo</span> $?
+ 1279  <span class="token punctuation">[</span> 1 <span class="token operator">-eq</span> 0 &amp;&amp; 1 <span class="token operator">-ne</span> 0 <span class="token punctuation">]</span><span class="token punctuation">;</span><span class="token function">echo</span> $?
+ 1280  <span class="token punctuation">[</span><span class="token punctuation">[</span> 1 <span class="token operator">-eq</span> 0 &amp;&amp; 1 <span class="token operator">-ne</span> 0 <span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">;</span><span class="token function">echo</span> $?
+
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br><span class="line-number">33</span><br><span class="line-number">34</span><br><span class="line-number">35</span><br><span class="line-number">36</span><br><span class="line-number">37</span><br><span class="line-number">38</span><br><span class="line-number">39</span><br><span class="line-number">40</span><br><span class="line-number">41</span><br><span class="line-number">42</span><br><span class="line-number">43</span><br><span class="line-number">44</span><br><span class="line-number">45</span><br><span class="line-number">46</span><br><span class="line-number">47</span><br><span class="line-number">48</span><br><span class="line-number">49</span><br><span class="line-number">50</span><br><span class="line-number">51</span><br><span class="line-number">52</span><br><span class="line-number">53</span><br><span class="line-number">54</span><br><span class="line-number">55</span><br><span class="line-number">56</span><br><span class="line-number">57</span><br><span class="line-number">58</span><br><span class="line-number">59</span><br><span class="line-number">60</span><br><span class="line-number">61</span><br><span class="line-number">62</span><br><span class="line-number">63</span><br><span class="line-number">64</span><br><span class="line-number">65</span><br><span class="line-number">66</span><br></div></div><h3 id="_4-总结"><a href="#_4-总结" class="header-anchor">#</a> 4. 总结</h3></div></div> <!----> <div class="page-edit"><!----> <!----> <!----></div> <div class="page-nav-wapper"><div class="page-nav-centre-wrap"><a href="/pages/8ef1b1/" class="page-nav-centre page-nav-centre-prev"><div class="tooltip">ssh测试，为什么有的端口需要密码，有的端口不要</div></a> <a href="/pages/91e047/" class="page-nav-centre page-nav-centre-next"><div class="tooltip">SHELL编程之流程控制和循环语句</div></a></div> <div class="page-nav"><p class="inner"><span class="prev">
+        ←
+        <a href="/pages/8ef1b1/" class="prev">ssh测试，为什么有的端口需要密码，有的端口不要</a></span> <span class="next"><a href="/pages/91e047/">SHELL编程之流程控制和循环语句</a>→
+      </span></p></div></div></div> <div class="article-list"><div class="article-title"><a href="/archives/" class="iconfont icon-bi">最近更新</a></div> <div class="article-wrapper"><dl><dd>01</dd> <dt><a href="/pages/505cd2/"><div>
+            ansible部署k8s问题点复盘
+            <!----></div></a> <span class="date">04-02</span></dt></dl><dl><dd>02</dd> <dt><a href="/pages/5d43b3/"><div>
+            博客部署
+            <!----></div></a> <span class="date">04-02</span></dt></dl><dl><dd>03</dd> <dt><a href="/pages/fb6db2/"><div>
+            ansible远程重启系统之后继续执行命令
+            <!----></div></a> <span class="date">03-15</span></dt></dl> <dl><dd></dd> <dt><a href="/archives/" class="more">更多文章&gt;</a></dt></dl></div></div></main></div> <div class="footer"><div class="icons"><a href="mailto:473618849@qq.com" title="发邮件" target="_blank" class="iconfont icon-youjian"></a></div> 
+  Theme by
+  <a href="https://github.com/xugaoyi/vuepress-theme-vdoing" target="_blank" title="本站主题">Vdoing</a> 
+    | Copyright © 2019-2023
+    <span>备案号 | <a href="https://beian.miit.gov.cn/#/Integrated/index" target="_blank">川公网安备 51012202001343号</a></span></div> <div class="buttons"><div title="返回顶部" class="button blur go-to-top iconfont icon-fanhuidingbu" style="display:none;"></div> <div title="去评论" class="button blur go-to-comment iconfont icon-pinglun" style="display:none;"></div> <div title="主题模式" class="button blur theme-mode-but iconfont icon-zhuti"><ul class="select-box" style="display:none;"><li class="iconfont icon-zidong">
+          跟随系统
+        </li><li class="iconfont icon-rijianmoshi">
+          浅色模式
+        </li><li class="iconfont icon-yejianmoshi">
+          深色模式
+        </li><li class="iconfont icon-yuedu">
+          阅读模式
+        </li></ul></div></div> <!----> <!----> <!----></div><div class="global-ui"></div></div>
+    <script src="/assets/js/app.59a8e6e3.js" defer></script><script src="/assets/js/7.5b954204.js" defer></script><script src="/assets/js/11.e66a5eb7.js" defer></script><script src="/assets/js/45.622ff538.js" defer></script>
+  </body>
+</html>
